@@ -1,0 +1,25 @@
+<h1>Question number {{ questionNumber }}</h1>
+@if (!answered) {
+    <h2>{{ cardContent.question }}</h2>
+    <form [formGroup]="answerForm">
+        <ul>
+            @for (possibility of cardContent.possibilities; track possibility; let i = $index) {
+                <li>
+                            <input type="radio" formControlName="answer" [value]="i"/> {{ choiceNames[i] + ")"}} {{ possibility }}
+                </li>
+            }
+        </ul>
+        <button (click)="onAnswer()">Submit answer</button>
+      </form>
+} @else {
+    <div [ngStyle]="{'background': answer === cardContent.trueAnswer ? 'lightgreen' : 'red'}">
+    @if (answer === cardContent.trueAnswer) {
+        <h2>Bien joué</h2>
+    } @else {
+        <h2>Dommage</h2>
+    }
+    <h4>La vraie réponse était {{ choiceNames[cardContent.trueAnswer] }}</h4>
+    <p>{{ cardContent.answerText }}</p>
+    <br>
+    </div>
+}

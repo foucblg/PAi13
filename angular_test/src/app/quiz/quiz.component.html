@@ -1,0 +1,20 @@
+<div>
+    @if (questionNumber === -1) {
+    <h1>Super quiz</h1>
+    <p>Bienvenue sur notre super quiz</p>
+    <button (click)="start()">Let's start</button>
+    } @else if (questionNumber >= numberOfQuestions) {
+        Bien ouej, c'est fini
+    } @else {
+    @if (cardContent.type === "QCM") {
+    <app-qcm-card [questionNumber]="questionNumber" [(answered)]="answered" [cardContent]="cardContent" />
+    } @else if (cardContent.type === "Open") {
+    <app-open-card [questionNumber]="questionNumber" [(answered)]="answered" [cardContent]="cardContent" />
+    } @else if (cardContent.type === "Tf") {
+    <app-tf-card [questionNumber]="questionNumber" [(answered)]="answered" [cardContent]="cardContent" />
+    }
+    @if (answered) {
+    <button (click)="onNext()">></button>
+    }
+    }
+</div>

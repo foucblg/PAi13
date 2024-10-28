@@ -1,0 +1,13 @@
+<h1>Question number {{ questionNumber }}</h1>
+@if (!answered) {
+    <h2>{{ cardContent.question }}</h2>
+    <button (click)="onAnswer()">Submit answer</button>
+    
+} @else {
+    <div>
+    <h4>En fait : </h4>
+    <p>{{ cardContent.answerText }}</p>
+    <br>
+    </div>
+}
+

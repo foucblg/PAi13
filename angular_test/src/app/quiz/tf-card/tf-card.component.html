@@ -1,0 +1,26 @@
+<h1>Question number {{ questionNumber }}</h1>
+@if (!answered) {
+<h2>{{ cardContent.question }}</h2>
+<form [formGroup]="answerForm">
+    <ul>
+        <li>
+            <input type="radio" formControlName="answer" [value]="true" /> Vrai
+        </li>
+        <li>
+            <input type="radio" formControlName="answer" [value]="false" /> Faux
+        </li>
+    </ul>
+    <button (click)="onAnswer()">Submit answer</button>
+</form>
+} @else {
+<div [ngStyle]="{'background': (answer === cardContent.trueAnswer) ? 'lightgreen' : 'red'}">
+    @if (answer === cardContent.trueAnswer) {
+    <h2>Bien joué</h2>
+    } @else {
+    <h2>Dommage</h2>
+    }
+    <h4>La vraie réponse était {{ cardContent.trueAnswer ? "Vrai": "Faux" }}</h4>
+    <p>{{ cardContent.answerText }}</p>
+    <br>
+</div>
+}

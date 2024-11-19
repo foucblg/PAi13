@@ -1,0 +1,110 @@
+{
+  "question_types": [
+    "Handicap",
+    "Design",
+    "Accessibilité numérique",
+    "Inclusion numérique"
+  ],
+  "questions": {
+    "Inclusion numérique": [
+      {
+        "question_type": "Réflexion",
+        "question": "Cite 3 ...",
+        "choices": [],
+        "answers": [],
+        "explication": "Les voila",
+        "source": "source3.com"
+      }
+    ],
+    "Handicap": [
+      {
+        "question_type": "QCM",
+        "question": "Blablabla",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "answers": [
+          0,
+          1
+        ],
+        "explication": "blablabla",
+        "source": "lien.source.fr"
+      },
+      {
+        "question_type": "QCM",
+        "question": "combien fait 2+2 ?",
+        "choices": [
+          "4",
+          "7",
+          "oui"
+        ],
+        "answers": [
+          0
+        ],
+        "explication": "parce que les maths",
+        "source": "maths.com"
+      }
+    ],
+    "Accessibilité numérique": [
+      {
+        "question_type": "Vrai/Faux",
+        "question": "L'inclusivité est ...",
+        "choices": [
+          "Vrai",
+          "Faux"
+        ],
+        "answers": [
+          1
+        ],
+        "explication": "Parce que ...",
+        "source": "source2.com"
+      },
+      {
+        "question_type": "QCM",
+        "question": "Est-ce que balbalbal ?",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "answers": [
+          1
+        ],
+        "explication": "Parce que ...",
+        "source": "inch"
+      }
+    ],
+    "Design": [
+      {
+        "question_type": "QCM",
+        "question": "Est-ce que ... ?",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "answers": [
+          0,
+          2
+        ],
+        "explication": "Parce que ...",
+        "source": "source.com"
+      },
+      {
+        "question_type": "Vrai/Faux",
+        "question": "fuyldfgy",
+        "choices": [
+          "Vrai",
+          "Faux"
+        ],
+        "answers": [
+          1
+        ],
+        "explication": "tttt",
+        "source": "t"
+      }
+    ]
+  }
+}

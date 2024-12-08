@@ -3,15 +3,15 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 
 @Component({
-  selector: 'app-qcm-card',
+  selector: 'app-quest-card',
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
-  templateUrl: './qcm-card.component.html',
-  styleUrl: './qcm-card.component.css'
+  templateUrl: './quest-card.component.html',
+  styleUrl: './quest-card.component.css'
 })
 
-export class QcmCardComponent {
-  @Input() questionNumber!: number;
+export class QuestCardComponent {
+  @Input() categoryNumber!: number;
   @Input() answered!: boolean;
   @Input() cardContent!: any;
   @Output() answeredChange = new EventEmitter<boolean>();

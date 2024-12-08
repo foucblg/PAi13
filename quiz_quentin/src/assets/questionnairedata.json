@@ -1,0 +1,405 @@
+[   
+    {
+        "question": "Avez-vous mis l'inclusivité au programme de votre projet ?",
+        "type": "QCM",
+        "group": "01 - Gestion de projet",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 2
+    },
+    {
+        "question": "Avez-vous désigné une ou plusieurs personnes référentes sur le sujet de l'inclusivité du service ?",
+        "type": "QCM",
+        "group": "01 - Gestion de projet",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 2
+    },
+    {
+        "question": "Avez-vous intégré des exigences d'inclusivité à vos cahiers des charges, marchés ou contrats de prestations externes ?",
+        "type": "QCM",
+        "group": "01 - Gestion de projet",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 2
+    },
+    {
+        "question": "Avez-vous fait auditer la conformité RGAA de votre service numérique ?",
+        "type": "QCM",
+        "group": "01 - Gestion de projet",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 2
+    },
+    {
+        "question": "Avez-vous identifié vos utilisateurs dès le début du projet ?",
+        "type": "QCM",
+        "group": "01 - Gestion de projet",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 1
+    },
+    {
+        "question": "Avez-vous mis en place les obligations du RGAA en termes de communication ?",
+        "type": "QCM",
+        "group": "01 - Gestion de projet",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 4
+    },
+    {
+        "question": "Avez-vous mobilisé des utilisateurs pour challenger vos idées et productions ?",
+        "type": "QCM",
+        "group": "01 - Gestion de projet",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 1
+    },
+    {
+        "question": "Avez-vous sensibilisé ou formé l'équipe projet sur le thème de l'inclusivité, au-delà de cette session de jeu ?",
+        "type": "QCM",
+        "group": "01 - Gestion de projet",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 1
+    },
+    {
+        "question": "Avez-vous intégré des 'sachants' (designers, psychologues...) sur le thème de l'inclusivité à l'équipe projet ?",
+        "type": "QCM",
+        "group": "01 - Gestion de projet",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 1
+    },
+    {
+        "question": "Avez-vous consulté des experts représentant certains de vos publics cibles ?",
+        "type": "QCM",
+        "group": "01 - Gestion de projet",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 1
+    },
+    {
+        "question": "Suivez-vous régulièrement votre progression concernant l'inclusivité de votre service ?",
+        "type": "QCM",
+        "group": "01 - Gestion de projet",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 1
+    },
+    {
+        "question": "Avez-vous identifié vos utilisateurs et leurs caractéristiques ?",
+        "type": "QCM",
+        "group": "02 - Expérience utilisateur",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 2
+    },
+    {
+        "question": "Avez-vous rencontré vos utilisateurs ?",
+        "type": "QCM",
+        "group": "02 - Expérience utilisateur",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 2
+    },
+    {
+        "question": "Avez-vous analysé l'expérience existante de vos utilisateurs ?",
+        "type": "QCM",
+        "group": "02 - Expérience utilisateur",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 2
+    },
+    {
+        "question": "Avez-vous défini l'expérience cible de vos utilisateurs avec votre service numérique ?",
+        "type": "QCM",
+        "group": "02 - Expérience utilisateur",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 2
+    },
+    {
+        "question": "Avez-vous observé vos utilisateurs en situation réelle ?",
+        "type": "QCM",
+        "group": "02 - Expérience utilisateur",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 1
+    },
+    {
+        "question": "Avez-vous représenté vos utilisateurs ?",
+        "type": "QCM",
+        "group": "02 - Expérience utilisateur",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 1
+    },
+    {
+        "question": "Avez-vous prototypé vos écrans ?",
+        "type": "QCM",
+        "group": "03 - Interface utilisateur",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 1
+    },
+    {
+        "question": "Respectez-vous les codes chromatiques pour une utilisation pertinente de la couleur ?",
+        "type": "QCM",
+        "group": "03 - Interface utilisateur",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 4
+    },
+    {
+        "question": "Respectez-vous les règles typographiques ?",
+        "type": "QCM",
+        "group": "03 - Interface utilisateur",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 4
+    },
+    {
+        "question": "Vos pictogrammes sont-ils inclusifs ?",
+        "type": "QCM",
+        "group": "03 - Interface utilisateur",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 4
+    },
+    {
+        "question": "Représentez-vous la diversité humaine dans vos illustrations ?",
+        "type": "QCM",
+        "group": "03 - Interface utilisateur",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 4
+    },
+    {
+        "question": "Vos mises en page sont-elles homogènes ?",
+        "type": "QCM",
+        "group": "03 - Interface utilisateur",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 4
+    },
+    {
+        "question": "Les élements interactifs de vos écrans sont-ils intuitifs ?",
+        "type": "QCM",
+        "group": "03 - Interface utilisateur",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 4
+    },
+    {
+        "question": "Les éléments visuels de vos écrans sont-ils suffisamment hiérarchisés et espacés ?",
+        "type": "QCM",
+        "group": "03 - Interface utilisateur",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 4
+    },
+    {
+        "question": "Utilisez-vous le langage clair ?",
+        "type": "QCM",
+        "group": "04 - Editorial",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 4
+    },
+    {
+        "question": "Utilisez-vous le langage inclusif ?",
+        "type": "QCM",
+        "group": "04 - Editorial",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 4
+    },
+    {
+        "question": "Ecrivez-vous certains textes en FALC (si pertinent) ?",
+        "type": "QCM",
+        "group": "04 - Editorial",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 4
+    },
+    {
+        "question": "Vos contenus sont-ils bien structurés ?",
+        "type": "QCM",
+        "group": "04 - Editorial",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 4
+    },
+    {
+        "question": "Vos tableaux publiés sont-ils accessibles ?",
+        "type": "QCM",
+        "group": "04 - Editorial",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 4
+    },
+    {
+        "question": "Vos posts sont-ils accessibles ?",
+        "type": "QCM",
+        "group": "04 - Editorial",
+        "possibilities": [
+            "Oui",
+            "En partie",
+            "Non",
+            "Non applicable",
+            "Ne sais pas"
+        ],
+        "coefficient": 4
+    }
+]

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import * as data from '../assets/questions.json';
-import { DataService } from './quiz-service';
 
 export interface QuizData {
   question_topics: string[],

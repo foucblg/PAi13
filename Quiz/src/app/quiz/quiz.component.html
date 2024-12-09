@@ -1,24 +1,33 @@
 <div>
-    @if (questionNumber === -1) {
+  @if (questionNumber === 0) {
     <h1>Super quiz</h1>
     <p>Bienvenue sur notre super quiz</p>
     <button (click)="start()">Let's start</button>
-    } 
-    @else{
-        @if (question == null){
-            <h1>Cette question n'existe pas</h1>
-        }
-        @else if (question.question_type === "QCM") {
-            <app-qcm-card [questionNumber]="questionNumber + 1" [(answered)]="answered" [question]="question" />
-        } @else if (question.question_type === "Réflexion") {
-            <app-open-card [questionNumber]="questionNumber" [(answered)]="answered" [question]="question" />
-        } @else if (question.question_type === "Vrai/Faux") {
-            <app-tf-card [questionNumber]="questionNumber" [(answered)]="answered" [question]="question" />
-        }
-        
-        @if (answered) {
-            <button (click)="onNext()">></button>
-        }
+  } @else {
+    @if (question == null) {
+      <h1>Cette question n'existe pas</h1>
+    } @else if (question.question_type === "QCM") {
+      <app-qcm-card
+        [questionNumber]="questionNumber"
+        [(answered)]="answered"
+        [question]="question"
+      />
+    } @else if (question.question_type === "Réflexion") {
+      <app-open-card
+        [questionNumber]="questionNumber"
+        [(answered)]="answered"
+        [question]="question"
+      />
+    } @else if (question.question_type === "Vrai/Faux") {
+      <app-tf-card
+        [questionNumber]="questionNumber"
+        [(answered)]="answered"
+        [question]="question"
+      />
     }
-    
+
+    @if (answered) {
+      <button (click)="onNext()">></button>
+    }
+  }
 </div>

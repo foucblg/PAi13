@@ -29,12 +29,6 @@ export interface Question {
 export class AppComponent {
   title = 'INCLUSIF: Le jeu';
   quizData = quizData;
-  constructor(private dataService: DataService) {}
-
-  ngOnInit() {
-    this.dataService.initialize();
-    console.log('Service initialisé avec succès');
-  }
 }
 
 export const quizData: QuizData = data;

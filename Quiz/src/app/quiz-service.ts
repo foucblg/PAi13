@@ -83,7 +83,7 @@ export class DataService {
   questions = quizData["questions"];
   questions_pool: Record<string, RandomizedIndexQueue> = {}
 
-  initialize() {
+  constructor() {
     console.log("init")
     for (const question_topic of this.question_topics_queue.getPossibleTopics()) {
       const rq = new RandomizedIndexQueue(this.questions[question_topic].length);

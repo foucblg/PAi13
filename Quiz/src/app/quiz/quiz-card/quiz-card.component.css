@@ -1,0 +1,38 @@
+.card {
+  border: thick solid black;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: red;
+  width: 40%;
+  height: 70vh;
+  margin: auto;
+  color: black;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1 {
+  width: 100%;
+  height: 5vh;
+  padding: 1vh;
+}
+.theme {
+  height: 5vh;
+  padding: 1vh;
+  color: gray;
+  align-self: flex-start;
+  font-size: larger;
+}
+.main-content-box {
+  width: 70%;
+  height: 60vh;
+  background-color: blue;
+  padding: 1vh;
+}
+
+.next {
+  height: 5vh;
+  padding: 1vh;
+  align-self: flex-end;
+}

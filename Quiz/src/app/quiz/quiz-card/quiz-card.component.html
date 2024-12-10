@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 <h1>{{ quiz_segment?.question }}</h1>
-<app-answer-box [quiz_segment]="quiz_segment" [answered] = "answered"></app-answer-box>
+<app-answer-box
+  [quiz_segment]="quiz_segment"
+  [answered]="answered"
+></app-answer-box>
 @if (!answered) {
   <button (click)="answer()">Répondre</button>
 } @else {
@@ -7,3 +11,30 @@
   {{ quiz_segment?.source }}
   <button (click)="goToNext()">Suivant</button>
 }
+=======
+<div class="card">
+  <div class="theme">
+    <span>{{ theme }}</span>
+  </div>
+  <h1>{{ quiz_segment?.question }}</h1>
+  @if (!answered) {
+    <div class="main-content-box">
+      <app-answer-box
+        [quiz_segment]="quiz_segment"
+        [answered]="answered"
+      ></app-answer-box>
+    </div>
+    <div class="next">
+      <button (click)="answer()">Répondre</button>
+    </div>
+  } @else {
+    <div class="main-content-box">
+      {{ quiz_segment?.explication }}
+      {{ quiz_segment?.source }}
+    </div>
+    <div class="next">
+      <button class="next" (click)="goToNext()">Suivant</button>
+    </div>
+  }
+</div>
+>>>>>>> 71f16be (Visual changes)

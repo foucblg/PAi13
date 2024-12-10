@@ -1,9 +1,9 @@
-<h1>{{ question?.question }}</h1>
-<app-answer-box [possibleAnswers]="question?.choices"></app-answer-box>
+<h1>{{ quiz_segment?.question }}</h1>
+<app-answer-box [possibleAnswers]="quiz_segment?.choices"></app-answer-box>
 @if (!answered) {
   <button (click)="answer()">Répondre</button>
 } @else {
-  {{ question?.explication }}
-  {{ question?.source }}
+  {{ quiz_segment?.explication }}
+  {{ quiz_segment?.source }}
   <button (click)="goToNext()">Suivant</button>
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../../quiz-service';
-import { Question } from '../../app.component';
+import { QuizSegment } from '../../app.component';
 import { AnswerBoxComponent } from './answer-box/answer-box.component';
 
 
@@ -13,10 +13,9 @@ import { AnswerBoxComponent } from './answer-box/answer-box.component';
   styleUrl: './quiz-card.component.css'
 })
 export class QuizCardComponent {
-  question: Question | undefined;
+  quiz_segment: QuizSegment | undefined;
   questionNumber: number = 0;
   answered = false;
-  quizSegment: any;
   theme: string = "";
 
   constructor(
@@ -34,7 +33,7 @@ export class QuizCardComponent {
         this.theme = queryParams['theme'];
       }
       if (queryParams['theme_id']) {
-        this.question = this.dataService.getSpecificQuestion(this.theme, +queryParams['theme_id']);
+        this.quiz_segment = this.dataService.getSpecificQuestion(this.theme, +queryParams['theme_id']);
       }
     });
     this.route.params.subscribe(params => {

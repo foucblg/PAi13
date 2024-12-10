@@ -6,10 +6,10 @@ import * as data from '../assets/questions.json';
 export interface QuizData {
   question_topics: string[],
   question_cycle: number[],
-  questions: Record<string, Question[]>,
+  questions: Record<string, QuizSegment[]>,
 }
 
-export interface Question {
+export interface QuizSegment {
   question_type: string,
   question: string,
   choices: string[] | never[],

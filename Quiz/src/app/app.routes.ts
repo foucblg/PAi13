@@ -8,6 +8,5 @@ export const routes: Routes = [
       { path: ':question-number', component: QuizCardComponent },
     ]
   },
-  { path: 'quiz/:id', component: QuizComponent },
-  { path: '', redirectTo: '/quiz/', pathMatch: 'full' },
+  { path: '', redirectTo: '/quiz/0', pathMatch: 'full' },
 ];

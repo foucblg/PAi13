@@ -80,25 +80,25 @@ class TopicsQueue {
   providedIn: 'root'
 })
 export class DataService {
-  question_topics_queue = new TopicsQueue(quizData["question_topics"], quizData["question_cycle"]);
-  questions = quizData["questions"];
-  questions_pool: Record<string, RandomizedIndexQueue> = {}
+  quiz_segment_topics_queue = new TopicsQueue(quizData["question_topics"], quizData["question_cycle"]);
+  quiz_segments = quizData["questions"];
+  quiz_segment_pool: Record<string, RandomizedIndexQueue> = {}
 
   constructor() {
     console.log("init")
-    for (const question_topic of this.question_topics_queue.getPossibleTopics()) {
-      const rq = new RandomizedIndexQueue(this.questions[question_topic].length);
-      this.questions_pool[question_topic] = rq;
+    for (const question_topic of this.quiz_segment_topics_queue.getPossibleTopics()) {
+      const rq = new RandomizedIndexQueue(this.quiz_segments[question_topic].length);
+      this.quiz_segment_pool[question_topic] = rq;
     }
   }
 
   getNewQuestionHash() {
-    const question_topic = this.question_topics_queue.deqeue();
-    return [question_topic, this.questions_pool[question_topic!].dequeueIndex()];
+    const question_topic = this.quiz_segment_topics_queue.deqeue();
+    return [question_topic, this.quiz_segment_pool[question_topic!].dequeueIndex()];
   }
 
   getSpecificQuestion(question_topic: string, question_id: number) {
-    return this.questions[question_topic][question_id];
+    return this.quiz_segments[question_topic][question_id];
   }
 
   next(router: Router, questionNumber: number) {

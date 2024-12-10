@@ -18,18 +18,16 @@ export class QuizComponent {
     private route: ActivatedRoute,
     private router: Router,
     private dataService: DataService
-  ) { }
-
-  ngOnInit() {
-    console.log("is init")
+  ) {
     this.route.firstChild?.queryParams.subscribe(queryParams => {
       if (queryParams['answered']) {
         this.answered = queryParams['answered'] === 'true';
       }
     });
     this.route.firstChild?.params.subscribe(params => {
+      console.log(params);
       if (params['question-number']) {
-        console.log(+ params['question-number'])
+        console.log(+ params["question-number"]);
         this.questionNumber = + params['question-number'];
       }
     })

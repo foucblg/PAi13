@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-<h1>{{ quiz_segment?.question }}</h1>
-<app-answer-box
-  [quiz_segment]="quiz_segment"
-  [answered]="answered"
-></app-answer-box>
-@if (!answered) {
-  <button (click)="answer()">Répondre</button>
-} @else {
-  {{ quiz_segment?.explication }}
-  {{ quiz_segment?.source }}
-  <button (click)="goToNext()">Suivant</button>
-}
-=======
 <div class="card">
   <div class="theme">
     <span>{{ theme }}</span>
@@ -37,4 +23,3 @@
     </div>
   }
 </div>
->>>>>>> 71f16be (Visual changes)

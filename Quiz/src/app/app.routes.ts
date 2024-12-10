@@ -6,6 +6,7 @@ export const routes: Routes = [
   {
     path: 'quiz', component: QuizComponent, children: [
       { path: '', redirectTo: '0', pathMatch: 'full' },
+      // { path: 'end', component: QuizCardComponent },
       { path: ':question-number', component: QuizCardComponent },
     ]
   },

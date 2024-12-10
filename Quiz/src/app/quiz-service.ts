@@ -50,11 +50,11 @@ class RandomizedIndexQueue {
 class TopicsQueue {
   private possibleTopics;
   private topicsCycle;
-  private topics: number[]; // queue qui va permettre de tirer les topics selon le cycle
+  private topics: number[] = []; // queue qui va permettre de tirer les topics selon le cycle
   constructor(possibleTopics: string[] = [], topicsCycle: number[] = []) {
     this.possibleTopics = possibleTopics;
     this.topicsCycle = topicsCycle;
-    this.topics = [];
+    this.rebuildQueue();
   }
 
   rebuildQueue() {
@@ -63,8 +63,12 @@ class TopicsQueue {
     });
   }
 
+  isEmpty() {
+    return this.topics.length < 1;
+  }
+
   deqeue() {
-    if (this.topics.length < 1) {
+    if (this.isEmpty()) {
       this.rebuildQueue();
     }
     return this.topics.shift(); //pop en Python
@@ -86,6 +90,7 @@ export class DataService {
 
   constructor() {
     console.log("init")
+    console.log(this.quiz_segment_topics_queue);
     for (const question_topic of this.quiz_segment_topics_queue.getPossibleTopics()) {
       const rq = new RandomizedIndexQueue(this.quiz_segments[question_topic].length);
       this.quiz_segment_pool[question_topic] = rq;
@@ -102,9 +107,14 @@ export class DataService {
   }
 
   next(router: Router, questionNumber: number) {
-    const quizSegment = this.getNewQuestionHash();
-    router.navigate(["quiz", questionNumber.toString()], {
-      queryParams: { theme: quizSegment[0], theme_id: quizSegment[1], answered: false },
-    });
+    if (!this.quiz_segment_topics_queue.isEmpty()) {
+      const quizSegment = this.getNewQuestionHash();
+      router.navigate(["quiz", questionNumber.toString()], {
+        queryParams: { theme: quizSegment[0], theme_id: quizSegment[1], answered: false },
+      });
+    } else {
+      this.quiz_segment_topics_queue.rebuildQueue();
+      router.navigate(["quiz", "end"]);
+    }
   }
 }

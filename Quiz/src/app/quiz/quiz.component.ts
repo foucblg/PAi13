@@ -13,6 +13,7 @@ import { DataService } from '../quiz-service';
 export class QuizComponent {
   questionNumber = 0;
   answered = false;
+  hasEnded = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,8 +26,10 @@ export class QuizComponent {
       }
     });
     this.route.firstChild?.params.subscribe(params => {
-      console.log(params);
-      if (params['question-number']) {
+      if (params["question-number"] === "end") {
+        this.hasEnded = true;
+      } else if (params['question-number']) {
+        this.hasEnded = false;
         console.log(+ params["question-number"]);
         this.questionNumber = + params['question-number'];
       }
@@ -34,7 +37,7 @@ export class QuizComponent {
   }
 
   start() {
-    console.log("Game starting");
+    console.log("Game starting", this.questionNumber);
     this.dataService.next(this.router, this.questionNumber + 1);
   }
 }

@@ -3,6 +3,10 @@
     <h1>Super quiz</h1>
     <p>Bienvenue sur notre super quiz</p>
     <button (click)="start()">Let's start</button>
+  } @else if (hasEnded) {
+    <p>Fin</p>
+    <br />
+    <button (click)="start()">Continue ?</button>
   } @else {
     <router-outlet></router-outlet>
   }

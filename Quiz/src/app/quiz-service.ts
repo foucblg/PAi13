@@ -103,7 +103,7 @@ export class DataService {
 
   next(router: Router, questionNumber: number) {
     const quizSegment = this.getNewQuestionHash();
-    router.navigate([`/quiz/${questionNumber.toString()}`], {
+    router.navigate(["quiz", questionNumber.toString()], {
       queryParams: { theme: quizSegment[0], theme_id: quizSegment[1], answered: false },
     });
   }

@@ -51,6 +51,7 @@ export class QuizCardComponent {
         relativeTo: this.route,
         queryParams: { answered: true },
         queryParamsHandling: 'merge', // remove to replace all query params by provided
+        skipLocationChange: true,
       }
     );
   }

@@ -1,5 +1,5 @@
 <h1>{{ quiz_segment?.question }}</h1>
-<app-answer-box [possibleAnswers]="quiz_segment?.choices"></app-answer-box>
+<app-answer-box [quiz_segment]="quiz_segment" [answered] = "answered"></app-answer-box>
 @if (!answered) {
   <button (click)="answer()">Répondre</button>
 } @else {

@@ -1,1 +1,18 @@
-{{ possibleAnswers }}
+<div>
+    @if (quiz_segment?.question_type === 'QCM' && answered === false) {
+        <form [formGroup]="qcmForm">
+            <div formArrayName="choices">
+            @for (choice of quiz_segment?.choices; track $index) { 
+                <label>
+                  <input type="checkbox" [formControlName]="$index" />
+                  {{ choice }}
+                </label>
+                <br>
+            }
+            </div>
+          </form>
+    } @else {
+      <p>Not QCM</p>
+    }
+  </div>
+  

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-answer-box',
@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './answer-box.component.css'
 })
 export class AnswerBoxComponent {
-
+  @Input() possibleAnswers!: string[] | undefined;
 }

@@ -5,9 +5,5 @@
     <button (click)="start()">Let's start</button>
   } @else {
     <router-outlet></router-outlet>
-
-    @if (answered) {
-      <button (click)="onNext()">></button>
-    }
   }
 </div>

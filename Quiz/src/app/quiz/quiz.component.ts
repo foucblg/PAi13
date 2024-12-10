@@ -28,22 +28,15 @@ export class QuizComponent {
       }
     });
     this.route.firstChild?.params.subscribe(params => {
-      if (params['id']) {
-        console.log(+ params['id'])
-        this.questionNumber = + params['id'];
+      if (params['question-number']) {
+        console.log(+ params['question-number'])
+        this.questionNumber = + params['question-number'];
       }
     })
   }
 
   start() {
-    this.onNext();
-  }
-  onNext() {
-    const quizSegment = this.dataService.getNewQuestionHash();
-    //console.log("got quiz segment")
-    this.questionNumber++;
-    this.router.navigate([`/quiz/${this.questionNumber.toString()}`], {
-      queryParams: { theme: quizSegment[0], theme_id: quizSegment[1], answered: false },
-    });
+    console.log("Game starting");
+    this.dataService.next(this.router, this.questionNumber + 1);
   }
 }

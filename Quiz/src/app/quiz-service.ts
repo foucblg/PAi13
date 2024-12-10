@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { quizData } from "./app.component";
+import { Router } from "@angular/router";
 
 class RandomizedIndexQueue {
   // https://gist.github.com/4skinSkywalker/f10939e0b070fe1815933730670177df
@@ -93,12 +94,17 @@ export class DataService {
 
   getNewQuestionHash() {
     const question_topic = this.question_topics_queue.deqeue();
-    //console.log("pool");
-    //console.log(this.questions_pool);
     return [question_topic, this.questions_pool[question_topic!].dequeueIndex()];
   }
 
   getSpecificQuestion(question_topic: string, question_id: number) {
     return this.questions[question_topic][question_id];
+  }
+
+  next(router: Router, questionNumber: number) {
+    const quizSegment = this.getNewQuestionHash();
+    router.navigate([`/quiz/${questionNumber.toString()}`], {
+      queryParams: { theme: quizSegment[0], theme_id: quizSegment[1], answered: false },
+    });
   }
 }

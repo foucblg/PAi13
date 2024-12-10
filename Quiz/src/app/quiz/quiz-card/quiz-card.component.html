@@ -1,2 +1,9 @@
 <h1>{{ question?.question }}</h1>
-<p>quiz-card works!</p>
+<app-answer-box [possibleAnswers]="question?.choices"></app-answer-box>
+@if (!answered) {
+  <button (click)="answer()">Répondre</button>
+} @else {
+  {{ question?.explication }}
+  {{ question?.source }}
+  <button (click)="goToNext()">Suivant</button>
+}

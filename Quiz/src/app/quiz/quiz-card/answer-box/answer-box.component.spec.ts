@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OpenCardComponent } from './open-card.component';
+import { AnswerBoxComponent } from './answer-box.component';
 
-describe('OpenCardComponent', () => {
-  let component: OpenCardComponent;
-  let fixture: ComponentFixture<OpenCardComponent>;
+describe('AnswerBoxComponent', () => {
+  let component: AnswerBoxComponent;
+  let fixture: ComponentFixture<AnswerBoxComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OpenCardComponent]
+      imports: [AnswerBoxComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(OpenCardComponent);
+    fixture = TestBed.createComponent(AnswerBoxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { QuizSegment } from '../../../app.component';
-import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-answer-box',
@@ -10,29 +10,19 @@ import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule } from '@angular
   styleUrl: './answer-box.component.css'
 })
 export class AnswerBoxComponent {
+  qcmForm = new FormGroup({});
   @Input() quiz_segment: QuizSegment | undefined;
-  @Input() answered : boolean | undefined;
-  qcmForm: FormGroup;
+  @Input() answered: boolean | undefined;
 
-  constructor(private fb: FormBuilder) {
-    this.qcmForm = this.fb.group({
-      choices: this.fb.array([]),
+
+  @Input("quiz_segment") set segment(quiz_segment: QuizSegment) {
+    this.quiz_segment = quiz_segment;
+    this.quiz_segment?.choices.forEach((_, n) => {
+      this.qcmForm.addControl(n.toString(), new FormControl(false))
     });
   }
 
-  ngOnInit() {
-    if (this.quiz_segment) {
-      this.addChoices();
-    }
+  answer() {
+    console.log(this.qcmForm.value)
   }
-
-  get choices(): FormArray {
-    return this.qcmForm.get('choices') as FormArray;
-  }
-
-  private addChoices() {
-    this.quiz_segment?.choices.forEach(() => {
-      this.choices.push(this.fb.control(false)); 
-    });
-  }
-} 
+}

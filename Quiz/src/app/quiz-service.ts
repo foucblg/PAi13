@@ -90,7 +90,6 @@ export class DataService {
 
   constructor() {
     console.log("init")
-    console.log(this.quiz_segment_topics_queue);
     for (const question_topic of this.quiz_segment_topics_queue.getPossibleTopics()) {
       const rq = new RandomizedIndexQueue(this.quiz_segments[question_topic].length);
       this.quiz_segment_pool[question_topic] = rq;

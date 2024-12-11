@@ -20,7 +20,6 @@ export class AnswerBoxComponent {
   }
 
   populateForm() {
-    console.log(this.quiz_segment!.question_type);
     this.answerForm!.reset();
     if (this.quiz_segment!.question_type === "QCM") {
       this.quiz_segment!.choices.forEach((_, n) => {

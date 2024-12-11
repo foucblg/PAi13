@@ -51,7 +51,7 @@ export class QuizCardComponent {
 
   answer() {
     console.log(this.getAnswer(this.answerForm));
-    console.log(this.quiz_segment?.answers);
+    console.log(this.arrayToObj(this.quiz_segment!.answers));
     this.router.navigate(
       [],
       {
@@ -64,18 +64,39 @@ export class QuizCardComponent {
   }
 
   getAnswer(answerForm : FormGroup) {
-    const trueIndices = Object.entries(answerForm.value)
-      .filter(([key, value]) => value === true)
-      .map(([key]) => Number(key)); 
-    return trueIndices;
-  }
-
-  arraysAreEqual<T>(arr1: T[], arr2: T[]): boolean {
-    if (arr1.length !== arr2.length) return false;
-    return arr1.every((value, index) => value === arr2[index]);
+   return Object.fromEntries(
+      Object.entries(answerForm.value).filter(([key, value]) => value === true)
+    );
   }
 
   goToNext() {
     this.dataService.next(this.router, this.questionNumber + 1);
   }
+
+  arrayToObj(array: any[]) {
+    return array.reduce((acc, i) => ({ ...acc, [i]: true }), {});
+  }
+  
+  shallowEqual<T extends Record<string, any>>(obj1: T, obj2: T): boolean {
+    if (obj1 === obj2) {
+      return true;
+    }
+    if (!obj1 || !obj2) {
+      return false;
+    }
+  
+    const keys1 = Object.keys(obj1);
+    const keys2 = Object.keys(obj2);
+    if (keys1.length !== keys2.length) {
+      return false;
+    }
+    for (const key of keys1) {
+      if (obj1[key] !== obj2[key]) {
+        return false;
+      }
+    }
+  
+    return true;
+  }
 }
+

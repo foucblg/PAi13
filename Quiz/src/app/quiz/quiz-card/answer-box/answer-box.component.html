@@ -19,11 +19,11 @@
         }
     } @else if (quiz_segment?.question_type === "Vrai/Faux") {
       <label>
-        <input type="radio" [value]="true" [formControlName]="'Vrai/Faux'"/>
+        <input type="radio" [value]="0" [formControlName]="'Vrai/Faux'"/>
         Vrai
       </label>
       <label>
-        <input type="radio" [value]="false" [formControlName]="'Vrai/Faux'"/>
+        <input type="radio" [value]="1" [formControlName]="'Vrai/Faux'"/>
         Faux
       </label>
     }

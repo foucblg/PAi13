@@ -1,36 +1,38 @@
-<div>
-  @if (answered === false && answerForm != undefined) {
-    <form [formGroup]="answerForm">
-      @if (quiz_segment?.question_type === "QCM" ) {
+@if (answered === false && answerForm != undefined) {
+  <form [formGroup]="answerForm" class="answer-box">
+    @if (quiz_segment?.question_type === "QCM") {
       @for (choice of quiz_segment?.choices; track $index) {
-        <label>
-          <input type="checkbox" [formControlName]="$index" />
-          {{ choice }}
-        </label>
-        <br />
-      }
-    } @else if (quiz_segment?.question_type === "QCU") {
-        @for (choice of quiz_segment?.choices; track $index) {
+        <div class="answer-choice">
           <label>
-            <input type="radio" [value]="$index" [formControlName]="'QCU'"/>
+            <input type="checkbox" [formControlName]="$index" />
             {{ choice }}
           </label>
-          <br />
-        }
+        </div>
+      }
+    } @else if (quiz_segment?.question_type === "QCU") {
+      @for (choice of quiz_segment?.choices; track $index) {
+        <div class="answer-choice">
+          <label>
+            <input type="radio" [value]="$index" [formControlName]="'QCU'" />
+            {{ choice }}
+          </label>
+        </div>
+      }
     } @else if (quiz_segment?.question_type === "Vrai/Faux") {
-      <label>
-        <input type="radio" [value]="0" [formControlName]="'Vrai/Faux'"/>
-        Vrai
-      </label>
-      <label>
-        <input type="radio" [value]="1" [formControlName]="'Vrai/Faux'"/>
-        Faux
-      </label>
+      <div class="answer-choice">
+        <label>
+          <input type="radio" [value]="0" [formControlName]="'Vrai/Faux'" />
+          Vrai
+        </label>
+      </div>
+      <div class="answer-choice">
+        <label>
+          <input type="radio" [value]="1" [formControlName]="'Vrai/Faux'" />
+          Faux
+        </label>
+      </div>
     }
-    </form>
-  } 
-
-  @else {
-    <p>Not QCM</p>
-  }
-</div>
+  </form>
+} @else {
+  <p>Not QCM</p>
+}

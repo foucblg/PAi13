@@ -15,18 +15,18 @@
       <button (click)="answer()">Répondre</button>
     </div>
   } @else {
-    @if (verifyAnswer()) {
-      <div class="main-content-box">
-        <p>Bravo !</p>
-      </div>
-    } @else {
-      <div class="main-content-box">
-        <p>Dommage !</p>
-      </div>
-    }
     <div class="main-content-box">
-      {{ quiz_segment?.explication }}
-      {{ quiz_segment?.source }}
+      @if (verifyAnswer()) {
+        <h2 class="result">Bravo !</h2>
+      } @else {
+        <h2 class="result">Dommage !</h2>
+      }
+      <p class="explication">
+        {{ quiz_segment?.explication }}
+      </p>
+      <a class="source" href="{{ quiz_segment?.source }}">
+        {{ quiz_segment?.source }}
+      </a>
     </div>
     <div class="next">
       <button class="next" (click)="goToNext()">Suivant</button>

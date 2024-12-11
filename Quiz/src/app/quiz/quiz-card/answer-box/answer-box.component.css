@@ -1,0 +1,11 @@
+.answer-box {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  place-self: start;
+  gap: 5vh;
+}
+
+.answer-choice {
+  padding: 1vh;
+}

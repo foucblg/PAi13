@@ -12,5 +12,5 @@ import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule } f
 export class AnswerBoxComponent {
   @Input() quiz_segment: QuizSegment | undefined;
   @Input() answered: boolean | undefined;
-  @Input() qcmForm :FormGroup | undefined ;
+  @Input() answerForm :FormGroup | undefined ;
 }

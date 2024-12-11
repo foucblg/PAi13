@@ -18,7 +18,7 @@ export class QuizCardComponent {
   questionNumber: number = 0;
   answered = false;
   theme: string = "";
-  qcmForm = new FormGroup({});
+  answerForm = new FormGroup({});
 
 
 
@@ -46,11 +46,12 @@ export class QuizCardComponent {
       }
     })
     this.quiz_segment?.choices.forEach((_, n) => {
-      this.qcmForm?.addControl(n.toString(), new FormControl(false))
+      this.answerForm?.addControl(n.toString(), new FormControl(false))
     });
   }
 
   answer() {
+    console.log(this.getAnswer(this.answerForm));
     this.router.navigate(
       [],
       {
@@ -60,11 +61,11 @@ export class QuizCardComponent {
         skipLocationChange: true,
       }
     );
-    this.qcmForm.reset();
+    this.answerForm.reset();
   }
 
-  getAnswer(qcmForm : FormGroup) {
-    const trueIndices = Object.entries(qcmForm.value)
+  getAnswer(answerForm : FormGroup) {
+    const trueIndices = Object.entries(answerForm.value)
       .filter(([key, value]) => value === true)
       .map(([key]) => Number(key)); 
     return trueIndices;

@@ -8,14 +8,14 @@
       <app-answer-box
         [quiz_segment]="quiz_segment"
         [answered]="answered"
-        [qcmForm]="qcmForm"
+        [answerForm]="answerForm"
       ></app-answer-box>
     </div>
     <div class="next">
       <button (click)="answer()">Répondre</button>
     </div>
   } @else {
-    @if (arraysAreEqual(getAnswer(qcmForm), quiz_segment!.answers)) {
+    @if (arraysAreEqual(getAnswer(answerForm), quiz_segment!.answers)) {
       <div class="main-content-box">
         <p>Bravo !</p>
       </div>

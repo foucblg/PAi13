@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../../quiz-service';
 import { QuizSegment } from '../../app.component';
 import { AnswerBoxComponent } from './answer-box/answer-box.component';
+import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 
 @Component({
@@ -17,6 +18,9 @@ export class QuizCardComponent {
   questionNumber: number = 0;
   answered = false;
   theme: string = "";
+  qcmForm = new FormGroup({});
+
+
 
   constructor(
     private route: ActivatedRoute,
@@ -41,10 +45,12 @@ export class QuizCardComponent {
         this.questionNumber = + params["question-number"];
       }
     })
+    this.quiz_segment?.choices.forEach((_, n) => {
+      this.qcmForm?.addControl(n.toString(), new FormControl(false))
+    });
   }
 
   answer() {
-    console.log("Answering");
     this.router.navigate(
       [],
       {
@@ -54,6 +60,19 @@ export class QuizCardComponent {
         skipLocationChange: true,
       }
     );
+    this.qcmForm.reset();
+  }
+
+  getAnswer(qcmForm : FormGroup) {
+    const trueIndices = Object.entries(qcmForm.value)
+      .filter(([key, value]) => value === true)
+      .map(([key]) => Number(key)); 
+    return trueIndices;
+  }
+
+  arraysAreEqual<T>(arr1: T[], arr2: T[]): boolean {
+    if (arr1.length !== arr2.length) return false;
+    return arr1.every((value, index) => value === arr2[index]);
   }
 
   goToNext() {

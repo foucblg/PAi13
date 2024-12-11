@@ -3,17 +3,27 @@
     <span>{{ theme }}</span>
   </div>
   <h1>{{ quiz_segment?.question }}</h1>
-  @if (!answered) {
+  @if (!answered && quiz_segment != undefined) {
     <div class="main-content-box">
       <app-answer-box
         [quiz_segment]="quiz_segment"
         [answered]="answered"
+        [qcmForm]="qcmForm"
       ></app-answer-box>
     </div>
     <div class="next">
       <button (click)="answer()">Répondre</button>
     </div>
   } @else {
+    @if (arraysAreEqual(getAnswer(qcmForm), quiz_segment!.answers)) {
+      <div class="main-content-box">
+        <p>Bravo !</p>
+      </div>
+    } @else {
+      <div class="main-content-box">
+        <p>Dommage !</p>
+      </div>
+    }
     <div class="main-content-box">
       {{ quiz_segment?.explication }}
       {{ quiz_segment?.source }}

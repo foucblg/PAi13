@@ -1,5 +1,5 @@
 <div>
-  @if (quiz_segment?.question_type === "QCM" && answered === false) {
+  @if (quiz_segment?.question_type === "QCM" && answered === false && qcmForm != undefined) {
     <form [formGroup]="qcmForm">
       @for (choice of quiz_segment?.choices; track $index) {
         <label>
@@ -9,7 +9,6 @@
         <br />
       }
     </form>
-    <button (click)="answer()">Répondre</button>
   } @else {
     <p>Not QCM</p>
   }

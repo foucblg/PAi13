@@ -15,7 +15,7 @@
       <button (click)="answer()">Répondre</button>
     </div>
   } @else {
-    @if (shallowEqual(getAnswer(answerForm), arrayToObj(quiz_segment!.answers))) {
+    @if (verifyAnswer()) {
       <div class="main-content-box">
         <p>Bravo !</p>
       </div>

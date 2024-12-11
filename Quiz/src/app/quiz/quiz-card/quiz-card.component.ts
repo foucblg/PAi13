@@ -45,13 +45,13 @@ export class QuizCardComponent {
         this.questionNumber = + params["question-number"];
       }
     })
-    this.quiz_segment?.choices.forEach((_, n) => {
-      this.answerForm?.addControl(n.toString(), new FormControl(false))
-    });
   }
+
+  
 
   answer() {
     console.log(this.getAnswer(this.answerForm));
+    console.log(this.quiz_segment?.answers);
     this.router.navigate(
       [],
       {
@@ -61,7 +61,6 @@ export class QuizCardComponent {
         skipLocationChange: true,
       }
     );
-    this.answerForm.reset();
   }
 
   getAnswer(answerForm : FormGroup) {

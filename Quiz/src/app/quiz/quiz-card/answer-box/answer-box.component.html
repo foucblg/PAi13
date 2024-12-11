@@ -1,6 +1,7 @@
 <div>
-  @if (quiz_segment?.question_type === "QCM" && answered === false && answerForm != undefined) {
+  @if (answered === false && answerForm != undefined) {
     <form [formGroup]="answerForm">
+      @if (quiz_segment?.question_type === "QCM" ) {
       @for (choice of quiz_segment?.choices; track $index) {
         <label>
           <input type="checkbox" [formControlName]="$index" />
@@ -8,20 +9,27 @@
         </label>
         <br />
       }
-    </form>
-  } 
-  @else if (quiz_segment?.question_type === "Vrai/Faux" && answered === false && answerForm != undefined) {
-    <form [formGroup]="answerForm">
+    } @else if (quiz_segment?.question_type === "QCU") {
+        @for (choice of quiz_segment?.choices; track $index) {
+          <label>
+            <input type="radio" [value]="$index" [formControlName]="'QCU'"/>
+            {{ choice }}
+          </label>
+          <br />
+        }
+    } @else if (quiz_segment?.question_type === "Vrai/Faux") {
       <label>
-        <input type="radio" value="true" formControlName="0" />
+        <input type="radio" [value]="true" [formControlName]="'Vrai/Faux'"/>
         Vrai
       </label>
       <label>
-        <input type="radio" value="false" formControlName="1" />
+        <input type="radio" [value]="false" [formControlName]="'Vrai/Faux'"/>
         Faux
       </label>
+    }
     </form>
-  }
+  } 
+
   @else {
     <p>Not QCM</p>
   }

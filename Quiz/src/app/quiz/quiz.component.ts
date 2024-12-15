@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { DataService } from '../quiz-service';
+import { ScoreService } from './score-service';
 
 @Component({
   selector: 'app-quiz',
@@ -14,6 +15,7 @@ export class QuizComponent {
   questionNumber = 0;
   answered = false;
   hasEnded = false;
+  scoreService = inject(ScoreService);
 
   constructor(
     private route: ActivatedRoute,

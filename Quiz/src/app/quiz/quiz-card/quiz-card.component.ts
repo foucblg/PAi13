@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../../quiz-service';
 import { QuizSegment } from '../../app.component';
 import { AnswerBoxComponent } from './answer-box/answer-box.component';
 import { FormGroup } from '@angular/forms';
+import { ScoreService } from '../score-service';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class QuizCardComponent {
   answered = false;
   theme: string = "";
   answerForm = new FormGroup({});
+  scoreService = inject(ScoreService);
 
 
 
@@ -50,8 +52,9 @@ export class QuizCardComponent {
 
 
   answer() {
-    console.log(this.getAnswer());
-    console.log(this.arrayToObj(this.quiz_segment!.answers));
+    if (this.verifyAnswer()) {
+      this.scoreService.addToScore(1);
+    }
     this.router.navigate(
       [],
       {

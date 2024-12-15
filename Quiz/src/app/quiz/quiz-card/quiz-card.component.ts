@@ -52,6 +52,10 @@ export class QuizCardComponent {
 
 
   answer() {
+    if (Object.keys(this.getAnswer()).length === 0) {
+      alert("Choissisez au moins une réponse")
+      return;
+    }
     if (this.verifyAnswer()) {
       this.scoreService.addToScore(1);
     }
@@ -74,6 +78,8 @@ export class QuizCardComponent {
       return Object.fromEntries(
         Object.entries(this.answerForm.value).filter(([_, value]) => value === true)
       );
+    } else if (this.quiz_segment!.question_type === "Réflexion") {
+      return { 0: true };
     } else {
       const key = this.answerForm.value[this.quiz_segment!.question_type as keyof Partial<{}>];
       return { [key]: true };

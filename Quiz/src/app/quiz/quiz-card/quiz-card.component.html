@@ -24,9 +24,15 @@
       <p class="explication">
         {{ quiz_segment?.explication }}
       </p>
-      <a class="source" href="{{ quiz_segment?.source }}">
+      <!--
+    <a
+        class="source"
+        [href]="'https://' + quiz_segment?.source"
+        target="_blank"
+      >
         {{ quiz_segment?.source }}
       </a>
+-->
     </div>
     <div class="next">
       <button class="next" (click)="goToNext()">Suivant</button>

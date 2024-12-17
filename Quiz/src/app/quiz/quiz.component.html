@@ -1,12 +1,14 @@
 <div>
   @if (questionNumber === 0) {
-    <h1>Super quiz</h1>
-    <p>Bienvenue sur notre super quiz</p>
-    <button (click)="start()">Let's start</button>
+    <h1>Quiz inclusivité</h1>
+    <p>Bienvenue sur le Quiz Inclusivité de la Métropole de Lyon.</p>
+    <p>Concevons nos services numériques pour tout le monde !</p>
+    <button (click)="start()">Commençons</button>
   } @else if (hasEnded) {
-    <p>Fin</p>
+    <h3>Bien joué !</h3>
+    <p>Vous avez fini votre salve de question, mais il en reste encore.</p>
     <br />
-    <button (click)="start()">Continue ?</button>
+    <button (click)="start()">Continuer ?</button>
   } @else {
     @if (answered) {
       <p>Score : {{ scoreService.score }} / {{ questionNumber }}</p>

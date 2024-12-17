@@ -519,7 +519,7 @@
         "question": "Un \"dumb phone\" est un téléphone destiné aux personnes ayant des troubles cognitifs.",
         "choices": [],
         "answers": [
-          0
+          1
         ],
         "explication": "Faux\n\nUn \"dumb phone\" est, par opposition à un smartphone, un téléphone doté uniquement de fonctions de base (appels, SMS...), généralement simple à utiliser. Le marché des \"dumb phones\" ou \"feature phones\" est en (relative) croissance.",
         "source": ""

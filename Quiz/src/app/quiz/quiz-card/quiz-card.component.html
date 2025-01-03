@@ -16,7 +16,7 @@
     </div>
   } @else {
     <div class="main-content-box">
-      @if (verifyAnswer()) {
+      @if (verifyAnswer() === "true") {
         <h2 class="result">Bravo !</h2>
       } @else {
         <h2 class="result">Dommage !</h2>
@@ -24,15 +24,6 @@
       <p class="explication">
         {{ quiz_segment?.explication }}
       </p>
-      <!--
-    <a
-        class="source"
-        [href]="'https://' + quiz_segment?.source"
-        target="_blank"
-      >
-        {{ quiz_segment?.source }}
-      </a>
--->
     </div>
     <div class="next">
       <button class="next button-4" (click)="goToNext()">Suivant</button>

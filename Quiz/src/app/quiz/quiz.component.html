@@ -10,11 +10,10 @@
     <br />
     <button (click)="start()">Continuer ?</button>
   } @else {
-    @if (answered) {
-      <p>Score : {{ scoreService.score }} / {{ questionNumber }}</p>
-    } @else {
-      <p>Score : {{ scoreService.score }} / {{ questionNumber - 1 }}</p>
-    }
+    <p>
+      Score : {{ scoreService.score }} /
+      {{ answered ? questionNumber : questionNumber - 1 }}
+    </p>
     <router-outlet></router-outlet>
   }
 </div>

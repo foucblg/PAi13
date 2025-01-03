@@ -18,19 +18,6 @@
           </label>
         </div>
       }
-    } @else if (quiz_segment?.question_type === "Vrai/Faux") {
-      <div class="answer-choice">
-        <label>
-          <input type="radio" [value]="0" [formControlName]="'Vrai/Faux'" />
-          Vrai
-        </label>
-      </div>
-      <div class="answer-choice">
-        <label>
-          <input type="radio" [value]="1" [formControlName]="'Vrai/Faux'" />
-          Faux
-        </label>
-      </div>
     }
   </form>
 } @else {

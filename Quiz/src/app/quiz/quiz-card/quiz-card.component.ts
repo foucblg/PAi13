@@ -52,12 +52,14 @@ export class QuizCardComponent {
 
 
   answer() {
-    if (Object.keys(this.getAnswer()).length === 0) {
-      alert("Choissisez au moins une réponse")
-      return;
-    }
-    if (this.verifyAnswer()) {
-      this.scoreService.addToScore(1);
+    switch (this.verifyAnswer()) {
+      case "true":
+        this.scoreService.addToScore(1);
+        break;
+
+      case "empty":
+        alert("Choisir au moins une réponse");
+        return;
     }
     this.router.navigate(
       [],
@@ -78,43 +80,30 @@ export class QuizCardComponent {
       return Object.fromEntries(
         Object.entries(this.answerForm.value).filter(([_, value]) => value === true)
       );
-    } else if (this.quiz_segment!.question_type === "Réflexion") {
-      return { 0: true };
-    } else {
-      const key = this.answerForm.value[this.quiz_segment!.question_type as keyof Partial<{}>];
-      return { [key]: true };
+    } else if (this.quiz_segment!.question_type === "QCU") {
+      const key = this.answerForm.get('QCU')!.value;
+      if (key != null) {
+        return { [key]: true };
+      }
     }
+    return {};
   }
 
   verifyAnswer() {
-    return this.shallowEqual(this.getAnswer(), this.arrayToObj(this.quiz_segment!.answers))
-  }
-
-
-  arrayToObj(array: any[]) {
-    return array.reduce((acc, i) => ({ ...acc, [i]: true }), {});
-  }
-
-  shallowEqual<T extends Record<string, any>>(obj1: T, obj2: T): boolean {
-    if (obj1 === obj2) {
-      return true;
-    }
-    if (!obj1 || !obj2) {
-      return false;
+    const userAnswers = this.getAnswer();
+    const realAnswers: number[] = this.quiz_segment!.answers;
+    if (Object.keys(userAnswers).length === 0) {
+      return "empty"
     }
 
-    const keys1 = Object.keys(obj1);
-    const keys2 = Object.keys(obj2);
-    if (keys1.length !== keys2.length) {
-      return false;
-    }
-    for (const key of keys1) {
-      if (obj1[key] !== obj2[key]) {
-        return false;
+    for (let index = 0; index < this.quiz_segment!.choices.length; index++) {
+      const indexIsAnswer = realAnswers.includes(index);
+      if (indexIsAnswer !== Boolean(userAnswers[index])) { // logical XOR
+        return "false";
       }
     }
-
-    return true;
+    return "true";
   }
+
 }
 

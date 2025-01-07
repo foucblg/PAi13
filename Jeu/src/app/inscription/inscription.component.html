@@ -1,0 +1,27 @@
+<form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+    <div formArrayName="users">
+      @for (user of users.controls; track $index) {
+      <div [formGroupName]="$index">
+        <h3>Invité #{{ $index + 1 }}</h3>
+  
+        <div>
+          <label>Nom:</label>
+          <input formControlName="name" />
+        </div>
+  
+        <div>
+          <label>Email:</label>
+          <input formControlName="email" />
+        </div>
+  
+        <button type="button" (click)="removeUser($index)">
+          Supprimer l'invité
+        </button>
+      </div>
+      }
+    </div>
+  
+    <button type="button" (click)="addUser()">Ajouter un invité</button>
+  
+    <button type="submit" [disabled]="!eventForm.valid">Enregistrer</button>
+  </form>

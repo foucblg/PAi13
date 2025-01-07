@@ -1,0 +1,12 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-theme-indicator',
+  standalone: true,
+  imports: [],
+  templateUrl: './theme-indicator.component.html',
+  styleUrl: './theme-indicator.component.css'
+})
+export class ThemeIndicatorComponent {
+
+}

@@ -1,12 +1,21 @@
 <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
 
-CARTE ENORME 
+    <p>Carte actuelle {{ currentNumber }}</p>
 
 </div>
-
+        
 
 <div class="bouton-back">
     <app-navigbutton 
-        [avance]="False" >
+    [avance]="true" 
+    [currentNumber]="currentNumber"
+    (cardChange)="currentNumber = $event">
+    </app-navigbutton>
+</div>
+
+
+<div class="bouton-next">
+    <app-navigbutton 
+        [avance]=true >
     </app-navigbutton>
 </div>

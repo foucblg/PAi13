@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavigbuttonComponent } from "./navigbutton/navigbutton.component";
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-quizz',
@@ -9,5 +10,6 @@ import { NavigbuttonComponent } from "./navigbutton/navigbutton.component";
   styleUrl: './quizz.component.css'
 })
 export class QuizzComponent {
-
+  currentNumber=0;
+  
 }

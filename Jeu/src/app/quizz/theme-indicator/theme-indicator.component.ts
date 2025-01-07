@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-theme-indicator',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './theme-indicator.component.css'
 })
 export class ThemeIndicatorComponent {
-
+  @Input() catNumber!: number;
 }

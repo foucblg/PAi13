@@ -11,8 +11,8 @@ import {Router } from '@angular/router';
 export class HomepageComponent {
   constructor(private router:Router) {}
 
-  Commencer(){
-    this.router.navigate(['./jeu/contexte'])
+  commencer(){
+    this.router.navigate(['./contexte'])
   }
 
 }

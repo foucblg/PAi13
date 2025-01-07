@@ -20,9 +20,10 @@ export class InscriptionComponent {
   });
 
   constructor(
-    private userService : UserService
-  ){
-    this.userService = userService
+    private userService: UserService
+  ) {
+    this.userService = userService;
+    this.addUser();
   }
 
   get users() {
@@ -44,7 +45,9 @@ export class InscriptionComponent {
 
   onSubmit() {
     if (this.eventForm.valid) {
-      this.userService.setUsers(this.users)
+      this.userService.setUsers(this.users);
+      this.addUser();
+      console.log(this.users);
     }
   }
 }

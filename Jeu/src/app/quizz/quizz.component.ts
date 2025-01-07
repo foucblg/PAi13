@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { NavigbuttonComponent } from "./navigbutton/navigbutton.component";
 
 @Component({
   selector: 'app-quizz',
   standalone: true,
-  imports: [],
+  imports: [NavigbuttonComponent],
   templateUrl: './quizz.component.html',
   styleUrl: './quizz.component.css'
 })

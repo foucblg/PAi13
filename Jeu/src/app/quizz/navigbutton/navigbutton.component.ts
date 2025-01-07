@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, Output, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-navigbutton',
@@ -8,7 +10,7 @@ import { Component } from '@angular/core';
   styleUrl: './navigbutton.component.css'
 })
 export class NavigbuttonComponent {
-
+  @Input() Avance!: any;
   
 
 }

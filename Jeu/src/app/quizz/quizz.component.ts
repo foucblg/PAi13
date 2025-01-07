@@ -10,6 +10,6 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './quizz.component.css'
 })
 export class QuizzComponent {
-  currentNumber=0;
+  currentNumber=1;
   
 }

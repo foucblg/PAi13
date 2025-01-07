@@ -15,17 +15,13 @@ export class NavigbuttonComponent {
 
 
   // Method to increment card number
-  ChangeCard  () {
-    if (this.avance==true) {
-    this.currentNumber += 1;
-    this.cardChange.emit(this.currentNumber); // Emit updated card number to parent
-  }
-    else {
-      if (this.currentNumber > 0) {
-        this.currentNumber -= 1;
-        this.cardChange.emit(this.currentNumber); // Emit updated card number to parent
-      }
+  ChangeCard() {
+    if (this.avance) {
+      this.currentNumber += 1;
+    } else if (this.currentNumber > 1) {
+      this.currentNumber -= 1;
     }
+    this.cardChange.emit(this.currentNumber); // Emit updated card number to parent
   }
 
 }

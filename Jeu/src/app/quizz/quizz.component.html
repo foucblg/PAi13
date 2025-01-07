@@ -1,21 +1,23 @@
 <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
-
-    <p>Carte actuelle {{ currentNumber }}</p>
-
-</div>
-        
-
-<div class="bouton-back">
-    <app-navigbutton 
-    [avance]="true" 
-    [currentNumber]="currentNumber"
-    (cardChange)="currentNumber = $event">
-    </app-navigbutton>
-</div>
-
-
-<div class="bouton-next">
-    <app-navigbutton 
-        [avance]=true >
-    </app-navigbutton>
-</div>
+    <!-- Back Button -->
+    <div class="bouton-back" style="margin-right: 10px;">
+      <app-navigbutton 
+        [avance]="false" 
+        [currentNumber]="currentNumber"
+        (cardChange)="currentNumber = $event">
+      </app-navigbutton>
+    </div>
+  
+    <!-- Card Number Display -->
+    <p>Carte numéro {{ currentNumber }}</p>
+  
+    <!-- Next Button -->
+    <div class="bouton-next" style="margin-left: 10px;">
+      <app-navigbutton 
+        [avance]="true" 
+        [currentNumber]="currentNumber"
+        (cardChange)="currentNumber = $event">
+      </app-navigbutton>
+    </div>
+  </div>
+  

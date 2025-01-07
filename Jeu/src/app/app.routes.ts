@@ -6,7 +6,7 @@ import { ThemeIndicatorComponent } from './quizz/theme-indicator/theme-indicator
 
 export const routes: Routes = [
     {path:'quizz', component: QuizzComponent, children: [
-        { path: 'quiz', redirectTo: '0', pathMatch: 'full' },
+        { path: 'quizz', redirectTo: '0', pathMatch: 'full' },
     ]
     },
 ];

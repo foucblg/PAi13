@@ -4,6 +4,7 @@ import { navigation_data } from "../app.component";
 @Injectable({
   providedIn: "root",
 })
+
 export class NavigationService {
   // Liste contenant 5 dictionnaires, 1 par catégorie 
   navigation_categories = [
@@ -13,6 +14,8 @@ export class NavigationService {
     "Dévelopement",
     "Editorial"  
   ];
+
+  Ndata=navigation_data
 
   ChangeCategories(n: number): any {
     if (this.navigation_categories[n] !== undefined) {

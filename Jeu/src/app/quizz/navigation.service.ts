@@ -4,7 +4,7 @@ import { navigation_data } from "../app.component";
 @Injectable({
   providedIn: "root",
 })
-export class QuestionnaireService {
+export class NavigationService {
   // Liste contenant 5 dictionnaires, 1 par catégorie 
   navigation_categories = [
     "Gestion de projet",

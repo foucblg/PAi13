@@ -3,10 +3,15 @@ import { QuizzComponent } from './quizz/quizz.component';
 import { NavigbuttonComponent } from './quizz/navigbutton/navigbutton.component';
 import { ProgressbarComponent } from './quizz/progressbar/progressbar.component';
 import { ThemeIndicatorComponent } from './quizz/theme-indicator/theme-indicator.component';
+import { SolutionsComponent } from './solutions/solutions.component';
 
 export const routes: Routes = [
     {path:'quizz', component: QuizzComponent, children: [
         { path: 'quizz', redirectTo: '0', pathMatch: 'full' }
     ]
     },
+    {path:'solutions', component: SolutionsComponent, children: [
+      { path: 'solutions', redirectTo: '0', pathMatch: 'full' }
+  ]
+  },
 ];

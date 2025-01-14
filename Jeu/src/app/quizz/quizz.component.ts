@@ -10,7 +10,7 @@ import { NavigcardComponent } from "./navigcard/navigcard.component";
 @Component({
   selector: 'app-quizz',
   standalone: true,
-  imports: [NavigbuttonComponent, ThemeIndicatorComponent, NavigcardComponent], // Add NavigationCardComponent here
+  imports: [NavigbuttonComponent, ThemeIndicatorComponent, NavigcardComponent],
   templateUrl: './quizz.component.html',
   styleUrl: './quizz.component.css',
 })

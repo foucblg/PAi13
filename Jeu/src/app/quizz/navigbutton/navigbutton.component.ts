@@ -26,7 +26,10 @@ export class NavigbuttonComponent {
       this.currentNumber -= 1;
       this.cat = navigation_data.data[this.currentNumber]?.categorie;
       }
-      else {
+      else if (this.avance){
+        
+      }
+      else{
         this.cat = navigation_data.data[this.currentNumber]?.categorie;
       }
 

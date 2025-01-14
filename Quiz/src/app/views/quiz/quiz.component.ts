@@ -5,11 +5,10 @@ import { ProgressService } from '../../shared/services/progress-service';
 import { DataService } from '../../shared/services/quiz-service';
 import { ButtonModule } from 'primeng/button';
 @Component({
-  selector: 'app-quiz',
-  standalone: true,
-  templateUrl: './quiz.component.html',
-  styleUrl: './quiz.component.css',
-  imports: [RouterOutlet, CommonModule, ButtonModule],
+    selector: 'app-quiz',
+    templateUrl: './quiz.component.html',
+    styleUrl: './quiz.component.css',
+    imports: [RouterOutlet, CommonModule, ButtonModule]
 })
 
 export class QuizComponent {

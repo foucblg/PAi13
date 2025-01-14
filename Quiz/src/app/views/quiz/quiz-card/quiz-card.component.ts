@@ -7,11 +7,10 @@ import { QuizSegment } from '../../../shared/types/interfaces';
 import { Answer } from '../../../shared/types/enums';
 
 @Component({
-  selector: 'app-quiz-card',
-  standalone: true,
-  imports: [AnswerBoxComponent],
-  templateUrl: './quiz-card.component.html',
-  styleUrl: './quiz-card.component.css'
+    selector: 'app-quiz-card',
+    imports: [AnswerBoxComponent],
+    templateUrl: './quiz-card.component.html',
+    styleUrl: './quiz-card.component.css'
 })
 export class QuizCardComponent {
   quiz_segment: QuizSegment | undefined;

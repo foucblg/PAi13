@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { NavigbuttonComponent } from "../quizz/navigbutton/navigbutton.component";
-import { ThemeIndicatorComponent } from '../quizz/theme-indicator/theme-indicator.component';
+import { NavigbuttonComponent } from "./navigbutton/navigbutton.component";
+import { ThemeIndicatorComponent } from './theme-indicator/theme-indicator.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Injectable } from "@angular/core";
 import { navigation_data2 } from "../app.component";
-import { NavigcardComponent } from "../quizz/navigcard/navigcard.component";
+import { NavigcardComponent } from "./navigcard/navigcard.component";
 @Component({
   selector: 'app-solutions',
   standalone: true,

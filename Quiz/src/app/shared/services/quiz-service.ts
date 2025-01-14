@@ -1,6 +1,5 @@
 import { Injectable, signal } from "@angular/core";
-import { quizData } from "./app.component";
-import { Router } from "@angular/router";
+import { quizData } from "../../app.component";
 
 class RandomizedIndexQueue {
   // https://gist.github.com/4skinSkywalker/f10939e0b070fe1815933730670177df

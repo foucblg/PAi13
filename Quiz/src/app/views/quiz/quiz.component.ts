@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { DataService } from '../quiz-service';
-import { ProgressService } from './progress-service';
 import { CommonModule } from '@angular/common';
+import { ProgressService } from '../../shared/services/progress-service';
+import { DataService } from '../../shared/services/quiz-service';
 
 @Component({
   selector: 'app-quiz',

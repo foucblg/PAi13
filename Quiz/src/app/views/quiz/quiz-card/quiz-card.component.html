@@ -18,7 +18,7 @@
     </div>
   } @else {
     <div class="main-content-box">
-      @if (verifyAnswer() === "true") {
+      @if (verifyAnswer() === answerType.True) {
         <h2 class="result">Bravo !</h2>
       } @else {
         <h2 class="result">Dommage !</h2>

@@ -1,6 +1,7 @@
 import { computed, inject, Injectable, signal } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { DataService } from "../quiz-service";
+import { DataService } from "./quiz-service";
+import { Answer } from "../types/enums";
 @Injectable({
   providedIn: 'root'
 })
@@ -57,14 +58,13 @@ export class ProgressService {
     }
   }
 
-  answer(ans: string) {
-    console.log(ans)
+  answer(ans: Answer) {
     switch (ans) {
-      case "true":
+      case Answer.True:
         this.score.update(s => s + 1);
         break;
 
-      case "empty":
+      case Answer.Empty:
         alert("Choisir au moins une réponse");
         return;
     }

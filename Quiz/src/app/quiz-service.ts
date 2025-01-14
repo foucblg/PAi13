@@ -50,17 +50,22 @@ class RandomizedIndexQueue {
 class TopicsQueue {
   private possibleTopics;
   private topicsCycle;
-  private topics: number[] = []; // queue qui va permettre de tirer les topics selon le cycle
+  private numberOfQuestionsPerCycle = 1;
+  private topics: string[] = []; // queue qui va permettre de tirer les topics selon le cycle
   constructor(possibleTopics: string[] = [], topicsCycle: number[] = []) {
     this.possibleTopics = possibleTopics;
     this.topicsCycle = topicsCycle;
-    this.rebuildQueue();
   }
 
   rebuildQueue() {
     this.topicsCycle.forEach((n, i) => { // n = occurrences, i = index
-      this.topics.push(...Array(n).fill(this.possibleTopics[i]));
+      this.topics.push(...Array(n).fill(this.possibleTopics[i * this.numberOfQuestionsPerCycle]));
     });
+  }
+
+  initialize(nQuestions: number) {
+    this.numberOfQuestionsPerCycle = nQuestions;
+    this.rebuildQueue();
   }
 
   isEmpty() {
@@ -68,11 +73,7 @@ class TopicsQueue {
   }
 
   deqeue() {
-    if (this.isEmpty()) {
-      this.rebuildQueue();
-    }
     return this.topics.shift(); //pop en Python
-
   }
 
   getPossibleTopics() {
@@ -84,16 +85,20 @@ class TopicsQueue {
   providedIn: 'root'
 })
 export class DataService {
-  quiz_segment_topics_queue = new TopicsQueue(quizData["question_topics"], quizData["question_cycle"]);
+  public quiz_segment_topics_queue;
   quiz_segments = quizData["questions"];
   quiz_segment_pool: Record<string, RandomizedIndexQueue> = {}
 
   constructor() {
-    console.log("init")
+    this.quiz_segment_topics_queue = new TopicsQueue(quizData["question_topics"], quizData["question_cycle"]);
     for (const question_topic of this.quiz_segment_topics_queue.getPossibleTopics()) {
       const rq = new RandomizedIndexQueue(this.quiz_segments[question_topic].length);
       this.quiz_segment_pool[question_topic] = rq;
     }
+  }
+
+  startQuiz(nQuestions: number) {
+    this.quiz_segment_topics_queue.initialize(nQuestions);
   }
 
   getNewQuestionHash() {

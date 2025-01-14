@@ -11,4 +11,8 @@ export class ScoreService {
     this.score += n_points;
   }
 
+  resetScore() {
+    this.score = 0;
+  }
+
 }

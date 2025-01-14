@@ -38,8 +38,15 @@ export class QuizComponent {
     })
   }
 
-  start() {
+  start(nQuestions: number) {
     console.log("Game starting", this.questionNumber);
+    this.dataService.startQuiz(nQuestions);
     this.dataService.next(this.router, this.questionNumber + 1);
+  }
+
+  goToBegining() {
+    this.questionNumber = 0;
+    this.scoreService.resetScore();
+    this.router.navigate(["quiz", "0"]);
   }
 }

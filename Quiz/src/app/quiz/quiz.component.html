@@ -3,9 +3,21 @@
     <h1>Quiz inclusivité</h1>
     <p>Bienvenue sur le Quiz Inclusivité de la Métropole de Lyon.</p>
     <p>Concevons nos services numériques pour tout le monde !</p>
-    <button (click)="start(1)">Commençons (1 question par thème)</button>
-    <button (click)="start(2)">Commençons (2 question par thème)</button>
-    <button (click)="start(3)">Commençons (3 question par thème)</button>
+    <button
+      (click)="adjustNumberOfQuestions(-1)"
+      [disabled]="iNumberOfQuestions == 0"
+    >
+      <
+    </button>
+    Nombre de questions :
+    {{ numberOfQuestionsPerTopic[iNumberOfQuestions] * numberOfTopics }}
+    <button
+      (click)="adjustNumberOfQuestions(1)"
+      [disabled]="iNumberOfQuestions == numberOfQuestionsPerTopic.length - 1"
+    >
+      >
+    </button>
+    <button (click)="start()">Commencer</button>
   } @else if (hasEnded) {
     <h3>Bien joué !</h3>
     <p>Vous avez fini votre salve de question, mais il en reste encore.</p>

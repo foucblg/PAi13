@@ -16,12 +16,16 @@ export class QuizComponent {
   answered = false;
   hasEnded = false;
   scoreService = inject(ScoreService);
+  numberOfTopics: number;
+  numberOfQuestionsPerTopic = [1, 2, 3];
+  iNumberOfQuestions = 0;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private dataService: DataService
   ) {
+    this.numberOfTopics = this.dataService.getNumberOfTopics();
     this.route.firstChild?.queryParams.subscribe(queryParams => {
       if (queryParams['answered']) {
         this.answered = queryParams['answered'] === 'true';
@@ -38,9 +42,12 @@ export class QuizComponent {
     })
   }
 
-  start(nQuestions: number) {
-    console.log("Game starting", this.questionNumber);
-    this.dataService.startQuiz(nQuestions);
+  adjustNumberOfQuestions(c: number) {
+    this.iNumberOfQuestions += c;
+  }
+
+  start() {
+    this.dataService.startQuiz(this.numberOfQuestionsPerTopic[this.iNumberOfQuestions]);
     this.dataService.next(this.router, this.questionNumber + 1);
   }
 

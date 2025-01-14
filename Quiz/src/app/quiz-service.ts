@@ -121,4 +121,7 @@ export class DataService {
       router.navigate(["quiz", "end"]);
     }
   }
+  getNumberOfTopics() {
+    return this.quiz_segment_topics_queue.getPossibleTopics().length;
+  }
 }

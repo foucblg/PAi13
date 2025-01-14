@@ -1,7 +1,7 @@
 <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
 
     <div class="theme-indicator" style="margin-right: 10px;">
-        <app-theme-indicator [catNumber]="catNumber">
+        <app-theme-indicator [cat]="cat">
         </app-theme-indicator>
       </div>
 
@@ -10,20 +10,30 @@
       <app-navigbutton 
         [avance]="false" 
         [currentNumber]="currentNumber"
-        (cardChange)="currentNumber = $event">
+        (cardChange)="currentNumber = $event"
+        (catChange)="cat = $event">
       </app-navigbutton>
     </div>
   
     <!-- Card Number Display -->
-    <p>Carte numéro {{ currentNumber }}</p>
+    <div class="card">
+      <app-navigcard
+        [card_number]="currentNumber">
+      </app-navigcard>
+    </div>
   
+
     <!-- Next Button -->
     <div class="bouton-next" style="margin-left: 10px;">
       <app-navigbutton 
         [avance]="true" 
         [currentNumber]="currentNumber"
-        (cardChange)="currentNumber = $event">
+        (cardChange)="currentNumber = $event"
+        (catChange)="cat = $event">
       </app-navigbutton>
     </div>
   </div>
+
+  {{cat}}
+{{currentNumber}}
   

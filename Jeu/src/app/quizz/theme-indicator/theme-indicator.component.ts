@@ -9,5 +9,5 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './theme-indicator.component.css'
 })
 export class ThemeIndicatorComponent {
-  @Input() catNumber!: number;
+  @Input() cat!: string;
 }

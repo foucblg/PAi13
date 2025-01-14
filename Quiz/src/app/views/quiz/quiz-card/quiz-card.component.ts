@@ -5,12 +5,13 @@ import { ProgressService } from '../../../shared/services/progress-service';
 import { DataService } from '../../../shared/services/quiz-service';
 import { QuizSegment } from '../../../shared/types/interfaces';
 import { Answer } from '../../../shared/types/enums';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
-    selector: 'app-quiz-card',
-    imports: [AnswerBoxComponent],
-    templateUrl: './quiz-card.component.html',
-    styleUrl: './quiz-card.component.css'
+  selector: 'app-quiz-card',
+  imports: [AnswerBoxComponent, ButtonModule],
+  templateUrl: './quiz-card.component.html',
+  styleUrl: './quiz-card.component.css'
 })
 export class QuizCardComponent {
   quiz_segment: QuizSegment | undefined;

@@ -1,12 +1,14 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { QuizSegment } from '../../../../shared/types/interfaces';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { CheckboxModule } from 'primeng/checkbox';
 
 @Component({
-    selector: 'app-answer-box',
-    imports: [ReactiveFormsModule],
-    templateUrl: './answer-box.component.html',
-    styleUrl: './answer-box.component.css'
+  selector: 'app-answer-box',
+  imports: [ReactiveFormsModule, RadioButtonModule, CheckboxModule],
+  templateUrl: './answer-box.component.html',
+  styleUrl: './answer-box.component.css'
 })
 export class AnswerBoxComponent {
   @Input() quiz_segment: QuizSegment | undefined;

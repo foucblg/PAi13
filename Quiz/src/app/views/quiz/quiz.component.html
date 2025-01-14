@@ -11,15 +11,15 @@
     </p-button>
     Nombre de questions :
     {{ possibleNumberOfQuestionsPerTopic[iNumberOfQuestions] * numberOfTopics }}
-    <button
+    <p-button
       (click)="adjustNumberOfQuestions(1)"
       [disabled]="
         iNumberOfQuestions == possibleNumberOfQuestionsPerTopic.length - 1
       "
     >
       >
-    </button>
-    <button
+    </p-button>
+    <p-button
       (click)="
         progressService.start(
           possibleNumberOfQuestionsPerTopic[iNumberOfQuestions]
@@ -27,7 +27,7 @@
       "
     >
       Commencer
-    </button>
+    </p-button>
   } @else if (progressService.hasEnded()) {
     <h3>Bien joué !</h3>
     <p>Vous avez fini votre salve de question, mais il en reste encore.</p>
@@ -35,21 +35,14 @@
       Score : {{ progressService.score() }} /
       {{ progressService.questionNumber() }}
     </p>
-    <button (click)="progressService.goToBegining()">
+    <p-button (click)="progressService.goToBegining()">
       Commencer une nouvelle série de questions ?
-    </button>
+    </p-button>
   } @else {
     <p>
       {{ progressService.progressRatio() | percent }}
     </p>
-    <div class="progress-bar">
-      <div
-        class="progress-bar-fill"
-        [ngStyle]="{
-          'width.%': progressService.progressRatio() * 100,
-        }"
-      ></div>
-    </div>
+    <p-progressbar [value]="progressService.progressRatio() * 100" />
     <router-outlet></router-outlet>
   }
 </div>

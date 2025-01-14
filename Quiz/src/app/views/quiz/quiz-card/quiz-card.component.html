@@ -12,9 +12,12 @@
       ></app-answer-box>
     </div>
     <div class="next">
-      <button class="button-4" (click)="progressService.answer(verifyAnswer())">
+      <p-button
+        class="button-4"
+        (click)="progressService.answer(verifyAnswer())"
+      >
         Répondre
-      </button>
+      </p-button>
     </div>
   } @else {
     <div class="main-content-box">
@@ -28,9 +31,9 @@
       </p>
     </div>
     <div class="next">
-      <button class="next button-4" (click)="progressService.goToNext()">
+      <p-button class="next button-4" (click)="progressService.goToNext()">
         Suivant
-      </button>
+      </p-button>
     </div>
   }
 </div>

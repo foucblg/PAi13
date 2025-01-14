@@ -5,7 +5,7 @@
       @for (choice of quiz_segment?.possible_answers; track $index) {
         <div class="answer-choice">
           <label>
-            <input type="checkbox" [formControlName]="$index" />
+            <p-checkbox [formControlName]="$index" />
             {{ choice }}
           </label>
         </div>
@@ -15,7 +15,7 @@
       @for (choice of quiz_segment?.possible_answers; track $index) {
         <div class="answer-choice">
           <label>
-            <input type="radio" [value]="$index" [formControlName]="'QCU'" />
+            <p-radiobutton [value]="$index" [formControlName]="'QCU'" />
             {{ choice }}
           </label>
         </div>

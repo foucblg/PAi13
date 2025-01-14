@@ -4,11 +4,14 @@ import { CommonModule } from '@angular/common';
 import { ProgressService } from '../../shared/services/progress-service';
 import { DataService } from '../../shared/services/quiz-service';
 import { ButtonModule } from 'primeng/button';
+import { ProgressBarModule } from 'primeng/progressbar';
+// For dynamic progressbar demo
+import { ToastModule } from 'primeng/toast';
 @Component({
-    selector: 'app-quiz',
-    templateUrl: './quiz.component.html',
-    styleUrl: './quiz.component.css',
-    imports: [RouterOutlet, CommonModule, ButtonModule]
+  selector: 'app-quiz',
+  templateUrl: './quiz.component.html',
+  styleUrl: './quiz.component.css',
+  imports: [RouterOutlet, CommonModule, ButtonModule, ToastModule, ProgressBarModule]
 })
 
 export class QuizComponent {

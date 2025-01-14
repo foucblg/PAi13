@@ -1,7 +1,8 @@
 @if (answered === false && answerForm != undefined) {
   <form [formGroup]="answerForm" class="answer-box">
     @if (quiz_segment?.question_type === "QCM") {
-      @for (choice of quiz_segment?.choices; track $index) {
+      <p>Plusieurs réponses possibles</p>
+      @for (choice of quiz_segment?.possible_answers; track $index) {
         <div class="answer-choice">
           <label>
             <input type="checkbox" [formControlName]="$index" />
@@ -10,7 +11,8 @@
         </div>
       }
     } @else if (quiz_segment?.question_type === "QCU") {
-      @for (choice of quiz_segment?.choices; track $index) {
+      <p>Une seule réponse possible</p>
+      @for (choice of quiz_segment?.possible_answers; track $index) {
         <div class="answer-choice">
           <label>
             <input type="radio" [value]="$index" [formControlName]="'QCU'" />

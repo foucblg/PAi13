@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import * as data from '../assets/questions.json';
+import * as data from '../assets/questions_final.json';
 
 export interface QuizData {
   question_topics: string[],
@@ -12,10 +12,9 @@ export interface QuizData {
 export interface QuizSegment {
   question_type: string,
   question: string,
-  choices: string[] | never[],
-  answers: number[] | never[],
-  explication: string,
-  source: string
+  possible_answers: string[] | never[],
+  true_answers: number[] | never[],
+  explanation: string,
 }
 
 @Component({

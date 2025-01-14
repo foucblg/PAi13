@@ -1,14 +1,15 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { DataService } from '../quiz-service';
 import { ScoreService } from './score-service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-quiz',
   standalone: true,
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.css',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CommonModule],
 })
 
 export class QuizComponent {
@@ -16,14 +17,15 @@ export class QuizComponent {
   answered = false;
   hasEnded = false;
   scoreService = inject(ScoreService);
+  dataService = inject(DataService);
   numberOfTopics: number;
-  numberOfQuestionsPerTopic = [1, 2, 3];
+  possibleNumberOfQuestionsPerTopic = [1, 2, 3];
   iNumberOfQuestions = 0;
+  progressRatio = computed(() => this.dataService.questionNumber() / this.possibleNumberOfQuestionsPerTopic[this.iNumberOfQuestions] / this.numberOfTopics)
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private dataService: DataService
   ) {
     this.numberOfTopics = this.dataService.getNumberOfTopics();
     this.route.firstChild?.queryParams.subscribe(queryParams => {
@@ -42,13 +44,17 @@ export class QuizComponent {
     })
   }
 
+  calculateProgressPercentage() {
+
+  }
+
   adjustNumberOfQuestions(c: number) {
     this.iNumberOfQuestions += c;
   }
 
   start() {
-    this.dataService.startQuiz(this.numberOfQuestionsPerTopic[this.iNumberOfQuestions]);
-    this.dataService.next(this.router, this.questionNumber + 1);
+    this.dataService.startQuiz(this.possibleNumberOfQuestionsPerTopic[this.iNumberOfQuestions]);
+    this.dataService.next(this.router);
   }
 
   goToBegining() {

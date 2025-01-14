@@ -10,10 +10,12 @@
       <
     </button>
     Nombre de questions :
-    {{ numberOfQuestionsPerTopic[iNumberOfQuestions] * numberOfTopics }}
+    {{ possibleNumberOfQuestionsPerTopic[iNumberOfQuestions] * numberOfTopics }}
     <button
       (click)="adjustNumberOfQuestions(1)"
-      [disabled]="iNumberOfQuestions == numberOfQuestionsPerTopic.length - 1"
+      [disabled]="
+        iNumberOfQuestions == possibleNumberOfQuestionsPerTopic.length - 1
+      "
     >
       >
     </button>
@@ -26,6 +28,17 @@
       Commencer une nouvelle série de questions ?
     </button>
   } @else {
+    <p>
+      {{ progressRatio() | percent }}
+    </p>
+    <div class="progress-bar">
+      <div
+        class="progress-bar-fill"
+        [ngStyle]="{
+          'width.%': progressRatio() * 100,
+        }"
+      ></div>
+    </div>
     <router-outlet></router-outlet>
   }
 </div>

@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, signal } from "@angular/core";
 import { quizData } from "./app.component";
 import { Router } from "@angular/router";
 
@@ -58,6 +58,7 @@ class TopicsQueue {
   }
 
   rebuildQueue() {
+    this.topics = [];
     this.topicsCycle.forEach((n, i) => { // n = occurrences, i = index
       this.topics.push(...Array(n).fill(this.possibleTopics[i * this.numberOfQuestionsPerCycle]));
     });
@@ -88,6 +89,7 @@ export class DataService {
   public quiz_segment_topics_queue;
   quiz_segments = quizData["questions"];
   quiz_segment_pool: Record<string, RandomizedIndexQueue> = {}
+  questionNumber = signal(0);
 
   constructor() {
     this.quiz_segment_topics_queue = new TopicsQueue(quizData["question_topics"], quizData["question_cycle"]);
@@ -98,6 +100,7 @@ export class DataService {
   }
 
   startQuiz(nQuestions: number) {
+    this.questionNumber.set(0);
     this.quiz_segment_topics_queue.initialize(nQuestions);
   }
 
@@ -110,10 +113,11 @@ export class DataService {
     return this.quiz_segments[question_topic][question_id];
   }
 
-  next(router: Router, questionNumber: number) {
+  next(router: Router) {
     if (!this.quiz_segment_topics_queue.isEmpty()) {
       const quizSegment = this.getNewQuestionHash();
-      router.navigate(["quiz", questionNumber.toString()], {
+      this.questionNumber.update(n => n + 1);
+      router.navigate(["quiz", this.questionNumber().toString()], {
         queryParams: { theme: quizSegment[0], theme_id: quizSegment[1], answered: false },
       });
     } else {

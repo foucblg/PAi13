@@ -72,7 +72,7 @@ export class QuizCardComponent {
   }
 
   goToNext() {
-    this.dataService.next(this.router, this.questionNumber + 1);
+    this.dataService.next(this.router);
   }
 
   getAnswer() {
@@ -91,12 +91,12 @@ export class QuizCardComponent {
 
   verifyAnswer() {
     const userAnswers = this.getAnswer();
-    const realAnswers: number[] = this.quiz_segment!.answers;
+    const realAnswers: number[] = this.quiz_segment!.true_answers;
     if (Object.keys(userAnswers).length === 0) {
       return "empty"
     }
 
-    for (let index = 0; index < this.quiz_segment!.choices.length; index++) {
+    for (let index = 0; index < this.quiz_segment!.possible_answers.length; index++) {
       const indexIsAnswer = realAnswers.includes(index);
       if (indexIsAnswer !== Boolean(userAnswers[index])) { // logical XOR
         return "false";

@@ -3,12 +3,12 @@
     <h1>Quiz inclusivité</h1>
     <p>Bienvenue sur le Quiz Inclusivité de la Métropole de Lyon.</p>
     <p>Concevons nos services numériques pour tout le monde !</p>
-    <button
+    <p-button
       (click)="adjustNumberOfQuestions(-1)"
       [disabled]="iNumberOfQuestions == 0"
     >
       <
-    </button>
+    </p-button>
     Nombre de questions :
     {{ possibleNumberOfQuestionsPerTopic[iNumberOfQuestions] * numberOfTopics }}
     <button

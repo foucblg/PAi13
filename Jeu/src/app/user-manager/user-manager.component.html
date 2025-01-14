@@ -1,0 +1,38 @@
+<div>
+    <p>Users</p>
+    <button (click)="addUser()">Add User</button>
+</div>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>-
+            </tr>
+        </thead>
+        <tbody>
+                @for (user of service.getUsers(); track $index)
+                {
+                    <tr>
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>
+                        <button (click)="editUser(user)">Edit</button>
+                        <button (click)="deleteUser(user)">Delete</button>
+                    </td>
+                    </tr>
+                }
+                @if (is_adding_user){
+                    <tr>
+                    <td><input type="text" [(ngModel)]="nameInput" placeholder="Entrez un texte"></td>
+                    <td><input type="text" [(ngModel)]="mailInput" placeholder="Entrez un texte"></td>
+                    <td>
+                        <button (click)="saveUser(nameInput, mailInput)">Save</button>
+                        <button (click)="cancelAddUser()">Cancel</button>
+                    </td>
+                    </tr>
+                }
+        </tbody>
+    </table>
+</div>

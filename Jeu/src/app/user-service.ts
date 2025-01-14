@@ -2,8 +2,8 @@ import { Injectable } from "@angular/core";
 import { FormArray, FormGroup } from "@angular/forms";
 
 class User {
-    private name: string;
-    private email: string;
+    name: string;
+    email: string;
     private tasks : Task[];
     constructor(name: string, email: string) {
         this.name = name;
@@ -43,20 +43,17 @@ export class UserService {
         this.users = [];
     }
 
-    setUsers(array_users: FormArray<any>) {
-        this.users = [];
-        for (const userControl of array_users.controls) {
-            if (userControl instanceof FormGroup) {
-                const name = userControl.get('name')?.value;
-                const email = userControl.get('email')?.value;
-                this.users.push(new User(name, email));
-            }
-        }
-        console.log(this.users)
+    addUser(name: string, email: string) {
+        this.users.push(new User(name, email));
     }
 
     getUsers(){
         return this.users
     }
+
+    deleteUser(user: User) {
+        this.users = this.users.filter((e) => e !== user);
+    }
+
 
 }

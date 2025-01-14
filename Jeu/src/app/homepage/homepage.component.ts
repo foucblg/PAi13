@@ -3,8 +3,6 @@ import {Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
-  standalone: true,
-  imports: [],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
 })

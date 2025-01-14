@@ -1,0 +1,49 @@
+.green-card-selected {
+    background-color: #8bc34a; /* Vert clair */
+    width: 250px; /* Taille du bouton */
+    height: 70px;
+    color: rgb(0, 0, 0); /* Texte noir */
+    padding: 10px 20px; /* Espacement interne */
+    border-radius: 8px; /* Coins arrondis */
+    border: 2px solid #388e3c; /* Bordure vert foncé */
+    border-width: 10px; /* Taille de la bordure */
+    font-size: 16px; /* Taille de texte */
+    font-weight: bold; /* Permet de mettre le texte en gras */
+}
+
+.green-card-nselected {
+    background-color: #ffffff; /* Vert clair */
+    width: 250px; /* Taille du bouton */
+    height: 70px;
+    color: rgb(0, 0, 0); /* Texte noir */
+    padding: 10px 20px; /* Espacement interne */
+    border-radius: 8px; /* Coins arrondis */
+    border: 2px solid #99c468; /* Bordure vert clair */
+    font-size: 16px; /* Taille de texte */
+    cursor: pointer; /* Curseur en forme de main au survol */
+}
+
+.red-card-selected {
+    background-color: #c35c4a; /* Rouge clair */
+    width: 250px; /* Taille du bouton */
+    height: 70px;
+    color: rgb(0, 0, 0); /* Texte noir */
+    padding: 10px 20px; /* Espacement interne */
+    border-radius: 8px; /* Coins arrondis */
+    border: 2px solid #911d1d; /* Bordure Rouge foncé */
+    border-width: 10px; /* Taille de la bordure */
+    font-size: 16px; /* Taille de texte */
+    font-weight: bold; /* Permet de mettre le texte en gras */
+}
+
+.red-card-nselected {
+    background-color: #ffffff; /* Vert clair */
+    width: 250px; /* Taille du bouton */
+    height: 70px;
+    color: rgb(0, 0, 0); /* Texte noir */
+    padding: 10px 20px; /* Espacement interne */
+    border-radius: 8px; /* Coins arrondis */
+    border: 2px solid #c35c4a; /* Bordure rouge clair */
+    font-size: 16px; /* Taille de texte */
+    cursor: pointer; /* Curseur en forme de main au survol */
+}

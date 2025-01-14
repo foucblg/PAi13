@@ -1,10 +1,9 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../../quiz-service';
 import { QuizSegment } from '../../app.component';
 import { AnswerBoxComponent } from './answer-box/answer-box.component';
 import { FormGroup } from '@angular/forms';
-import { ScoreService } from '../score-service';
+import { ProgressService } from '../progress-service';
 
 
 @Component({
@@ -20,59 +19,11 @@ export class QuizCardComponent {
   answered = false;
   theme: string = "";
   answerForm = new FormGroup({});
-  scoreService = inject(ScoreService);
-
-
-
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private dataService: DataService
-  ) { }
+  dataService = inject(DataService);
+  progressService = inject(ProgressService);
 
   ngOnInit() {
-    this.route.queryParams.subscribe(queryParams => {
-      if (queryParams['answered']) {
-        this.answered = queryParams['answered'] === 'true';
-      }
-      if (queryParams['theme']) {
-        this.theme = queryParams['theme'];
-      }
-      if (queryParams['theme_id']) {
-        this.quiz_segment = this.dataService.getSpecificQuestion(this.theme, +queryParams['theme_id']);
-      }
-    });
-    this.route.params.subscribe(params => {
-      if (params["question-number"]) {
-        this.questionNumber = + params["question-number"];
-      }
-    })
-  }
-
-
-
-  answer() {
-    switch (this.verifyAnswer()) {
-      case "true":
-        this.scoreService.addToScore(1);
-        break;
-
-      case "empty":
-        alert("Choisir au moins une réponse");
-        return;
-    }
-    this.router.navigate(
-      [],
-      {
-        relativeTo: this.route,
-        queryParams: { answered: true },
-        queryParamsHandling: 'merge', // remove to replace all query params by provided
-      }
-    );
-  }
-
-  goToNext() {
-    this.dataService.next(this.router);
+    this.quiz_segment = this.dataService.getSpecificQuestion(this.progressService.theme(), this.progressService.theme_id());
   }
 
   getAnswer() {

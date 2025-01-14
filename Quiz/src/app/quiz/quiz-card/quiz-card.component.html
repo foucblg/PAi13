@@ -3,7 +3,7 @@
     <span>{{ theme }}</span>
   </div>
   <h1>{{ quiz_segment?.question }}</h1>
-  @if (!answered && quiz_segment != undefined) {
+  @if (!progressService.answered() && quiz_segment != undefined) {
     <div class="main-content-box">
       <app-answer-box
         [quiz_segment]="quiz_segment"
@@ -12,7 +12,9 @@
       ></app-answer-box>
     </div>
     <div class="next">
-      <button class="button-4" (click)="answer()">Répondre</button>
+      <button class="button-4" (click)="progressService.answer(verifyAnswer())">
+        Répondre
+      </button>
     </div>
   } @else {
     <div class="main-content-box">
@@ -26,7 +28,9 @@
       </p>
     </div>
     <div class="next">
-      <button class="next button-4" (click)="goToNext()">Suivant</button>
+      <button class="next button-4" (click)="progressService.goToNext()">
+        Suivant
+      </button>
     </div>
   }
 </div>

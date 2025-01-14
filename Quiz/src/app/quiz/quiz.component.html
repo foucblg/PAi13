@@ -1,5 +1,5 @@
 <div>
-  @if (questionNumber === 0) {
+  @if (progressService.questionNumber() === 0) {
     <h1>Quiz inclusivité</h1>
     <p>Bienvenue sur le Quiz Inclusivité de la Métropole de Lyon.</p>
     <p>Concevons nos services numériques pour tout le monde !</p>
@@ -19,23 +19,34 @@
     >
       >
     </button>
-    <button (click)="start()">Commencer</button>
-  } @else if (hasEnded) {
+    <button
+      (click)="
+        progressService.start(
+          possibleNumberOfQuestionsPerTopic[iNumberOfQuestions]
+        )
+      "
+    >
+      Commencer
+    </button>
+  } @else if (progressService.hasEnded()) {
     <h3>Bien joué !</h3>
     <p>Vous avez fini votre salve de question, mais il en reste encore.</p>
-    <p>Score : {{ scoreService.score }} / {{ questionNumber }}</p>
-    <button (click)="goToBegining()">
+    <p>
+      Score : {{ progressService.score() }} /
+      {{ progressService.questionNumber() }}
+    </p>
+    <button (click)="progressService.goToBegining()">
       Commencer une nouvelle série de questions ?
     </button>
   } @else {
     <p>
-      {{ progressRatio() | percent }}
+      {{ progressService.progressRatio() | percent }}
     </p>
     <div class="progress-bar">
       <div
         class="progress-bar-fill"
         [ngStyle]="{
-          'width.%': progressRatio() * 100,
+          'width.%': progressService.progressRatio() * 100,
         }"
       ></div>
     </div>

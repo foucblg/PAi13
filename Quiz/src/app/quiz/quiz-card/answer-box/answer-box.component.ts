@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { QuizSegment } from '../../../app.component';
-import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-answer-box',

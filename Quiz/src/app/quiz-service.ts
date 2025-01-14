@@ -80,6 +80,10 @@ class TopicsQueue {
   getPossibleTopics() {
     return this.possibleTopics;
   }
+
+  getNumberOfQuestions() {
+    return this.topicsCycle.length * this.numberOfQuestionsPerCycle;
+  }
 }
 
 @Injectable({
@@ -90,6 +94,8 @@ export class DataService {
   quiz_segments = quizData["questions"];
   quiz_segment_pool: Record<string, RandomizedIndexQueue> = {}
   questionNumber = signal(0);
+  hasEnded = signal(false);
+  numberOfQuestions = signal(0);
 
   constructor() {
     this.quiz_segment_topics_queue = new TopicsQueue(quizData["question_topics"], quizData["question_cycle"]);
@@ -101,7 +107,9 @@ export class DataService {
 
   startQuiz(nQuestions: number) {
     this.questionNumber.set(0);
+    this.hasEnded.set(false);
     this.quiz_segment_topics_queue.initialize(nQuestions);
+    this.numberOfQuestions.set(this.quiz_segment_topics_queue.getNumberOfQuestions());
   }
 
   getNewQuestionHash() {
@@ -113,17 +121,8 @@ export class DataService {
     return this.quiz_segments[question_topic][question_id];
   }
 
-  next(router: Router) {
-    if (!this.quiz_segment_topics_queue.isEmpty()) {
-      const quizSegment = this.getNewQuestionHash();
-      this.questionNumber.update(n => n + 1);
-      router.navigate(["quiz", this.questionNumber().toString()], {
-        queryParams: { theme: quizSegment[0], theme_id: quizSegment[1], answered: false },
-      });
-    } else {
-      this.quiz_segment_topics_queue.rebuildQueue();
-      router.navigate(["quiz", "end"]);
-    }
+  isFinished() {
+    return this.quiz_segment_topics_queue.isEmpty();
   }
   getNumberOfTopics() {
     return this.quiz_segment_topics_queue.getPossibleTopics().length;

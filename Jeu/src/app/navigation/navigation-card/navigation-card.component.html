@@ -1,0 +1,6 @@
+<h2>{{texte[card_number].categorie}} </h2>
+<h3>{{texte[card_number].nom}}</h3>
+<p>{{texte[card_number].question}}</p>
+<button (click)="onAnswer(true)" [disabled]="card_answer" [class]="card_answer ? 'green-card-selected' : 'green-card-nselected'">Oui !</button>
+<br>
+<button (click)="onAnswer(false)" [class]="card_answer ? 'red-card-nselected' : 'red-card-selected'" [disabled]="!card_answer">Pas tout à fait</button>

@@ -2,6 +2,7 @@
 
     <div class="theme-indicator" style="margin-right: 10px;">
         <app-theme-indicator [cat]="cat">
+        <app-theme-indicator [cat]="cat">
         </app-theme-indicator>
       </div>
 
@@ -10,6 +11,8 @@
       <app-navigbutton 
         [avance]="false" 
         [currentNumber]="currentNumber"
+        (cardChange)="currentNumber = $event"
+        (catChange)="cat = $event">
         (cardChange)="currentNumber = $event"
         (catChange)="cat = $event">
       </app-navigbutton>
@@ -23,11 +26,20 @@
     </div>
   
 
+    <div class="card">
+      <app-navigcard
+        [card_number]="currentNumber">
+      </app-navigcard>
+    </div>
+  
+
     <!-- Next Button -->
     <div class="bouton-next" style="margin-left: 10px;">
       <app-navigbutton 
         [avance]="true" 
         [currentNumber]="currentNumber"
+        (cardChange)="currentNumber = $event"
+        (catChange)="cat = $event">
         (cardChange)="currentNumber = $event"
         (catChange)="cat = $event">
       </app-navigbutton>

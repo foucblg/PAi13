@@ -6,10 +6,11 @@ import { DataService } from '../../../shared/services/quiz-service';
 import { QuizSegment } from '../../../shared/types/interfaces';
 import { Answer } from '../../../shared/types/enums';
 import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
 
 @Component({
   selector: 'app-quiz-card',
-  imports: [AnswerBoxComponent, ButtonModule],
+  imports: [AnswerBoxComponent, ButtonModule, DialogModule],
   templateUrl: './quiz-card.component.html',
   styleUrl: './quiz-card.component.css'
 })
@@ -22,6 +23,7 @@ export class QuizCardComponent {
   dataService = inject(DataService);
   progressService = inject(ProgressService);
   answerType = Answer;
+  dialogVisible = false;
   ngOnInit() {
     this.quiz_segment = this.dataService.getSpecificQuestion(this.progressService.theme(), this.progressService.theme_id());
   }
@@ -44,6 +46,7 @@ export class QuizCardComponent {
     const userAnswers = this.getAnswer();
     const realAnswers: number[] = this.quiz_segment!.true_answers;
     if (Object.keys(userAnswers).length === 0) {
+      this.dialogVisible = true;
       return Answer.Empty;
     }
 

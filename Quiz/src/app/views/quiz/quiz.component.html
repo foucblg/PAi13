@@ -1,33 +1,6 @@
 <div>
   @if (progressService.questionNumber() === 0) {
-    <h1>Quiz inclusivité</h1>
-    <p>Bienvenue sur le Quiz Inclusivité de la Métropole de Lyon.</p>
-    <p>Concevons nos services numériques pour tout le monde !</p>
-    <p-button
-      (click)="adjustNumberOfQuestions(-1)"
-      [disabled]="iNumberOfQuestions == 0"
-    >
-      <
-    </p-button>
-    Nombre de questions :
-    {{ possibleNumberOfQuestionsPerTopic[iNumberOfQuestions] * numberOfTopics }}
-    <p-button
-      (click)="adjustNumberOfQuestions(1)"
-      [disabled]="
-        iNumberOfQuestions == possibleNumberOfQuestionsPerTopic.length - 1
-      "
-    >
-      >
-    </p-button>
-    <p-button
-      (click)="
-        progressService.start(
-          possibleNumberOfQuestionsPerTopic[iNumberOfQuestions]
-        )
-      "
-    >
-      Commencer
-    </p-button>
+    <app-quiz-homepage></app-quiz-homepage>
   } @else if (progressService.hasEnded()) {
     <h3>Bien joué !</h3>
     <p>Vous avez fini votre salve de question, mais il en reste encore.</p>

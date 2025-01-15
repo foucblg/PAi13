@@ -7,28 +7,16 @@ import { ButtonModule } from 'primeng/button';
 import { ProgressBarModule } from 'primeng/progressbar';
 // For dynamic progressbar demo
 import { ToastModule } from 'primeng/toast';
+import { QuizHomepageComponent } from './quiz-homepage/quiz-homepage.component';
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.css',
-  imports: [RouterOutlet, CommonModule, ButtonModule, ToastModule, ProgressBarModule]
+  imports: [RouterOutlet, CommonModule, ButtonModule, ToastModule, ProgressBarModule, QuizHomepageComponent]
 })
 
 export class QuizComponent {
   progressService = inject(ProgressService);
   dataService = inject(DataService);
-  numberOfTopics: number;
-  possibleNumberOfQuestionsPerTopic = [1, 2, 3];
-  iNumberOfQuestions = 0;
-
-  constructor(
-  ) {
-    this.numberOfTopics = this.dataService.getNumberOfTopics();
-    this.progressService.goToBegining();
-  }
-
-  adjustNumberOfQuestions(c: number) {
-    this.iNumberOfQuestions += c;
-  }
 
 }

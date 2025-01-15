@@ -1,0 +1,43 @@
+<div>
+  <h1>Quiz</h1>
+  <h2>Concevons nos services numériques pour tout le monde</h2>
+  <p>Bienvenue sur le quiz du jeu Inclusif, le jeu.</p>
+  <p>
+    Ce quiz vous permet d'aborder de manière ludique les problèmes liés à
+    l'inclusivité.
+  </p>
+</div>
+<p-divider />
+<div>
+  <p-panel>
+    <p>Nombre de questions :</p>
+    <p-button
+      (click)="adjustNumberOfQuestions(-1)"
+      [disabled]="iNumberOfQuestions == 0"
+    >
+      <
+    </p-button>
+    <p>
+      {{
+        possibleNumberOfQuestionsPerTopic[iNumberOfQuestions] * numberOfTopics
+      }}
+    </p>
+    <p-button
+      (click)="adjustNumberOfQuestions(1)"
+      [disabled]="
+        iNumberOfQuestions == possibleNumberOfQuestionsPerTopic.length - 1
+      "
+    >
+      >
+    </p-button>
+  </p-panel>
+  <p-button
+    (click)="
+      progressService.start(
+        possibleNumberOfQuestionsPerTopic[iNumberOfQuestions]
+      )
+    "
+  >
+    Commencer
+  </p-button>
+</div>

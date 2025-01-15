@@ -60,14 +60,11 @@ export class ProgressService {
   }
 
   answer(ans: Answer) {
-    switch (ans) {
-      case Answer.True:
-        this.score.update(s => s + 1);
-        break;
-
-      case Answer.Empty:
-        alert("Choisir au moins une réponse");
-        return;
+    if (ans === Answer.Empty) {
+      return;
+    }
+    if (ans === Answer.True) {
+      this.score.update(s => s + 1);
     }
     this.answered.set(true);
     this.router.navigate(

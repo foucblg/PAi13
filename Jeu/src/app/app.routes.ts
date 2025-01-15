@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { HomepageComponent} from './homepage/homepage.component'
+import { HomepageComponent } from './homepage/homepage.component'
 import { ContexteComponent } from './contexte/contexte.component';
 import { RulesComponent } from './rules/rules.component';
 import { RulesAnalysisComponent } from './rules-analysis/rules-analysis.component';

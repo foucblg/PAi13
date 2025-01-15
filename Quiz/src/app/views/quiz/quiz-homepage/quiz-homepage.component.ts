@@ -4,10 +4,12 @@ import { DataService } from '../../../shared/services/quiz-service';
 import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
 import { PanelModule } from 'primeng/panel';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { BlockUIModule } from 'primeng/blockui';
 
 @Component({
   selector: 'app-quiz-homepage',
-  imports: [ButtonModule, DividerModule, PanelModule],
+  imports: [ButtonModule, DividerModule, PanelModule, InputNumberModule, BlockUIModule],
   templateUrl: './quiz-homepage.component.html',
   styleUrl: './quiz-homepage.component.css'
 })

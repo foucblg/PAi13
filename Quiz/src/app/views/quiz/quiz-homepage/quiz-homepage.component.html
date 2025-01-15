@@ -9,28 +9,30 @@
 </div>
 <p-divider />
 <div>
-  <p-panel>
-    <p>Nombre de questions :</p>
+  <div class="flex flex-wrap gap-4">
+    <p class="flex m-12 text-red-500">Nombre de questions :</p>
     <p-button
+      class="flex"
       (click)="adjustNumberOfQuestions(-1)"
       [disabled]="iNumberOfQuestions == 0"
     >
-      <
+      -
     </p-button>
-    <p>
+    <p class="flex">
       {{
         possibleNumberOfQuestionsPerTopic[iNumberOfQuestions] * numberOfTopics
       }}
     </p>
     <p-button
+      class="flex"
       (click)="adjustNumberOfQuestions(1)"
       [disabled]="
         iNumberOfQuestions == possibleNumberOfQuestionsPerTopic.length - 1
       "
     >
-      >
+      +
     </p-button>
-  </p-panel>
+  </div>
   <p-button
     (click)="
       progressService.start(

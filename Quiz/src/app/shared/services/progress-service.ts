@@ -22,7 +22,7 @@ export class ProgressService {
     this.score.set(0);
     this.questionNumber.set(0);
     this.hasEnded.set(false);
-    this.router.navigate(["quiz", "0"], { onSameUrlNavigation: 'ignore' });
+    this.router.navigate(["quiz", "accueil"], { onSameUrlNavigation: 'ignore' });
   }
 
   start(nQuestions: number) {

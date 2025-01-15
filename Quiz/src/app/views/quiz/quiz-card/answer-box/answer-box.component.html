@@ -1,24 +1,20 @@
 @if (answered === false && answerForm != undefined) {
-  <form [formGroup]="answerForm" class="answer-box">
+  <form [formGroup]="answerForm" class="anwer-box">
     @if (quiz_segment?.question_type === "QCM") {
       <p>Plusieurs réponses possibles</p>
       @for (choice of quiz_segment?.possible_answers; track $index) {
-        <div class="answer-choice">
-          <label>
-            <p-checkbox [formControlName]="$index" />
-            {{ choice }}
-          </label>
-        </div>
+        <label class="answer-choice">
+          <p-checkbox [formControlName]="$index" />
+          {{ choice }}
+        </label>
       }
     } @else if (quiz_segment?.question_type === "QCU") {
       <p>Une seule réponse possible</p>
       @for (choice of quiz_segment?.possible_answers; track $index) {
-        <div class="answer-choice">
-          <label>
-            <p-radiobutton [value]="$index" [formControlName]="'QCU'" />
-            {{ choice }}
-          </label>
-        </div>
+        <label class="answer-choice">
+          <p-radiobutton [value]="$index" [formControlName]="'QCU'" />
+          {{ choice }}
+        </label>
       }
     }
   </form>

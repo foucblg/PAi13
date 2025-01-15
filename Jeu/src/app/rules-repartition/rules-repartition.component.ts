@@ -3,7 +3,6 @@ import {Router } from '@angular/router';
 
 @Component({
   selector: 'app-rules-repartition',
-  standalone: true,
   imports: [],
   templateUrl: './rules-repartition.component.html',
   styleUrl: './rules-repartition.component.css'

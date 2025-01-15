@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { UserService } from '../user-service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-user-manager',
   templateUrl: './user-manager.component.html',
   styleUrls: ['./user-manager.component.css'],
-  standalone: false
+  imports: [FormsModule],
 })
 export class UserManagerComponent {
 

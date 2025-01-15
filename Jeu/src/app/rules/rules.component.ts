@@ -3,7 +3,6 @@ import {Router } from '@angular/router';
 
 @Component({
   selector: 'app-rules',
-  standalone: true,
   imports: [],
   templateUrl: './rules.component.html',
   styleUrl: './rules.component.css'

@@ -59,8 +59,9 @@ class TopicsQueue {
   rebuildQueue() {
     this.topics = [];
     this.topicsCycle.forEach((n, i) => { // n = occurrences, i = index
-      this.topics.push(...Array(n).fill(this.possibleTopics[i * this.numberOfQuestionsPerCycle]));
+      this.topics.push(...Array(n * this.numberOfQuestionsPerCycle).fill(this.possibleTopics[i]));
     });
+    console.log(this.topics)
   }
 
   initialize(nQuestions: number) {
@@ -113,6 +114,7 @@ export class DataService {
 
   getNewQuestionHash() {
     const question_topic = this.quiz_segment_topics_queue.deqeue();
+    console.log(question_topic);
     return [question_topic, this.quiz_segment_pool[question_topic!].dequeueIndex()];
   }
 

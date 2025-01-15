@@ -24,6 +24,7 @@ export class QuizComponent {
   constructor(
   ) {
     this.numberOfTopics = this.dataService.getNumberOfTopics();
+    this.progressService.goToBegining();
   }
 
   adjustNumberOfQuestions(c: number) {

@@ -39,9 +39,6 @@
       Commencer une nouvelle série de questions ?
     </p-button>
   } @else {
-    <p>
-      {{ progressService.progressRatio() | percent }}
-    </p>
     <p-progressbar [value]="progressService.progressRatio() * 100" />
     <router-outlet></router-outlet>
   }

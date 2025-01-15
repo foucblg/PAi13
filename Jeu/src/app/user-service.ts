@@ -55,5 +55,10 @@ export class UserService {
         this.users = this.users.filter((e) => e !== user);
     }
 
+    editUser(user: User, name: string, email: string) {
+        user.name = name;
+        user.email = email;
+    }
+
 
 }

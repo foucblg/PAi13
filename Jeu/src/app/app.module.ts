@@ -6,10 +6,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import {RouterOutlet } from '@angular/router';
 import { ContexteComponent } from './contexte/contexte.component';
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
   declarations: [
+    AppComponent,
     UserManagerComponent,
     NavbarComponent,
     HomepageComponent,
@@ -18,8 +21,10 @@ import { ContexteComponent } from './contexte/contexte.component';
   imports: [
     FormsModule,
     RouterOutlet,
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
-  bootstrap: [],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

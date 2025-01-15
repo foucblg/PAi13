@@ -13,15 +13,25 @@
         </thead>
         <tbody>
                 @for (user of service.getUsers(); track $index)
-                {
-                    <tr>
-                    <td>{{user.name}}</td>
-                    <td>{{user.email}}</td>
+                {   @if (is_editing_user && user == user_to_edit){
+                        <tr>
+                        <td><input type="text" [(ngModel)]="nameEdit"></td>
+                        <td><input type="text" [(ngModel)]="mailEdit"></td>
+                        <td>
+                            <button (click)="saveEditUser(user, nameEdit, mailEdit)">Save</button>
+                            <button (click)="cancelEditUser()">Cancel</button>
+                        </td>
+                        </tr>
+                    }
+                    @else
+                    {<tr>
+                        <td><input type="text" placeholder="{{user.name}}" disabled></td>
+                        <td><input type="text" placeholder="{{user.email}}" disabled></td>
                     <td>
                         <button (click)="editUser(user)">Edit</button>
                         <button (click)="deleteUser(user)">Delete</button>
                     </td>
-                    </tr>
+                    </tr>}
                 }
                 @if (is_adding_user){
                     <tr>

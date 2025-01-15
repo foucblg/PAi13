@@ -1,6 +1,13 @@
 <div>
   <h1>Timer</h1>
-  @if (time>0){<p>Temps écoulé : {{ formatTime(time) }}</p>}
-  @else {<p class="red_txt">Temps écoulé : {{ formatTime(-time) }}</p>}
+  @if (time() > 0) {
+    <p>Temps écoulé : {{ time() * 1000 | date: "HH:mm:ss" : "UTC" }}</p>
+  } @else {
+    <p class="red_txt">
+      Temps dépensé : {{ timeInput() * 1000 | date: "HH:mm:ss" : "UTC" }}
+    </p>
+  }
+  <button (click)="start()">Start</button>
+  <button (click)="stop()">Stop</button>
   <button (click)="resetTimer()">Réinitialiser</button>
 </div>

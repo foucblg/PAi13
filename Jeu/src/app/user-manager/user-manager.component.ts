@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-user-manager',
   templateUrl: './user-manager.component.html',
   styleUrls: ['./user-manager.component.css'],
+  standalone: true,
   imports: [FormsModule],
 })
 export class UserManagerComponent {
@@ -38,7 +39,7 @@ export class UserManagerComponent {
     this.mailEdit = "";
   }
 
-  saveEditUser(user:any, name: string, email: string) {
+  saveEditUser(user: any, name: string, email: string) {
     this.service.editUser(user, name, email)
     this.is_editing_user = false;
     this.user_to_edit = null;
@@ -52,7 +53,7 @@ export class UserManagerComponent {
     console.log(this.service.getUsers())
   }
 
-  saveUser(name : string, email : string) {
+  saveUser(name: string, email: string) {
     this.service.addUser(name, email)
     console.log(this.service.getUsers())
     this.nameInput = "";

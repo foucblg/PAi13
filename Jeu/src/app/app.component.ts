@@ -15,7 +15,8 @@ import { FormsModule } from '@angular/forms';
     RouterOutlet,
     UserManagerComponent,
     TimerComponent
-  ]
+  ],
+  standalone: true,
 })
 export class AppComponent {
   title = 'Jeu';

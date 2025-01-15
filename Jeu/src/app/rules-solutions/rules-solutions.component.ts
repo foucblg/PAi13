@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
-import {Router } from '@angular/router';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-rules-solutions',
   imports: [],
   templateUrl: './rules-solutions.component.html',
-  styleUrl: './rules-solutions.component.css'
+  styleUrl: './rules-solutions.component.css',
+  standalone: true,
 })
 export class RulesSolutionsComponent {
-  constructor(private router:Router) {}
-        continuer(){
-          this.router.navigate(['./rules_conclusion'])
-        }
+  constructor(private router: Router) { }
+  continuer() {
+    this.router.navigate(['./rules_conclusion'])
+  }
 }

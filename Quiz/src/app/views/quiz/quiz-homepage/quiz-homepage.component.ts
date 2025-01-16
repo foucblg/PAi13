@@ -6,10 +6,12 @@ import { DividerModule } from 'primeng/divider';
 import { PanelModule } from 'primeng/panel';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { BlockUIModule } from 'primeng/blockui';
+import { ImageModule } from 'primeng/image';
+
 
 @Component({
   selector: 'app-quiz-homepage',
-  imports: [ButtonModule, DividerModule, PanelModule, InputNumberModule, BlockUIModule],
+  imports: [ButtonModule, DividerModule, PanelModule, InputNumberModule, BlockUIModule, ImageModule],
   templateUrl: './quiz-homepage.component.html',
   styleUrl: './quiz-homepage.component.css'
 })

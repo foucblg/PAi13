@@ -1,0 +1,23 @@
+.progress {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: fit-content(100%) auto;
+  column-gap: 2%;
+  row-gap: 0%;
+  align-items: center;
+  color: var(--metropole-red);
+}
+
+.progress-bar {
+  --p-progressbar-background: var(--metropole-gray);
+  --p-progressbar-value-background: var(--metropole-red);
+  --p-progressbar-label-font-size: 0;
+  --p-progressbar-height: 1vh;
+}
+
+.question-text {
+  grid-column-start: 2;
+  padding: 0 0 0 2%;
+  margin: 0;
+}

@@ -12,10 +12,16 @@
       Commencer une nouvelle série de questions ?
     </p-button>
   } @else {
-    <p-progressbar
-      class="progress-bar"
-      [value]="progressService.progressRatio()"
-    />
+    <div class="progress">
+      <p class="question-text">
+        {{ "Question " + progressService.questionNumber() }}
+      </p>
+      <p>{{ progressService.progressRatio() + " %" }}</p>
+      <p-progressbar
+        class="progress-bar"
+        [value]="progressService.progressRatio()"
+      />
+    </div>
     <router-outlet></router-outlet>
   }
 </div>

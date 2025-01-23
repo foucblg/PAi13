@@ -22,6 +22,11 @@
         [value]="progressService.progressRatio()"
       />
     </div>
-    <router-outlet></router-outlet>
+    <app-quiz-card></app-quiz-card>
+    @if (!progressService.answered()) {
+      <p-button (click)="quizCard()?.answer()"> Répondre </p-button>
+    } @else {
+      <p-button (click)="progressService.goToNext()"> Suivant </p-button>
+    }
   }
 </div>

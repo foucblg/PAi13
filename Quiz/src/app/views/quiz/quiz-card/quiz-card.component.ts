@@ -59,5 +59,9 @@ export class QuizCardComponent {
     return Answer.True;
   }
 
+  answer() {
+    this.progressService.answer(this.verifyAnswer());
+  }
+
 }
 

@@ -12,7 +12,10 @@
       Commencer une nouvelle série de questions ?
     </p-button>
   } @else {
-    <p-progressbar [value]="progressService.progressRatio() * 100" />
+    <p-progressbar
+      class="progress-bar"
+      [value]="progressService.progressRatio()"
+    />
     <router-outlet></router-outlet>
   }
 </div>

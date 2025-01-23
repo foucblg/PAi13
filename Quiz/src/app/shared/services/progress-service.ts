@@ -16,7 +16,7 @@ export class ProgressService {
   answered = signal(false);
   theme = signal("");
   theme_id = signal(0);
-  progressRatio = computed(() => this.questionNumber() / this.dataService.numberOfQuestions())
+  progressRatio = computed(() => this.questionNumber() / this.dataService.numberOfQuestions() * 100)
 
   goToBegining() {
     this.score.set(0);

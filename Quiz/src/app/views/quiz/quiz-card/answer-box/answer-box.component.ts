@@ -20,6 +20,10 @@ export class AnswerBoxComponent {
     this.populateForm();
   }
 
+  choiceHeader(i: number) {
+    return String.fromCharCode(65 + i);
+  }
+
   populateForm() {
     this.answerForm!.reset();
     if (this.quiz_segment!.question_type === "QCM") {

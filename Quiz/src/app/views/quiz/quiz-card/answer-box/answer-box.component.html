@@ -2,20 +2,23 @@
   <form [formGroup]="answerForm" class="anwer-box">
     @if (quiz_segment?.question_type === "QCM") {
       <p>Plusieurs réponses possibles</p>
-      @for (choice of quiz_segment?.possible_answers; track $index) {
-        <label class="answer-choice">
-          <p-checkbox [formControlName]="$index" />
-          {{ choice }}
-        </label>
-      }
     } @else if (quiz_segment?.question_type === "QCU") {
       <p>Une seule réponse possible</p>
-      @for (choice of quiz_segment?.possible_answers; track $index) {
-        <label class="answer-choice">
+    }
+    @for (choice of quiz_segment?.possible_answers; track $index) {
+      <label class="answer-choice">
+        @if (quiz_segment?.question_type === "QCM") {
+          <p-checkbox [formControlName]="$index" />
+        } @else if (quiz_segment?.question_type === "QCU") {
           <p-radiobutton [value]="$index" [formControlName]="'QCU'" />
+        }
+        <p class="choice-header">
+          {{ choiceHeader($index) }}
+        </p>
+        <p class="choice-text">
           {{ choice }}
-        </label>
-      }
+        </p>
+      </label>
     }
   </form>
 } @else {

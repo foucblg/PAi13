@@ -1,6 +1,6 @@
 <div class="card">
   <div class="theme">
-    <span>{{ theme }}</span>
+    <span>{{ progressService.theme() }}</span>
   </div>
   <h1>{{ quiz_segment?.question }}</h1>
   @if (!progressService.answered() && quiz_segment != undefined) {

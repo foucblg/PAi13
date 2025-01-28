@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Quiz": {
+    "Quiz2": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/quiz",
+            "outputPath": "dist/quiz2",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -59,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Quiz:build:production"
+              "buildTarget": "Quiz2:build:production"
             },
             "development": {
-              "buildTarget": "Quiz:build:development"
+              "buildTarget": "Quiz2:build:development"
             }
           },
           "defaultConfiguration": "development"

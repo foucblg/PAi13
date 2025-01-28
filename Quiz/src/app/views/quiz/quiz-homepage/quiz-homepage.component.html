@@ -14,8 +14,8 @@
 </div>
 <p-divider />
 <div>
-  <div class="flex flex-wrap gap-4">
-    <p class="flex m-12 text-red-500">Nombre de questions :</p>
+  <div class="">
+    <p class="">Nombre de questions :</p>
     <p-button
       class="flex"
       (click)="adjustNumberOfQuestions(-1)"
@@ -23,13 +23,13 @@
     >
       -
     </p-button>
-    <p class="flex">
+    <p class="">
       {{
         possibleNumberOfQuestionsPerTopic[iNumberOfQuestions] * numberOfTopics
       }}
     </p>
     <p-button
-      class="flex"
+      class=""
       (click)="adjustNumberOfQuestions(1)"
       [disabled]="
         iNumberOfQuestions == possibleNumberOfQuestionsPerTopic.length - 1

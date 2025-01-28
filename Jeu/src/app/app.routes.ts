@@ -11,7 +11,55 @@ export const routes: Routes = [
     ]
     },
     {path:'solutions', component: SolutionsComponent, children: [
-      { path: 'solutions', redirectTo: '0', pathMatch: 'full' }
+      //{ path: 'solutions', redirectTo: '0', pathMatch: 'full' }
   ]
   },
+  {path:'solution_2', component: SolutionsComponent, children: [
+    { path: 'solutions', redirectTo: '0', pathMatch: 'full' }
+]
+},
+{path:'solution_1', component: SolutionsComponent, children: [
+  { path: 'solutions', redirectTo: '0', pathMatch: 'full' }
+]
+},
+{path:'solution_3', component: SolutionsComponent, children: [
+  { path: 'solutions', redirectTo: '0', pathMatch: 'full' }
+]
+},
+{path:'solution_4', component: SolutionsComponent, children: [
+  { path: 'solutions', redirectTo: '0', pathMatch: 'full' }
+]
+},
+{path:'solution_5', component: SolutionsComponent, children: [
+{ path: 'solutions', redirectTo: '0', pathMatch: 'full' }
+]
+},
+{path:'solution_6', component: SolutionsComponent, children: [
+{ path: 'solutions', redirectTo: '0', pathMatch: 'full' }
+]
+},
+{path:'solution_7', component: SolutionsComponent, children: [
+  { path: 'solutions', redirectTo: '0', pathMatch: 'full' }
+]
+},
+{path:'solution_8', component: SolutionsComponent, children: [
+{ path: 'solutions', redirectTo: '0', pathMatch: 'full' }
+]
+},
+{path:'solution_9', component: SolutionsComponent, children: [
+{ path: 'solutions', redirectTo: '0', pathMatch: 'full' }
+]
+},
+{path:'solution_10', component: SolutionsComponent, children: [
+  { path: 'solutions', redirectTo: '0', pathMatch: 'full' }
+]
+},
+{path:'solution_11', component: SolutionsComponent, children: [
+{ path: 'solutions', redirectTo: '0', pathMatch: 'full' }
+]
+},
+{path:'solution_0', component: SolutionsComponent, children: [
+  { path: 'solutions', redirectTo: '0', pathMatch: 'full' }
+]
+},
 ];

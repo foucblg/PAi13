@@ -1,0 +1,33 @@
+<div class="navigation-container">
+
+    <!-- Theme Indicator -->
+    <div class="theme-indicator">
+      <app-theme-indicator [cat]="cat"></app-theme-indicator>
+    </div>
+  
+    <!-- Back Button -->
+    <div class="button-container">
+      <app-navigbutton 
+        [avance]="false" 
+        [currentNumber]="currentNumber"
+        (cardChange)="currentNumber = $event"
+        (catChange)="cat = $event">
+      </app-navigbutton>
+    </div>
+  
+    <!-- Card Number Display -->
+    <div class="card-display">
+      <app-navigcard [card_number]="currentNumber"></app-navigcard>
+    </div>
+  
+    <!-- Next Button -->
+    <div class="button-container">
+      <app-navigbutton 
+        [avance]="true" 
+        [currentNumber]="currentNumber"
+        (cardChange)="currentNumber = $event"
+        (catChange)="cat = $event">
+      </app-navigbutton>
+    </div>
+  
+  </div>

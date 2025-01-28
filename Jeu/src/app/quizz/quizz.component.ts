@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-quizz',
   standalone: true,
-  imports: [NavigbuttonComponent, ThemeIndicatorComponent, NavigcardComponent], // Add NavigationCardComponent here
+  imports: [NavigbuttonComponent, ThemeIndicatorComponent, NavigcardComponent],
   templateUrl: './quizz.component.html',
   styleUrls: ['./quizz.component.css'],
 })

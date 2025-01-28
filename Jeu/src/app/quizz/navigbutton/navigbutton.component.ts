@@ -3,6 +3,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { CardnumService } from '../cardnum.service';
 import { navigation_data } from '../../app.component';
+import { navigation_data2 } from '../../app.component';
+import {Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigbutton',
@@ -12,6 +14,7 @@ import { navigation_data } from '../../app.component';
   styleUrls: ['./navigbutton.component.css']
 })
 export class NavigbuttonComponent {
+  constructor(private router:Router) {}
   @Input() avance!: boolean;
   @Input() currentNumber: number = 0; // Input to control navigation
   @Input() cat!: string;
@@ -20,6 +23,9 @@ export class NavigbuttonComponent {
 
   constructor(private router: Router, private cardnumService: CardnumService) {}
 
+  GoToSol(): void {
+    this.router.navigate(['/solutions'], { queryParams: { numero: '0', awnsered: 'false' } });
+  }
   // Method to increment card number
   ChangeCard() {
     if (this.avance && this.currentNumber < navigation_data.data.length) {

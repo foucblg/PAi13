@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
+import { NavbarComponent } from './navbar/navbar.component';
 import { RouterOutlet } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  imports: [
+    NavbarComponent,
+    RouterOutlet
+]
 })
 export class AppComponent {
   title = 'Jeu';

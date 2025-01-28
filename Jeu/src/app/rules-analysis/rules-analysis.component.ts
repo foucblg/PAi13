@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import {Router } from '@angular/router';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-rules-analysis',
-  imports: [],
+  imports: [ButtonModule],
   templateUrl: './rules-analysis.component.html',
   styleUrl: './rules-analysis.component.css'
 })

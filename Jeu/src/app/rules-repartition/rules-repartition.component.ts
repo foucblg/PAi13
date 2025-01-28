@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import {Router } from '@angular/router';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-rules-repartition',
-  imports: [],
+  imports: [ButtonModule],
   templateUrl: './rules-repartition.component.html',
   styleUrl: './rules-repartition.component.css'
 })

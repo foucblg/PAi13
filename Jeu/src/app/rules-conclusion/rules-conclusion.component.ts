@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import {Router } from '@angular/router';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-rules-conclusion',
-  imports: [],
+  imports: [ButtonModule],
   templateUrl: './rules-conclusion.component.html',
   styleUrl: './rules-conclusion.component.css'
 })

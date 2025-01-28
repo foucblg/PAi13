@@ -1,19 +1,19 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { NavigbuttonComponent } from "./navigbutton/navigbutton.component";
+import { NavigationButtonComponent } from "./navigation-button/navigation-button.component";
 import { ThemeIndicatorComponent } from './theme-indicator/theme-indicator.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { navigation_data } from "../app.component";
-import { NavigcardComponent } from "./navigcard/navigcard.component";
+import { NavigationCardComponent } from "./navigation-card/navigation-card.component";
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-quizz',
+  selector: 'app-inclusif-cards',
   standalone: true,
-  imports: [NavigbuttonComponent, ThemeIndicatorComponent, NavigcardComponent],
-  templateUrl: './quizz.component.html',
-  styleUrls: ['./quizz.component.css'],
+  imports: [NavigationButtonComponent, ThemeIndicatorComponent, NavigationCardComponent],
+  templateUrl: './inclusif-cards.component.html',
+  styleUrls: ['./inclusif-cards.component.css'],
 })
-export class QuizzComponent implements OnInit, OnDestroy {
+export class InclusifCardsComponent implements OnInit, OnDestroy {
   currentNumber: number = 0; // Current card number
   cat = navigation_data.data[0]?.categorie; // Category based on the current card
   suivant = false;

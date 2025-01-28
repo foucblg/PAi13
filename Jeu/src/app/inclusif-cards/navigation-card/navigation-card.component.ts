@@ -5,14 +5,14 @@ import { navigation_data } from '../../app.component';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-navigcard',
+  selector: 'app-navigation-card',
   standalone: true,
   imports: [],
-  templateUrl: './navigcard.component.html',
-  styleUrl: './navigcard.component.css'
+  templateUrl: './navigation-card.component.html',
+  styleUrl: './navigation-card.component.css'
 })
 
-export class NavigcardComponent {
+export class NavigationCardComponent {
   @Input() card_number!: number;
   @Output() answer = new EventEmitter<boolean>();
   card_answer = false;

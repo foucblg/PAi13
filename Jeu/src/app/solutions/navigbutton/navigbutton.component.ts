@@ -4,7 +4,7 @@ import { navigation_data2 } from '../../app.component';
 import {Router } from '@angular/router';
 
 @Component({
-  selector: 'app-navigbutton',
+  selector: 'app-navigation-button',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './navigbutton.component.html',

@@ -10,4 +10,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ThemeIndicatorComponent {
   @Input() cat!: string;
+
+  categories: string[] = [
+    'Gestion de projet',
+    'Expérience utilisateur',
+    'Interface utilisateur',
+    'Développement',
+    'Editorial'
+  ];
+  
 }

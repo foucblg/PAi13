@@ -7,26 +7,26 @@
 
   <!-- Back Button -->
   <div class="button-container">
-    <app-navigbutton 
-      [avance]="false" 
+    <app-navigation-button 
+      [carte_suivante]="false" 
       [currentNumber]="currentNumber"
       (cardChange)="currentNumber = $event"
       (catChange)="cat = $event">
-    </app-navigbutton>
+    </app-navigation-button>
   </div>
   <!-- Card Number Display -->
   <div class="card-display">
-    <app-navigcard [card_number]="currentNumber"></app-navigcard>
+    <app-navigation-card [card_number]="currentNumber"></app-navigation-card>
   </div>
 
   <!-- Next Button -->
   <div class="button-container">
-    <app-navigbutton 
-      [avance]="true" 
+    <app-navigation-button 
+      [carte_suivante]="true" 
       [currentNumber]="currentNumber"
       (cardChange)="currentNumber = $event"
       (catChange)="cat = $event">
-    </app-navigbutton>
+    </app-navigation-button>
   </div>
 
 </div>

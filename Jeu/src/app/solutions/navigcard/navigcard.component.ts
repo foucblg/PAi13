@@ -6,7 +6,7 @@ import {Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-navigcard',
+  selector: 'app-navigation-card',
   standalone: true,
   imports: [],
   templateUrl: './navigcard.component.html',

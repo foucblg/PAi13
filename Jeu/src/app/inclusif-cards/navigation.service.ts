@@ -15,7 +15,7 @@ export class NavigationService {
     "Editorial"  
   ];
 
-  Ndata=navigation_data
+  ndata=navigation_data;
 
   ChangeCategories(n: number): any {
     if (this.navigation_categories[n] !== undefined) {

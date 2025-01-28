@@ -1,4 +1,16 @@
 :root {
-  --metropole-red: red;
-  --metropole-gray: gray;
+  --metropole-red: #da3635;
+  --metropole-gray: #333333;
+  width: 100%;
+}
+
+.p-button {
+  --p-button-primary-background: var(--metropole-red);
+  --p-button-primary-hover-background: #cd2524;
+  --p-button-primary-color: white;
+  --p-button-primary-hover-color: white;
+  --p-button-primary-border-color: white;
+  --p-button-primary-focus-ring-color: #0078f3;
+  --p-button-focus-ring-width: 2px;
+  --p-button-focus-ring-offset: 2px;
 }

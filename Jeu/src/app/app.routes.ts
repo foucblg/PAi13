@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { QuizzComponent } from './quizz/quizz.component';
 import { NavigcardComponent } from './quizz/navigcard/navigcard.component';
+import { SolutionsComponent } from './solutions/solutions.component';
 
 export const routes: Routes = [
   {
@@ -14,5 +15,8 @@ export const routes: Routes = [
       },
       { path: '**', redirectTo: 'cartes_inclusif' }  // Rediriger les routes invalides
     ]
-  }
+  },
+  {path:'solutions', component:SolutionsComponent,children : [
+    { path: '', redirectTo: '0', pathMatch: 'full' }
+  ]}
 ];

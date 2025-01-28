@@ -4,8 +4,6 @@ import { Router } from '@angular/router';
 import { CardnumService } from '../cardnum.service';
 import { navigation_data } from '../../app.component';
 import { navigation_data2 } from '../../app.component';
-import {Router } from '@angular/router';
-
 @Component({
   selector: 'app-navigbutton',
   standalone: true,
@@ -14,7 +12,6 @@ import {Router } from '@angular/router';
   styleUrls: ['./navigbutton.component.css']
 })
 export class NavigbuttonComponent {
-  constructor(private router:Router) {}
   @Input() avance!: boolean;
   @Input() currentNumber: number = 0; // Input to control navigation
   @Input() cat!: string;
@@ -24,7 +21,7 @@ export class NavigbuttonComponent {
   constructor(private router: Router, private cardnumService: CardnumService) {}
 
   GoToSol(): void {
-    this.router.navigate(['/solutions'], { queryParams: { numero: '0', awnsered: 'false' } });
+    this.router.navigate(['/solutions'], { queryParams: { numero: '0', answered: 'false' } });
   }
   // Method to increment card number
   ChangeCard() {
@@ -44,6 +41,10 @@ export class NavigbuttonComponent {
       this.router.navigate(['/cartes_inclusif/carte'], {
         queryParams: { id: this.currentNumber } // Use query parameter 'id' to pass current number
       });
+    }
+      else if (this.avance) {
+        this.GoToSol();
+      }
       this.cardChange.emit(this.currentNumber);
       this.catChange.emit(this.cat);
     }
@@ -51,4 +52,4 @@ export class NavigbuttonComponent {
     // Emit updated values to parent component
 
   }
-}
+

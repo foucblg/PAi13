@@ -1,12 +1,18 @@
 import { Routes } from '@angular/router';
 import { QuizzComponent } from './quizz/quizz.component';
-import { NavigbuttonComponent } from './quizz/navigbutton/navigbutton.component';
-import { ProgressbarComponent } from './quizz/progressbar/progressbar.component';
-import { ThemeIndicatorComponent } from './quizz/theme-indicator/theme-indicator.component';
+import { NavigcardComponent } from './quizz/navigcard/navigcard.component';
 
 export const routes: Routes = [
-    {path:'quizz', component: QuizzComponent, children: [
-        { path: 'quizz', redirectTo: '0', pathMatch: 'full' }
+  {
+    path: 'cartes_inclusif',
+    component: QuizzComponent,
+    children: [
+      { path: '', redirectTo: 'carte', pathMatch: 'full' }, // Redirection vers carte avec query params
+      {
+        path: 'carte',
+        component: NavigcardComponent,  // Le composant NavigcardComponent reste ici
+      },
+      { path: '**', redirectTo: 'cartes_inclusif' }  // Rediriger les routes invalides
     ]
-    },
+  }
 ];

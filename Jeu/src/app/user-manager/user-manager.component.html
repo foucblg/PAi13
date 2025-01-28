@@ -18,7 +18,19 @@
               <button (click)="saveEditUser(user)" [disabled]="editUserForm.invalid">Save</button>
               <button (click)="cancelEditUser()">Cancel</button>
             </td>
-          </tr>}
+          </tr>
+          @if (editUserForm.get('name')?.invalid && editUserForm.get('name')?.touched) {
+            @if (editUserForm.get('email')?.invalid && editUserForm.get('email')?.touched) {
+              <tr><td><div><small class="error">Valid name is required.</small></div></td><td><div><small class="error">Valid email is required.</small></div></td></tr>
+            }
+            @else {
+              <tr><td><div><small class="error">Valid name is required.</small></div></td></tr>
+            }
+          }
+          @if (editUserForm.get('email')?.invalid && editUserForm.get('name')?.valid && editUserForm.get('email')?.touched) {
+            <tr><td><td><div><small class="error">Valid email is required.</small></div></td></tr>
+          }}
+          
           @else
           {
             <tr>
@@ -41,22 +53,25 @@
               <tbody>
             <tr>
             <td><input type="text" formControlName="name" placeholder="Enter name">
-            @if (addUserForm.get('name')?.invalid && addUserForm.get('name')?.touched)
-            {<div>
-              <small class="error">Name is required.</small>
-            </div>}
             </td>
             <td><input type="text" formControlName="email" placeholder="Enter email">
-            @if (addUserForm.get('email')?.invalid && addUserForm.get('email')?.touched)
-            {<div>
-              <small class="error">Valid email is required.</small>
-            </div>}
           </td>
             <td>
-              <button (click)="saveUser()">Save</button>
+              <button (click)="saveUser()" [disabled]="addUserForm.invalid">Save</button>
               <button (click)="cancelAddUser()">Cancel</button>
             </td>
           </tr>
+          @if (addUserForm.get('name')?.invalid && addUserForm.get('name')?.touched) {
+            @if (addUserForm.get('email')?.invalid && addUserForm.get('email')?.touched) {
+              <tr><td><div><small class="error">Valid name is required.</small></div></td><td><div><small class="error">Valid email is required.</small></div></td></tr>
+            }
+            @else {
+              <tr><td><div><small class="error">Valid name is required.</small></div></td></tr>
+            }
+          }
+          @if (addUserForm.get('email')?.invalid && addUserForm.get('name')?.valid && addUserForm.get('email')?.touched) {
+            <tr><td><td><div><small class="error">Valid email is required.</small></div></td></tr>
+          }
         </tbody>
         </table>
         </form>

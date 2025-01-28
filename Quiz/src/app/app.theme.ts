@@ -339,8 +339,8 @@ export const MyPreset = definePreset(Material, {
       focusRing: {
         width: "2px",
         style: "solid",
-        color: "{primary.color}",
-        offset: "-2px",
+        color: "#0078f3",
+        offset: "2px",
         shadow: "none"
       },
       transitionDuration: "{transition.duration}"
@@ -1013,7 +1013,8 @@ export const MyPreset = definePreset(Material, {
         focusRing: {
           width: "{focus.ring.width}",
           style: "{focus.ring.style}",
-          offset: "{focus.ring.offset}"
+          offset: "{focus.ring.offset}",
+          color: "{focus.ring.color}",
         },
         badgeSize: "1rem",
         transitionDuration: "{form.field.transition.duration}"
@@ -1032,7 +1033,7 @@ export const MyPreset = definePreset(Material, {
               hoverColor: "{primary.contrast.color}",
               activeColor: "{primary.contrast.color}",
               focusRing: {
-                color: "{primary.color}",
+                color: "#0078f3",
                 shadow: "none"
               }
             },

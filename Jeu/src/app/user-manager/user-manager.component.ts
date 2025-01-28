@@ -1,68 +1,87 @@
 import { Component } from '@angular/core';
 import { UserService } from '../user-service';
-import { FormsModule } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-user-manager',
   templateUrl: './user-manager.component.html',
   styleUrls: ['./user-manager.component.css'],
-  imports: [FormsModule],
+  imports: [ReactiveFormsModule],
 })
 export class UserManagerComponent {
-
-
-  nameInput: string = "";
-  mailInput: string = "";
-  nameEdit: string = "";
-  mailEdit: string = "";
+  addUserForm: FormGroup;
+  editUserForm: FormGroup;
+  
   is_adding_user: boolean = false;
   is_editing_user: boolean = false;
   user_to_edit: any = null;
   service = new UserService();
 
+  constructor(private fb: FormBuilder) {
+    this.addUserForm = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+    });
+
+    this.editUserForm = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+    });
+  }
+
   addUser() {
+    console.log("addUser")
     this.is_adding_user = true;
   }
 
   editUser(user: any) {
     this.is_editing_user = true;
     this.user_to_edit = user;
-    this.nameEdit = user.name;
-    this.mailEdit = user.email;
+    this.editUserForm.patchValue({
+      name: user.name,
+      email: user.email,
+    });
   }
 
   cancelEditUser() {
     this.is_editing_user = false;
     this.user_to_edit = null;
-    this.nameEdit = "";
-    this.mailEdit = "";
+    this.editUserForm.reset();
   }
 
-  saveEditUser(user:any, name: string, email: string) {
-    this.service.editUser(user, name, email)
+  saveEditUser(user: any) {
+    if (this.editUserForm.invalid) return;
+
+    const { name, email } = this.editUserForm.value;
+    this.service.editUser(user, name, email);
     this.is_editing_user = false;
     this.user_to_edit = null;
-    this.nameEdit = "";
-    this.mailEdit = "";
-    console.log(this.service.getUsers())
+    this.editUserForm.reset();
+    console.log(this.service.getUsers());
   }
 
   deleteUser(user: any) {
-    this.service.deleteUser(user)
-    console.log(this.service.getUsers())
+    this.service.deleteUser(user);
+    console.log(this.service.getUsers());
   }
 
-  saveUser(name : string, email : string) {
-    this.service.addUser(name, email)
-    console.log(this.service.getUsers())
-    this.nameInput = "";
-    this.mailInput = "";
+  saveUser() {
+    console.log(this.addUserForm.value)
+    if (this.addUserForm.invalid) 
+    {
+      console.log("invalid")
+      return
+    };
+
+    const { name, email } = this.addUserForm.value;
+    this.service.addUser(name, email);
+    this.addUserForm.reset();
     this.is_adding_user = false;
+    console.log(this.service.getUsers());
   }
 
   cancelAddUser() {
     this.is_adding_user = false;
-    this.nameInput = "";
-    this.mailInput = "";
+    this.addUserForm.reset();
   }
 }

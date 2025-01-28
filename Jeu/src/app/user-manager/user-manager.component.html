@@ -2,47 +2,63 @@
     <p>Users</p>
     <button (click)="addUser()">Add User</button>
 </div>
-
-<div>
+  
+  <div>
+    <form [formGroup]="editUserForm">
     <table>
-        <thead>
+      <tbody>
+        @for (user of service.getUsers(); track $index)
+        {
+          @if (is_editing_user && user == user_to_edit)
+          {
+          <tr>
+            <td><input type="text" formControlName="name"></td>
+            <td><input type="text" formControlName="email"></td>
+            <td>
+              <button (click)="saveEditUser(user)" [disabled]="editUserForm.invalid">Save</button>
+              <button (click)="cancelEditUser()">Cancel</button>
+            </td>
+          </tr>}
+          @else
+          {
             <tr>
-                <th>Username</th>
-                <th>Email</th>-
+              <td><input type="text" [value]="user.name" disabled></td>
+              <td><input type="text" [value]="user.email" disabled></td>
+              <td>
+                <button (click)="editUser(user)">Edit</button>
+                <button (click)="deleteUser(user)">Delete</button>
+              </td>
             </tr>
-        </thead>
-        <tbody>
-                @for (user of service.getUsers(); track $index)
-                {   @if (is_editing_user && user == user_to_edit){
-                        <tr>
-                        <td><input type="text" [(ngModel)]="nameEdit"></td>
-                        <td><input type="text" [(ngModel)]="mailEdit"></td>
-                        <td>
-                            <button (click)="saveEditUser(user, nameEdit, mailEdit)">Save</button>
-                            <button (click)="cancelEditUser()">Cancel</button>
-                        </td>
-                        </tr>
-                    }
-                    @else
-                    {<tr>
-                        <td><input type="text" placeholder="{{user.name}}" disabled></td>
-                        <td><input type="text" placeholder="{{user.email}}" disabled></td>
-                    <td>
-                        <button (click)="editUser(user)">Edit</button>
-                        <button (click)="deleteUser(user)">Delete</button>
-                    </td>
-                    </tr>}
-                }
-                @if (is_adding_user){
-                    <tr>
-                    <td><input type="text" [(ngModel)]="nameInput" placeholder="Entrez un texte"></td>
-                    <td><input type="text" [(ngModel)]="mailInput" placeholder="Entrez un texte"></td>
-                    <td>
-                        <button (click)="saveUser(nameInput, mailInput)">Save</button>
-                        <button (click)="cancelAddUser()">Cancel</button>
-                    </td>
-                    </tr>
-                }
+          }
+        }
+      </tbody>
+      </table>
+    </form>
+        @if (is_adding_user)
+        {
+          <form [formGroup]="addUserForm">
+            <table>
+              <tbody>
+            <tr>
+            <td><input type="text" formControlName="name" placeholder="Enter name">
+            @if (addUserForm.get('name')?.invalid && addUserForm.get('name')?.touched)
+            {<div>
+              <small class="error">Name is required.</small>
+            </div>}
+            </td>
+            <td><input type="text" formControlName="email" placeholder="Enter email">
+            @if (addUserForm.get('email')?.invalid && addUserForm.get('email')?.touched)
+            {<div>
+              <small class="error">Valid email is required.</small>
+            </div>}
+          </td>
+            <td>
+              <button (click)="saveUser()">Save</button>
+              <button (click)="cancelAddUser()">Cancel</button>
+            </td>
+          </tr>
         </tbody>
-    </table>
-</div>
+        </table>
+        </form>
+      }
+  </div>

@@ -1,2 +1,14 @@
 .card {
+  width: 80%;
+  margin: auto;
+  align-items: center;
+}
+
+.theme {
+  justify-self: start;
+  background-color: var(--p-primary-100);
+  color: var(--p-primary-500);
+  width: fit-content;
+  padding: 4px;
+  border-radius: 4px;
 }

@@ -6,12 +6,10 @@
   column-gap: 2%;
   row-gap: 0%;
   align-items: center;
-  color: var(--metropole-red);
+  color: var(--p-primary-500);
 }
 
 .progress-bar {
-  --p-progressbar-background: var(--metropole-gray);
-  --p-progressbar-value-background: var(--metropole-red);
   --p-progressbar-label-font-size: 0;
   --p-progressbar-height: 1vh;
 }
@@ -20,4 +18,23 @@
   grid-column-start: 2;
   padding: 0 0 0 2%;
   margin: 0;
+}
+
+.divider {
+  width: 80%;
+  margin: auto;
+}
+
+.button {
+}
+
+.quiz-card-div {
+  height: 70%;
+}
+
+.quiz {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
 }

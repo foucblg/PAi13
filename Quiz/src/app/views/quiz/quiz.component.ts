@@ -8,11 +8,12 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { ToastModule } from 'primeng/toast';
 import { QuizHomepageComponent } from './quiz-homepage/quiz-homepage.component';
 import { QuizCardComponent } from './quiz-card/quiz-card.component';
+import { DividerModule } from 'primeng/divider';
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.css',
-  imports: [CommonModule, ButtonModule, ToastModule, ProgressBarModule, QuizHomepageComponent, QuizCardComponent]
+  imports: [CommonModule, ButtonModule, ToastModule, ProgressBarModule, QuizHomepageComponent, QuizCardComponent, DividerModule]
 })
 
 export class QuizComponent {

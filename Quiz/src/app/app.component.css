@@ -1,0 +1,8 @@
+.navbar-div {
+  height: 10vh;
+}
+
+.quiz-div {
+  height: 85vh;
+  overflow-x: hidden;
+}

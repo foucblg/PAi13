@@ -1,17 +1,17 @@
-<div>
-  @if (progressService.questionNumber() === 0) {
-    <app-quiz-homepage></app-quiz-homepage>
-  } @else if (progressService.hasEnded()) {
-    <h3>Bien joué !</h3>
-    <p>Vous avez fini votre salve de question, mais il en reste encore.</p>
-    <p>
-      Score : {{ progressService.score() }} /
-      {{ progressService.questionNumber() }}
-    </p>
-    <p-button (click)="progressService.goToBegining()">
-      Commencer une nouvelle série de questions ?
-    </p-button>
-  } @else {
+@if (progressService.questionNumber() === 0) {
+  <app-quiz-homepage></app-quiz-homepage>
+} @else if (progressService.hasEnded()) {
+  <h3>Bien joué !</h3>
+  <p>Vous avez fini votre salve de question, mais il en reste encore.</p>
+  <p>
+    Score : {{ progressService.score() }} /
+    {{ progressService.questionNumber() }}
+  </p>
+  <p-button (click)="progressService.goToBegining()">
+    Commencer une nouvelle série de questions ?
+  </p-button>
+} @else {
+  <div class="quiz">
     <div class="progress">
       <p class="question-text">
         {{ "Question " + progressService.questionNumber() }}
@@ -22,11 +22,18 @@
         [value]="progressService.progressRatio()"
       />
     </div>
-    <app-quiz-card></app-quiz-card>
+    <div class="quiz-card-div">
+      <app-quiz-card></app-quiz-card>
+    </div>
+    <p-divider class="divider" />
     @if (!progressService.answered()) {
-      <p-button (click)="quizCard()?.answer()"> Répondre </p-button>
+      <p-button class="button" (click)="quizCard()?.answer()">
+        Répondre
+      </p-button>
     } @else {
-      <p-button (click)="progressService.goToNext()"> Suivant </p-button>
+      <p-button class="button" (click)="progressService.goToNext()">
+        Suivant
+      </p-button>
     }
-  }
-</div>
+  </div>
+}

@@ -10,6 +10,6 @@ import {Router } from '@angular/router';
 export class RulesAnalysisComponent {
   constructor(private router:Router) {}
       continuer(){
-        this.router.navigate(['./rules_solutions'])
+        this.router.navigate(['./user-registration'])
       }
 }

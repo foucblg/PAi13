@@ -13,7 +13,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     NavbarComponent,
     RouterOutlet,
-    UserManagerComponent
   ]
 })
 export class AppComponent {

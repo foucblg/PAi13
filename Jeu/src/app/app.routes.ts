@@ -6,6 +6,7 @@ import { RulesAnalysisComponent } from './rules-analysis/rules-analysis.componen
 import { RulesConclusionComponent } from './rules-conclusion/rules-conclusion.component';
 import { RulesRepartitionComponent } from './rules-repartition/rules-repartition.component';
 import { RulesSolutionsComponent } from './rules-solutions/rules-solutions.component';
+import { UserManagerComponent } from './user-manager/user-manager.component';
 
 export const routes: Routes = [
     {path: 'homepage', component: HomepageComponent},
@@ -15,6 +16,7 @@ export const routes: Routes = [
     {path: 'rules_repartition', component: RulesRepartitionComponent},
     {path: 'rules_solutions', component: RulesSolutionsComponent},
     {path: 'rules', component: RulesComponent},
+    {path: 'user-registration', component: UserManagerComponent},
     { path: '**',
         redirectTo: 'homepage',
         pathMatch: 'full'

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../user-service';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-manager',
@@ -17,7 +18,7 @@ export class UserManagerComponent {
   user_to_edit: any = null;
   service = new UserService();
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.addUserForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
@@ -27,6 +28,10 @@ export class UserManagerComponent {
       name: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
     });
+  }
+
+  continuer(){
+    this.router.navigate(['./rules_solutions'])
   }
 
   addUser() {
@@ -84,4 +89,6 @@ export class UserManagerComponent {
     this.is_adding_user = false;
     this.addUserForm.reset();
   }
+
+
 }

@@ -31,7 +31,8 @@ export class NavigbuttonComponent {
       });
       this.cardChange.emit(this.currentNumber);
       this.catChange.emit(this.cat);
-    } else if (!this.avance && this.currentNumber > 0) {
+      } 
+      else if (!this.avance && this.currentNumber > 0) {
       this.currentNumber -= 1; // Decrease current number by 1
       this.cat = navigation_data.data[this.currentNumber]?.categorie; 
       this.router.navigate(['/cartes_inclusif/carte'], {

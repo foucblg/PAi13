@@ -1,10 +1,10 @@
 <div class="theme">
   <span>Thème : {{ progressService.theme() }}</span>
 </div>
-<h1 class="question">{{ quiz_segment?.question }}</h1>
+<h1 class="question">{{ quiz_segment().question }}</h1>
 @if (!progressService.answered() && quiz_segment != undefined) {
   <app-answer-box
-    [quiz_segment]="quiz_segment"
+    [quiz_segment]="quiz_segment()"
     [answered]="answered"
     [answerForm]="answerForm"
   ></app-answer-box>
@@ -16,7 +16,7 @@
       <h2 class="result">Dommage !</h2>
     }
     <p class="explication">
-      {{ quiz_segment?.explanation }}
+      {{ quiz_segment().explanation }}
     </p>
   </div>
 }

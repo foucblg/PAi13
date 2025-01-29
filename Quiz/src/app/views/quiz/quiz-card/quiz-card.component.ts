@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject, Signal } from '@angular/core';
 import { AnswerBoxComponent } from './answer-box/answer-box.component';
 import { FormGroup } from '@angular/forms';
 import { ProgressService } from '../../../shared/services/progress-service';
@@ -15,7 +15,6 @@ import { DialogModule } from 'primeng/dialog';
   styleUrl: './quiz-card.component.css'
 })
 export class QuizCardComponent {
-  quiz_segment: QuizSegment | undefined;
   questionNumber: number = 0;
   answered = false;
   theme: string = "";
@@ -24,16 +23,14 @@ export class QuizCardComponent {
   progressService = inject(ProgressService);
   answerType = Answer;
   dialogVisible = false;
-  ngOnInit() {
-    this.quiz_segment = this.dataService.getSpecificQuestion(this.progressService.theme(), this.progressService.theme_id());
-  }
+  quiz_segment = computed(() => this.dataService.getSpecificQuestion(this.progressService.theme(), this.progressService.theme_id()));
 
   getAnswer() {
-    if (this.quiz_segment!.question_type === "QCM") {
+    if (this.quiz_segment().question_type === "QCM") {
       return Object.fromEntries(
         Object.entries(this.answerForm.value).filter(([_, value]) => value === true)
       );
-    } else if (this.quiz_segment!.question_type === "QCU") {
+    } else if (this.quiz_segment().question_type === "QCU") {
       const key = this.answerForm.get('QCU')!.value;
       if (key != null) {
         return { [key]: true };
@@ -44,13 +41,13 @@ export class QuizCardComponent {
 
   verifyAnswer(): Answer {
     const userAnswers = this.getAnswer();
-    const realAnswers: number[] = this.quiz_segment!.true_answers;
+    const realAnswers: number[] = this.quiz_segment().true_answers;
     if (Object.keys(userAnswers).length === 0) {
       this.dialogVisible = true;
       return Answer.Empty;
     }
 
-    for (let index = 0; index < this.quiz_segment!.possible_answers.length; index++) {
+    for (let index = 0; index < this.quiz_segment().possible_answers.length; index++) {
       const indexIsAnswer = realAnswers.includes(index);
       if (indexIsAnswer !== Boolean(userAnswers[index])) { // logical XOR
         return Answer.False;

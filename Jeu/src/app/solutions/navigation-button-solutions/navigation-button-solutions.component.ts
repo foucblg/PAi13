@@ -4,13 +4,13 @@ import { navigation_data_solutions } from '../../app.component';
 import {Router } from '@angular/router';
 
 @Component({
-  selector: 'app-navigation-button',
+  selector: 'app-navigation-button-solutions',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './navigbutton.component.html',
-  styleUrls: ['./navigbutton.component.css']
+  templateUrl: './navigation-button-solutions.component.html',
+  styleUrls: ['./navigation-button-solutions.component.css']
 })
-export class NavigbuttonComponent {
+export class NavigationButtonSolutionsComponent {
   constructor(private router:Router) {}
   applyFilters(): void {
     this.router.navigate(['/solutions'], { queryParams: { numero: '0', awnsered: 'false' } });

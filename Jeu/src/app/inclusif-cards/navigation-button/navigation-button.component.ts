@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { navigation_data } from '../../app.component';
 @Component({
-  selector: 'app-navigation-button',
+  selector: 'app-navigation-button-solutions',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './navigation-button.component.html',

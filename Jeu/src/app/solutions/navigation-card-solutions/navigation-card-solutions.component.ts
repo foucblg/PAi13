@@ -6,13 +6,13 @@ import {Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-navigation-card',
+  selector: 'app-navigation-card-solutions',
   standalone: true,
   imports: [],
-  templateUrl: './navigcard.component.html',
-  styleUrl: './navigcard.component.css'
+  templateUrl: './navigation-card-solutions.component.html',
+  styleUrl: './navigation-card-solutions.component.css'
 })
-export class NavigcardComponent {
+export class NavigationCardSolutionsComponent {
   constructor(private router:Router) {}
   @Input() card_number!: number;
   @Output() answer = new EventEmitter<boolean>();

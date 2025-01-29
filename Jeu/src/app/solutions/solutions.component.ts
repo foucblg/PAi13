@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import { NavigbuttonComponent } from "./navigbutton/navigbutton.component";
+import { NavigationButtonSolutionsComponent } from "./navigation-button-solutions/navigation-button-solutions.component";
 import { ThemeIndicatorComponent } from '../inclusif-cards/theme-indicator/theme-indicator.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Injectable } from "@angular/core";
 import { navigation_data_solutions } from "../app.component";
-import { NavigcardComponent } from "./navigcard/navigcard.component";
+import { NavigationCardSolutionsComponent } from "./navigation-card-solutions/navigation-card-solutions.component";
 
 @Component({
   selector: 'app-solutions',
   standalone: true,
-  imports: [NavigbuttonComponent, ThemeIndicatorComponent, NavigcardComponent],
+  imports: [NavigationButtonSolutionsComponent, ThemeIndicatorComponent, NavigationCardSolutionsComponent],
   templateUrl: './solutions.component.html',
   styleUrl: './solutions.component.css'
 })

@@ -5,7 +5,7 @@ import { navigation_data } from '../../app.component';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-navigation-card',
+  selector: 'app-navigation-card-solutions',
   standalone: true,
   imports: [],
   templateUrl: './navigation-card.component.html',

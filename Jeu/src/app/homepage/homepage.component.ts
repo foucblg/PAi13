@@ -17,7 +17,7 @@ export class HomepageComponent {
   }
 
   actionButtons = [
-    { label: 'Suivant', action: () => this.commencer(), icon: 'pi pi-arrow-right' }
+    { label: "Passer à l'action", action: () => this.commencer() }
   ];
 
 }

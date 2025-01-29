@@ -95,6 +95,6 @@ export class UserManagerComponent {
   }
 
   actionButtons = [
-    { label: 'Continuer', action: () => this.continuer(), icon: 'pi pi-arrow-right' }
+    { label: 'Continuer', action: () => this.continuer() }
   ];
 }

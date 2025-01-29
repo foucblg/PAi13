@@ -21,12 +21,8 @@ export class ChoiceBoxComponent {
     this.populateForm();
   }
 
-  choiceHeader(i: number) {
-    return String.fromCharCode(65 + i);
-  }
-
   populateForm() {
-    this.answerForm!.reset();
+    console.log("reset");
     if (this.quiz_segment!.question_type === "QCM") {
       this.quiz_segment!.possible_answers.forEach((_, n) => {
         this.answerForm!.addControl(n.toString(), new FormControl(false))
@@ -35,5 +31,7 @@ export class ChoiceBoxComponent {
     else {
       this.answerForm?.addControl(this.quiz_segment!.question_type, new FormControl(''))
     }
+    this.answerForm!.reset();
+    console.log(this.answerForm)
   }
 }

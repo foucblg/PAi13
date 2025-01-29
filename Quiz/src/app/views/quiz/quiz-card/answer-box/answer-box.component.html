@@ -1,10 +1,27 @@
 <div class="answer-box">
+  <p>{{ quiz_segment()?.explanation }}</p>
   @for (choice of quiz_segment()?.possible_answers; track $index) {
-    <label class="answer-choice">
-      <i class="pi pi-times"></i>
-      <p class="choice-text">
-        {{ choice }}
-      </p>
-    </label>
+    @if (quiz_segment()?.true_answers!.includes($index)) {
+      <label class="answer-choice correct">
+        <i class="pi pi-check-circle"></i>
+        <p class="choice-text">
+          {{ choice }}
+        </p>
+      </label>
+    } @else if (progressService.currentAnswer()[$index]) {
+      <label class="answer-choice wrong">
+        <i class="pi pi-times-circle"></i>
+        <p class="choice-text">
+          {{ choice }}
+        </p>
+      </label>
+    } @else {
+      <label class="answer-choice neutral">
+        <i class="pi pi-circle"></i>
+        <p class="choice-text">
+          {{ choice }}
+        </p>
+      </label>
+    }
   }
 </div>

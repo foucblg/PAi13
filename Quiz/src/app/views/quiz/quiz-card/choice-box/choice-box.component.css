@@ -11,14 +11,21 @@
   gap: 16px;
 }
 .answer-choice {
+  font-size: 1.5em;
   display: flex;
   align-content: center;
   width: 100%;
   border: 2px solid black;
   border-radius: 8px;
   padding: 4px;
+  --p-checkbox-height: 1.5em;
+  --p-checkbox-width: 1.5em;
+  --p-checkbox-icon-size: 1.5em;
+  --p-radiobutton-height: 1.5em;
+  --p-radiobutton-width: 1.5em;
+  --p-radiobutton-icon-size: 1em;
 }
 
 .choice-text {
-  padding-left: 8px;
+  padding-left: 0.5em;
 }

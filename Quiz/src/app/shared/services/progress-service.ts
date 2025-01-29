@@ -12,6 +12,7 @@ export class ProgressService {
   dataService = inject(DataService);
   score = signal(0);
   questionNumber = signal(0);
+  currentAnswer = signal<Record<number, unknown>>({});
   hasEnded = signal(false);
   answered = signal(false);
   theme = signal("");

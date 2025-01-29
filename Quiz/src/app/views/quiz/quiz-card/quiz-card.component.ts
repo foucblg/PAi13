@@ -42,6 +42,8 @@ export class QuizCardComponent {
 
   verifyAnswer(): Answer {
     const userAnswers = this.getAnswer();
+    console.log(userAnswers);
+    this.progressService.currentAnswer.set(userAnswers);
     const realAnswers: number[] = this.quiz_segment().true_answers;
     if (Object.keys(userAnswers).length === 0) {
       this.dialogVisible = true;

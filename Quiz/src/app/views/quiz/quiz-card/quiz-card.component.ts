@@ -1,4 +1,4 @@
-import { Component, computed, inject, viewChild } from '@angular/core';
+import { Component, computed, contentChild, inject, viewChild, viewChildren } from '@angular/core';
 import { ChoiceBoxComponent } from './choice-box/choice-box.component';
 import { ProgressService } from '../../../shared/services/progress-service';
 import { DataService } from '../../../shared/services/quiz-service';
@@ -22,8 +22,8 @@ export class QuizCardComponent {
   progressService = inject(ProgressService);
   answerType = Answer;
   dialogVisible = false;
-  answerBoxComponent = viewChild(AnswerBoxComponent)
   quiz_segment = this.dataService.current_segment;
+  choiceBox = viewChild(ChoiceBoxComponent);
 
 }
 

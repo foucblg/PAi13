@@ -10,6 +10,7 @@ import { QuizHomepageComponent } from './quiz-homepage/quiz-homepage.component';
 import { QuizCardComponent } from './quiz-card/quiz-card.component';
 import { DividerModule } from 'primeng/divider';
 import { QuizEndpageComponent } from "./quiz-endpage/quiz-endpage.component";
+
 @Component({
   selector: 'app-quiz',
   standalone: true,
@@ -22,5 +23,4 @@ export class QuizComponent {
   progressService = inject(ProgressService);
   dataService = inject(DataService);
   quizCard = viewChild(QuizCardComponent);
-
 }

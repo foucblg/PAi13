@@ -117,8 +117,10 @@ export class DataService {
   }
 
   getNewQuestion() {
-    const question_topic = this.quiz_segment_topics_queue.deqeue();
-    const question_id = this.quiz_segment_pool[question_topic!].dequeueIndex();
+    // const question_topic = this.quiz_segment_topics_queue.deqeue();
+    const question_topic = "Accessibilité numérique";
+    // const question_id = this.quiz_segment_pool[question_topic!].dequeueIndex();
+    const question_id = 0;
     this.current_topic.set(question_topic!);
     this.current_question_id.set(question_id);
     this.current_segment.set(this.quiz_segments[question_topic!][question_id]);

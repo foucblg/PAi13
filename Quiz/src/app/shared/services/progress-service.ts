@@ -2,6 +2,7 @@ import { computed, inject, Injectable, signal } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { DataService } from "./quiz-service";
 import { Answer } from "../types/enums";
+import { Subject } from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +13,8 @@ export class ProgressService {
   dataService = inject(DataService);
   score = signal(0);
   questionNumber = signal(0);
-  currentAnswer = signal<Record<number, unknown>>({});
+  currentAnswer = signal<number[]>([]);
+  currentAnswerValidity = computed(() => this.verifyAnswer())
   hasEnded = signal(false);
   answered = signal(false);
   theme = signal("");
@@ -55,11 +57,11 @@ export class ProgressService {
   }
 
   answer() {
-    const ans = this.verifyAnswer();
-    if (ans === Answer.Empty) {
+    console.log(this.currentAnswer())
+    if (this.currentAnswerValidity() === Answer.Empty) {
       return;
     }
-    if (ans === Answer.True) {
+    if (this.currentAnswerValidity() === Answer.True) {
       this.score.update(s => s + 1);
     }
     this.answered.set(true);
@@ -75,16 +77,14 @@ export class ProgressService {
   }
   verifyAnswer(): Answer {
     const realAnswers = this.dataService.current_segment()?.true_answers as number[];
-    if (Object.keys(this.currentAnswer()).length === 0) {
+    if (this.currentAnswer().length === 0) {
+      return Answer.Empty;
     }
-
-    for (let index = 0; index < this.dataService.current_segment()!.possible_answers!.length; index++) {
-      const indexIsAnswer = realAnswers.includes(index);
-      if (indexIsAnswer !== Boolean(this.currentAnswer()[index])) { // logical XOR
-        return Answer.False;
-      }
+    if (this.currentAnswer().sort().toString() == realAnswers.sort().toString()) {
+      return Answer.True;
+    } else {
+      return Answer.False;
     }
-    return Answer.True;
   }
 
 }

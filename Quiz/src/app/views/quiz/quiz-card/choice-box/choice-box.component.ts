@@ -20,33 +20,21 @@ export class ChoiceBoxComponent {
   quiz_segment = this.dataService.current_segment;
 
   ngOnInit() {
-    console.log(this.progressService.currentAnswer());
-    if (this.quiz_segment()!.question_type === "QCM") {
-      this.quiz_segment()!.possible_answers.forEach((_, n) => {
-        this.answerForm!.addControl(n.toString(), new FormControl(false))
-      });
-    }
-    else {
-      this.answerForm?.addControl(this.quiz_segment()!.question_type, new FormControl(''))
-    }
+    this.answerForm!.addControl(this.quiz_segment()!.question_type, new FormControl(''))
     this.answerForm!.reset();
-    console.log(this.answerForm);
   }
 
-  ngOnDestroy() {
+  tryToAnswer() {
     if (this.quiz_segment()?.question_type === "QCM") {
-      this.progressService.currentAnswer.set(Object.fromEntries(
-        Object.entries(this.answerForm.value).filter(([_, value]) => value === true)
-      ));
-      return
+      this.progressService.currentAnswer.set(this.answerForm.get('QCM')!.value);
     } else if (this.quiz_segment()?.question_type === "QCU") {
-      console.log()
       const key = this.answerForm.get('QCU')!.value;
-      if (key != null) {
-        this.progressService.currentAnswer.set({ [key]: true });
-        return
+      if (key) {
+        this.progressService.currentAnswer.set([key]);
+      } else {
+        this.progressService.currentAnswer.set([]);
       }
     }
-    this.progressService.currentAnswer.set({});
+    this.progressService.answer();
   }
 }

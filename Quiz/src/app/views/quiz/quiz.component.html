@@ -18,7 +18,10 @@
     <div class="next">
       <p-divider class="divider" />
       @if (!progressService.answered()) {
-        <p-button class="button" (click)="progressService.answer()">
+        <p-button
+          class="button"
+          (click)="quizCard()!.choiceBox()!.tryToAnswer()"
+        >
           Répondre
         </p-button>
       } @else {

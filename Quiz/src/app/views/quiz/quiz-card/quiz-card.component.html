@@ -1,36 +1,31 @@
-<div class="card">
-  <div class="theme">
-    <span>Thème : {{ progressService.theme() }}</span>
-  </div>
-  <h1>{{ quiz_segment?.question }}</h1>
-  @if (!progressService.answered() && quiz_segment != undefined) {
-    <div class="main-content-box">
-      <app-answer-box
-        [quiz_segment]="quiz_segment"
-        [answered]="answered"
-        [answerForm]="answerForm"
-      ></app-answer-box>
-    </div>
-  } @else {
-    <div class="main-content-box">
-      @if (verifyAnswer() === answerType.True) {
-        <h2 class="result">Bravo !</h2>
-      } @else {
-        <h2 class="result">Dommage !</h2>
-      }
-      <p class="explication">
-        {{ quiz_segment?.explanation }}
-      </p>
-    </div>
-  }
-  <p-dialog
-    header="Choisissez au moins une option"
-    [modal]="true"
-    [(visible)]="dialogVisible"
-    [style]="{ width: '25rem' }"
-  >
-    <div class="flex justify-end gap-2">
-      <p-button label="Ok" (click)="dialogVisible = false" />
-    </div>
-  </p-dialog>
+<div class="theme">
+  <span>Thème : {{ progressService.theme() }}</span>
 </div>
+<h1 class="question">{{ quiz_segment?.question }}</h1>
+@if (!progressService.answered() && quiz_segment != undefined) {
+  <app-answer-box
+    [quiz_segment]="quiz_segment"
+    [answered]="answered"
+    [answerForm]="answerForm"
+  ></app-answer-box>
+} @else {
+  <div class="verified-box">
+    @if (verifyAnswer() === answerType.True) {
+      <h2 class="result">Bravo !</h2>
+    } @else {
+      <h2 class="result">Dommage !</h2>
+    }
+    <p class="explication">
+      {{ quiz_segment?.explanation }}
+    </p>
+  </div>
+}
+<p-dialog
+  header="Choisissez au moins une option"
+  [modal]="true"
+  [(visible)]="dialogVisible"
+>
+  <div>
+    <p-button label="Ok" (click)="dialogVisible = false" />
+  </div>
+</p-dialog>

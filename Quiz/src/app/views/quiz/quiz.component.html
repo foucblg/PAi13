@@ -22,18 +22,18 @@
         [value]="progressService.progressRatio()"
       />
     </div>
-    <div class="quiz-card-div">
-      <app-quiz-card></app-quiz-card>
+    <app-quiz-card></app-quiz-card>
+    <div class="next">
+      <p-divider class="divider" />
+      @if (!progressService.answered()) {
+        <p-button class="button" (click)="quizCard()?.answer()">
+          Répondre
+        </p-button>
+      } @else {
+        <p-button class="button" (click)="progressService.goToNext()">
+          Suivant
+        </p-button>
+      }
     </div>
-    <p-divider class="divider" />
-    @if (!progressService.answered()) {
-      <p-button class="button" (click)="quizCard()?.answer()">
-        Répondre
-      </p-button>
-    } @else {
-      <p-button class="button" (click)="progressService.goToNext()">
-        Suivant
-      </p-button>
-    }
   </div>
 }

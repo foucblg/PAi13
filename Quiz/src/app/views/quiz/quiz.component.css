@@ -1,6 +1,23 @@
-.progress {
-  width: 90%;
+:host {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding: 16px;
+}
+
+.quiz {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 80%;
   margin: auto;
+  align-items: start;
+  justify-content: start;
+}
+
+.progress {
+  width: 100%;
+  margin: 2% auto;
   display: grid;
   grid-template-columns: fit-content(100%) auto;
   column-gap: 2%;
@@ -20,29 +37,12 @@
   margin: 0;
 }
 
-.divider {
-  width: 80%;
-  margin: auto;
-}
-
-.button {
-}
-
-.quiz-card-div {
-  height: 70%;
-}
-
-.quiz {
+.next {
   display: flex;
   flex-direction: column;
+  gap: 16px;
   align-items: center;
-  height: 100%;
-}
-
-:host {
-  display: flex;
-  height: 100%;
+  align-self: flex-end;
   width: 100%;
-  padding: 16px;
-  justify-content: center;
+  margin: 2% auto;
 }

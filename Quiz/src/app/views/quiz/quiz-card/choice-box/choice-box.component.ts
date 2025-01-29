@@ -6,6 +6,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 
 @Component({
   selector: 'app-choice-box',
+  standalone: true,
   imports: [ReactiveFormsModule, RadioButtonModule, CheckboxModule],
   templateUrl: './choice-box.component.html',
   styleUrl: './choice-box.component.css'

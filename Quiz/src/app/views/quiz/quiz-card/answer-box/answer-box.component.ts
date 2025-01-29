@@ -8,6 +8,7 @@ import { FormGroup, ReactiveFormsModule } from "@angular/forms";
 
 @Component({
   selector: 'app-answer-box',
+  standalone: true,
   imports: [ReactiveFormsModule, RadioButtonModule, CheckboxModule],
   templateUrl: './answer-box.component.html',
   styleUrl: './answer-box.component.css'

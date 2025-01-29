@@ -4,6 +4,7 @@ import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-quiz-endpage',
+  standalone: true,
   imports: [ButtonModule],
   templateUrl: './quiz-endpage.component.html',
   styleUrl: './quiz-endpage.component.css'

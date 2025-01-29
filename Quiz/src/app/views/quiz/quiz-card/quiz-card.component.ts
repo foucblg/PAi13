@@ -10,6 +10,7 @@ import { AnswerBoxComponent } from "./answer-box/answer-box.component";
 
 @Component({
   selector: 'app-quiz-card',
+  standalone: true,
   imports: [ChoiceBoxComponent, ButtonModule, DialogModule, AnswerBoxComponent],
   templateUrl: './quiz-card.component.html',
   styleUrl: './quiz-card.component.css'

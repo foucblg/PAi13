@@ -1,4 +1,4 @@
-import { Component, computed, inject } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { DataService } from "../../../../shared/services/quiz-service";
 import { ProgressService } from "../../../../shared/services/progress-service";
 import { RadioButtonModule } from 'primeng/radiobutton';

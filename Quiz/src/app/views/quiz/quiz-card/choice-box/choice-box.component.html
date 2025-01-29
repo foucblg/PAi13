@@ -23,3 +23,12 @@
 } @else {
   <p>Not QCM</p>
 }
+<p-dialog
+  header="Veuillez choisir au moins une option."
+  [modal]="true"
+  [(visible)]="dialogVisible"
+>
+  <div>
+    <p-button label="Ok" (click)="dialogVisible = false" />
+  </div>
+</p-dialog>

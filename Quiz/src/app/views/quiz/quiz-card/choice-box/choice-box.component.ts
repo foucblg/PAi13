@@ -1,14 +1,17 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, computed, inject, Input } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ProgressService } from '../../../../shared/services/progress-service';
 import { DataService } from '../../../../shared/services/quiz-service';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+import { Answer } from '../../../../shared/types/enums';
 
 @Component({
   selector: 'app-choice-box',
   standalone: true,
-  imports: [ReactiveFormsModule, RadioButtonModule, CheckboxModule],
+  imports: [ReactiveFormsModule, RadioButtonModule, CheckboxModule, DialogModule, ButtonModule],
   templateUrl: './choice-box.component.html',
   styleUrl: './choice-box.component.css'
 })
@@ -18,7 +21,8 @@ export class ChoiceBoxComponent {
   progressService = inject(ProgressService);
   dataService = inject(DataService);
   quiz_segment = this.dataService.current_segment;
-
+  answerIsEmpty = computed(() => this.progressService.currentAnswerValidity() === Answer.Empty);
+  dialogVisible = false;
   ngOnInit() {
     this.answerForm!.addControl(this.quiz_segment()!.question_type, new FormControl(''))
     this.answerForm!.reset();
@@ -36,5 +40,6 @@ export class ChoiceBoxComponent {
       }
     }
     this.progressService.answer();
+    this.dialogVisible = this.answerIsEmpty();
   }
 }

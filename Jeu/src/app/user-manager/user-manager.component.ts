@@ -20,9 +20,8 @@ export class UserManagerComponent {
   is_adding_user: boolean = false;
   is_editing_user: boolean = false;
   user_to_edit: any = null;
-  service = new UserService();
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, public service: UserService) {
     this.addUserForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],

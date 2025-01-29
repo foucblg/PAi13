@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterOutlet } from '@angular/router';
+import { FooterComponent } from './footer/footer.component';
 
 
 @Component({
@@ -9,7 +10,8 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css',
   imports: [
     NavbarComponent,
-    RouterOutlet
+    RouterOutlet,
+    FooterComponent
 ]
 })
 export class AppComponent {

@@ -1,5 +1,6 @@
 import { Injectable, signal } from "@angular/core";
 import { quizData } from "../../app.component";
+import { QuizSegment } from "../types/interfaces";
 
 class RandomizedIndexQueue {
   // https://gist.github.com/4skinSkywalker/f10939e0b070fe1815933730670177df
@@ -96,6 +97,9 @@ export class DataService {
   questionNumber = signal(0);
   hasEnded = signal(false);
   numberOfQuestions = signal(0);
+  current_segment = signal<QuizSegment | undefined>(undefined);
+  current_topic = signal<string>("");
+  current_question_id = signal<number>(-1);
 
   constructor() {
     this.quiz_segment_topics_queue = new TopicsQueue(quizData["question_topics"], quizData["question_cycle"]);
@@ -112,15 +116,14 @@ export class DataService {
     this.numberOfQuestions.set(this.quiz_segment_topics_queue.getNumberOfQuestions());
   }
 
-  getNewQuestionHash() {
+  getNewQuestion() {
     const question_topic = this.quiz_segment_topics_queue.deqeue();
-    console.log(question_topic);
-    return [question_topic, this.quiz_segment_pool[question_topic!].dequeueIndex()];
+    const question_id = this.quiz_segment_pool[question_topic!].dequeueIndex();
+    this.current_topic.set(question_topic!);
+    this.current_question_id.set(question_id);
+    this.current_segment.set(this.quiz_segments[question_topic!][question_id]);
   }
 
-  getSpecificQuestion(question_topic: string, question_id: number) {
-    return this.quiz_segments[question_topic][question_id];
-  }
 
   isFinished() {
     return this.quiz_segment_topics_queue.isEmpty();

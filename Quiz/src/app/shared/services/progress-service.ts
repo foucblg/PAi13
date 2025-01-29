@@ -40,15 +40,14 @@ export class ProgressService {
 
   goToNext() {
     if (!this.dataService.isFinished()) {
-      const quizSegment = this.dataService.getNewQuestionHash();
-      if (typeof quizSegment[0] === "string" && typeof quizSegment[1] === "number") {
-        console.log("ok")
+      this.dataService.getNewQuestion();
+      if (this.answered) {
         this.questionNumber.update(n => n + 1);
         this.answered.set(false);
-        this.theme.set(quizSegment[0]);
-        this.theme_id.set(+quizSegment[1])
+        this.theme.set(this.dataService.current_topic());
+        this.theme_id.set(this.dataService.current_question_id())
         this.router.navigate(["quiz", this.questionNumber().toString()], {
-          queryParams: { theme: quizSegment[0], theme_id: quizSegment[1], answered: false },
+          queryParams: { theme: this.dataService.current_topic(), theme_id: this.dataService.current_question_id(), answered: false },
           replaceUrl: this.questionNumber() > 0,
         });
 
@@ -60,7 +59,8 @@ export class ProgressService {
     }
   }
 
-  answer(ans: Answer) {
+  answer() {
+    const ans = this.verifyAnswer();
     if (ans === Answer.Empty) {
       return;
     }
@@ -78,4 +78,18 @@ export class ProgressService {
       }
     );
   }
+  verifyAnswer(): Answer {
+    const realAnswers = this.dataService.current_segment()?.true_answers as number[];
+    if (Object.keys(this.currentAnswer()).length === 0) {
+    }
+
+    for (let index = 0; index < this.dataService.current_segment()!.possible_answers!.length; index++) {
+      const indexIsAnswer = realAnswers.includes(index);
+      if (indexIsAnswer !== Boolean(this.currentAnswer()[index])) { // logical XOR
+        return Answer.False;
+      }
+    }
+    return Answer.True;
+  }
+
 }

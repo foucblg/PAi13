@@ -29,7 +29,7 @@ export class ChoiceBoxComponent {
       this.progressService.currentAnswer.set(this.answerForm.get('QCM')!.value);
     } else if (this.quiz_segment()?.question_type === "QCU") {
       const key = this.answerForm.get('QCU')!.value;
-      if (key) {
+      if (typeof key === "number") {
         this.progressService.currentAnswer.set([key]);
       } else {
         this.progressService.currentAnswer.set([]);

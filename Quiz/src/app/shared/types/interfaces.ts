@@ -8,6 +8,6 @@ export interface QuizSegment {
   question_type: string,
   question: string,
   possible_answers: string[] | never[],
-  true_answers: number[] | never[],
+  true_answers: number[],
   explanation: string,
 }

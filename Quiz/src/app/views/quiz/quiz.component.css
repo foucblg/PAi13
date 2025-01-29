@@ -38,3 +38,9 @@
   align-items: center;
   height: 100%;
 }
+
+:host {
+  display: block;
+  height: 90vh;
+  width: 100vw;
+}

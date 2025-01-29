@@ -1,0 +1,36 @@
+.n-questions-selector {
+  display: flex;
+  flex-direction: row;
+  border-radius: 8px;
+  border: 2px solid gray;
+  width: 20%;
+  padding: 8px;
+  gap: 4px;
+  align-items: center;
+}
+
+.n-questions-text {
+  display: flex;
+  border-radius: 4px;
+  width: 3em;
+  padding: 4px;
+  border: 1px solid gray;
+}
+
+.start-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+}
+
+.start-game-button {
+  width: 20%;
+  --p-button-width: 20%;
+}
+
+.homepage {
+  text-align: center;
+  height: 100%;
+}

@@ -5,13 +5,14 @@ import { Router } from '@angular/router';
 import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { ButtonModule } from 'primeng/button';
+import { ActionBarComponent } from '../components/action-bar/action-bar.component';
 
 
 @Component({
   selector: 'app-user-manager',
   templateUrl: './user-manager.component.html',
   styleUrls: ['./user-manager.component.css'],
-  imports: [ReactiveFormsModule, FloatLabelModule, InputTextModule, ButtonModule],
+  imports: [ReactiveFormsModule, FloatLabelModule, InputTextModule, ButtonModule, ActionBarComponent],
 })
 export class UserManagerComponent {
   addUserForm: FormGroup;
@@ -93,5 +94,7 @@ export class UserManagerComponent {
     this.addUserForm.reset();
   }
 
-
+  actionButtons = [
+    { label: 'Continuer', action: () => this.continuer(), icon: 'pi pi-arrow-right' }
+  ];
 }

@@ -1,0 +1,7 @@
+<div class="action-bar">
+    @for(btn of buttons; track $index){
+        <button (click)="btn.action()" class="action-btn">
+            <i class="{{ btn.icon }}"></i> {{ btn.label }}
+         </button>
+    }
+</div>

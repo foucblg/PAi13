@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { RouterOutlet } from '@angular/router';
-import { FooterComponent } from './footer/footer.component';
 
 
 @Component({
@@ -11,7 +10,6 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     NavbarComponent,
     RouterOutlet,
-    FooterComponent
 ]
 })
 export class AppComponent {

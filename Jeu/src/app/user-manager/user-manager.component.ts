@@ -2,12 +2,16 @@ import { Component } from '@angular/core';
 import { UserService } from '../user-service';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { InputTextModule } from 'primeng/inputtext';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { ButtonModule } from 'primeng/button';
+
 
 @Component({
   selector: 'app-user-manager',
   templateUrl: './user-manager.component.html',
   styleUrls: ['./user-manager.component.css'],
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, FloatLabelModule, InputTextModule, ButtonModule],
 })
 export class UserManagerComponent {
   addUserForm: FormGroup;

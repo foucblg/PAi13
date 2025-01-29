@@ -9,16 +9,10 @@
     [answerForm]="answerForm"
   ></app-choice-box>
 } @else {
-  <div class="verified-box">
-    @if (verifyAnswer() === answerType.True) {
-      <h2 class="result">Bravo !</h2>
-    } @else {
-      <h2 class="result">Dommage !</h2>
-    }
-    <p class="explication">
-      {{ quiz_segment().explanation }}
-    </p>
-  </div>
+  <app-answer-box
+    [quiz_segment]="quiz_segment()"
+    [answerForm]="answerForm"
+  ></app-answer-box>
 }
 <p-dialog
   header="Choisissez au moins une option"

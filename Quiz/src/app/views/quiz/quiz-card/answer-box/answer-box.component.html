@@ -1,0 +1,10 @@
+<div class="answer-box">
+  @for (choice of quiz_segment()?.possible_answers; track $index) {
+    <label class="answer-choice">
+      <i class="pi pi-times"></i>
+      <p class="choice-text">
+        {{ choice }}
+      </p>
+    </label>
+  }
+</div>

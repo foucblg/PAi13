@@ -6,10 +6,11 @@ import { DataService } from '../../../shared/services/quiz-service';
 import { Answer } from '../../../shared/types/enums';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
+import { AnswerBoxComponent } from "./answer-box/answer-box.component";
 
 @Component({
   selector: 'app-quiz-card',
-  imports: [ChoiceBoxComponent, ButtonModule, DialogModule],
+  imports: [ChoiceBoxComponent, ButtonModule, DialogModule, AnswerBoxComponent],
   templateUrl: './quiz-card.component.html',
   styleUrl: './quiz-card.component.css'
 })

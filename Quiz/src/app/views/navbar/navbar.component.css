@@ -14,5 +14,12 @@
 
 .title {
   font-weight: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   padding: 16px;
+  color: var(--p-gray-700);
+}
+
+a {
+  text-decoration: none;
 }

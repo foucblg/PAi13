@@ -14,9 +14,7 @@ import * as donnees2 from './assets/anwsers_data.json';
     NavbarComponent,
     RouterOutlet,
     CommonModule, 
-    RouterOutlet, 
-    RouterLink, 
-    RouterLinkActive
+    RouterOutlet
 ]
 })
 

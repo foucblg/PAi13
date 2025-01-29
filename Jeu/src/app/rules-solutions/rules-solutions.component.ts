@@ -10,6 +10,6 @@ import { ButtonModule } from 'primeng/button';
 export class RulesSolutionsComponent {
   constructor(private router:Router) {}
         continuer(){
-          this.router.navigate(['./rules_conclusion'])
+          this.router.navigate(['solutions'])
         }
 }

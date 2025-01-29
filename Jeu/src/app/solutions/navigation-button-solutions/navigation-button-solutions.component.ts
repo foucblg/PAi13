@@ -30,11 +30,13 @@ export class NavigationButtonSolutionsComponent {
   }
   // Method to increment card number
   ChangeCard() {
-    if (this.avance && this.currentNumber<10) {
+    if (this.avance && this.currentNumber<navigation_data_solutions.data.length-1) {
       this.currentNumber += 1;
       this.cat = navigation_data_solutions.data[this.currentNumber]?.categorie;
       this.updateQueryParams();
-    } else if (!this.avance && this.currentNumber >= 1 ) {
+    }else if(this.avance && this.currentNumber==navigation_data_solutions.data.length-1){
+      this.router.navigate(['rules_conclusion'])
+    }else if (!this.avance && this.currentNumber >= 1 ) {
       this.currentNumber -= 1;
       this.cat = navigation_data_solutions.data[this.currentNumber]?.categorie;
       this.updateQueryParams();

@@ -41,7 +41,7 @@ export class NavigationButtonComponent {
       });
     }
       else if (this.carte_suivante) {
-        this.GoToSol();
+        this.router.navigate(['rules_solutions']);
       }
       this.cardChange.emit(this.currentNumber);
       this.catChange.emit(this.cat);

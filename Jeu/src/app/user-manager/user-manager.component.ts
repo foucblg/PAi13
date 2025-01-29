@@ -31,7 +31,7 @@ export class UserManagerComponent {
   }
 
   continuer(){
-    this.router.navigate(['./rules_solutions'])
+    this.router.navigate(['cartes_inclusif', "carte"]);
   }
 
   addUser() {

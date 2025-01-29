@@ -15,10 +15,9 @@ import * as donnees2 from './assets/anwsers_data.json';
 
 export class AppComponent {
   title = 'Jeu';
-  title2 = 'quizz';
   navigation_data = navigation_data;
-  navigation_data2 = navigation_data2;
+  navigation_data_solutions = navigation_data_solutions;
 }
 
 export const navigation_data = donnees;
-export const navigation_data2 = donnees2;
+export const navigation_data_solutions = donnees2;

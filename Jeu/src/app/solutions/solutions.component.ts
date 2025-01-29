@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { NavigbuttonComponent } from "./navigbutton/navigbutton.component";
-import { ThemeIndicatorComponent } from './theme-indicator/theme-indicator.component';
+import { ThemeIndicatorComponent } from '../inclusif-cards/theme-indicator/theme-indicator.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Injectable } from "@angular/core";
-import { navigation_data2 } from "../app.component";
+import { navigation_data_solutions } from "../app.component";
 import { NavigcardComponent } from "./navigcard/navigcard.component";
 
 @Component({
@@ -16,7 +16,7 @@ import { NavigcardComponent } from "./navigcard/navigcard.component";
 export class SolutionsComponent {
   constructor(private router:Router) {}
     currentNumber = 0;
-      cat = navigation_data2.data[0]?.categorie;
+      cat = navigation_data_solutions.data[0]?.categorie;
       suivant = false;
       applyFilters(): void {
         this.router.navigate(['/solutions'], { queryParams: { numero: '0', awnsered: 'false' } });

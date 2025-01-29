@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { navigation_data } from '../../app.component';
-import { navigation_data2 } from '../../app.component';
 @Component({
   selector: 'app-navigation-button',
   standalone: true,

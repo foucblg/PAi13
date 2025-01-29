@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { navigation_data2 } from '../../app.component';
+import { navigation_data_solutions } from '../../app.component';
 import {Router } from '@angular/router';
 
 @Component({
@@ -32,18 +32,18 @@ export class NavigbuttonComponent {
   ChangeCard() {
     if (this.avance && this.currentNumber<10) {
       this.currentNumber += 1;
-      this.cat = navigation_data2.data[this.currentNumber]?.categorie;
+      this.cat = navigation_data_solutions.data[this.currentNumber]?.categorie;
       this.updateQueryParams();
     } else if (!this.avance && this.currentNumber >= 1 ) {
       this.currentNumber -= 1;
-      this.cat = navigation_data2.data[this.currentNumber]?.categorie;
+      this.cat = navigation_data_solutions.data[this.currentNumber]?.categorie;
       this.updateQueryParams();
       }
       else if(!this.avance){
         this.router.navigate(['../quizz'])
       }
       else{
-        this.cat = navigation_data2.data[this.currentNumber]?.categorie;
+        this.cat = navigation_data_solutions.data[this.currentNumber]?.categorie;
       }
 
     this.cardChange.emit(this.currentNumber); // Emit updated card number to parent

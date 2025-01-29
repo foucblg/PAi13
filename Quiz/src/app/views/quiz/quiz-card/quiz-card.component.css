@@ -4,8 +4,6 @@
   height: 100%;
   width: 600px;
   margin: 0 auto;
-  gap: 32px;
-  align-items: center;
 }
 
 .theme {
@@ -20,17 +18,5 @@
 
 .question {
   text-align: center;
-}
-
-.verified-box {
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.verified-box h2 {
-  text-align: center;
+  padding: 8px;
 }

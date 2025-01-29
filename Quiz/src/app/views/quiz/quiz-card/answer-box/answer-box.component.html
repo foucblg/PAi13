@@ -1,5 +1,5 @@
 <div class="answer-box">
-  <p>{{ quiz_segment.explanation }}</p>
+  <span class="explanation">{{ quiz_segment.explanation }}</span>
   @for (choice of quiz_segment.possible_answers; track $index) {
     @if (quiz_segment.true_answers.includes($index)) {
       <label class="answer-choice correct">

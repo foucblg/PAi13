@@ -98,8 +98,8 @@ export class DataService {
   hasEnded = signal(false);
   numberOfQuestions = signal(0);
   current_segment = signal<QuizSegment | undefined>(undefined);
-  current_topic = signal<string>("");
-  current_question_id = signal<number>(-1);
+  current_topic = signal("");
+  current_question_id = signal(-1);
 
   constructor() {
     this.quiz_segment_topics_queue = new TopicsQueue(quizData["question_topics"], quizData["question_cycle"]);

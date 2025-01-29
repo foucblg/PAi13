@@ -1,10 +1,9 @@
-import { Component, inject, input } from "@angular/core";
+import { Component, computed, inject } from "@angular/core";
 import { DataService } from "../../../../shared/services/quiz-service";
 import { ProgressService } from "../../../../shared/services/progress-service";
-import { QuizSegment } from "../../../../shared/types/interfaces";
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { CheckboxModule } from 'primeng/checkbox';
-import { FormGroup, ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @Component({
   selector: 'app-answer-box',
@@ -16,7 +15,6 @@ import { FormGroup, ReactiveFormsModule } from "@angular/forms";
 export class AnswerBoxComponent {
   dataService = inject(DataService);
   progressService = inject(ProgressService);
-  quiz_segment = input<QuizSegment>();
-  answerForm = input<FormGroup>();
+  quiz_segment = this.dataService.current_segment()!;
 }
 

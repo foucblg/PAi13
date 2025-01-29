@@ -1,7 +1,8 @@
 <div class="answer-box">
-  <p>{{ quiz_segment()?.explanation }}</p>
-  @for (choice of quiz_segment()?.possible_answers; track $index) {
-    @if (quiz_segment()?.true_answers!.includes($index)) {
+  <p>{{ quiz_segment.explanation }}</p>
+  @for (choice of quiz_segment.possible_answers; track $index) {
+    @if (false) {
+      quiz_segment.true_answers.includes($index))
       <label class="answer-choice correct">
         <i class="pi pi-check-circle"></i>
         <p class="choice-text">

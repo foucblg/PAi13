@@ -1,6 +1,5 @@
 import { Component, computed, inject, viewChild } from '@angular/core';
 import { ChoiceBoxComponent } from './choice-box/choice-box.component';
-import { FormGroup } from '@angular/forms';
 import { ProgressService } from '../../../shared/services/progress-service';
 import { DataService } from '../../../shared/services/quiz-service';
 import { Answer } from '../../../shared/types/enums';
@@ -23,14 +22,8 @@ export class QuizCardComponent {
   progressService = inject(ProgressService);
   answerType = Answer;
   dialogVisible = false;
-  quiz_segment = this.dataService.current_segment()!;
   answerBoxComponent = viewChild(AnswerBoxComponent)
-  answerForm = new FormGroup({});
-
-
-  answer() {
-    this.progressService.answer();
-  }
+  quiz_segment = this.dataService.current_segment;
 
 }
 

@@ -41,19 +41,14 @@ export class ProgressService {
   goToNext() {
     if (!this.dataService.isFinished()) {
       this.dataService.getNewQuestion();
-      if (this.answered) {
-        this.questionNumber.update(n => n + 1);
-        this.answered.set(false);
-        this.theme.set(this.dataService.current_topic());
-        this.theme_id.set(this.dataService.current_question_id())
-        this.router.navigate(["quiz", this.questionNumber().toString()], {
-          queryParams: { theme: this.dataService.current_topic(), theme_id: this.dataService.current_question_id(), answered: false },
-          replaceUrl: this.questionNumber() > 0,
-        });
-
-      } else {
-        this.goToNext();
-      }
+      this.questionNumber.update(n => n + 1);
+      this.answered.set(false);
+      this.theme.set(this.dataService.current_topic());
+      this.theme_id.set(this.dataService.current_question_id())
+      this.router.navigate(["quiz", this.questionNumber().toString()], {
+        queryParams: { theme: this.dataService.current_topic(), theme_id: this.dataService.current_question_id(), answered: false },
+        replaceUrl: this.questionNumber() > 0,
+      });
     } else {
       this.goToEnd();
     }

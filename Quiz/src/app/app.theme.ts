@@ -1781,9 +1781,9 @@ export const MyPreset = definePreset(Material, {
         borderColor: "{form.field.border.color}",
         hoverBorderColor: "{form.field.hover.border.color}",
         focusBorderColor: "{form.field.focus.border.color}",
-        checkedBorderColor: "{primary.color}",
-        checkedHoverBorderColor: "{primary.color}",
-        checkedFocusBorderColor: "{primary.color}",
+        checkedBorderColor: "#000000",
+        checkedHoverBorderColor: "#000000",
+        checkedFocusBorderColor: "#000000",
         checkedDisabledBorderColor: "{form.field.border.color}",
         invalidBorderColor: "{form.field.invalid.border.color}",
         shadow: "{form.field.shadow}",
@@ -1807,8 +1807,8 @@ export const MyPreset = definePreset(Material, {
       icon: {
         size: "0.875rem",
         color: "{form.field.color}",
-        checkedColor: "{primary.contrast.color}",
-        checkedHoverColor: "{primary.contrast.color}",
+        checkedColor: "#000000",
+        checkedHoverColor: "#000000",
         disabledColor: "{form.field.disabled.color}",
         sm: {
           size: "0.75rem"
@@ -3814,9 +3814,9 @@ export const MyPreset = definePreset(Material, {
         borderColor: "{form.field.border.color}",
         hoverBorderColor: "{form.field.hover.border.color}",
         focusBorderColor: "{form.field.focus.border.color}",
-        checkedBorderColor: "{primary.color}",
-        checkedHoverBorderColor: "{primary.color}",
-        checkedFocusBorderColor: "{primary.color}",
+        checkedBorderColor: "#000000",
+        checkedHoverBorderColor: "#000000",
+        checkedFocusBorderColor: "#000000",
         checkedDisabledBorderColor: "{form.field.border.color}",
         invalidBorderColor: "{form.field.invalid.border.color}",
         shadow: "{form.field.shadow}",
@@ -3839,8 +3839,8 @@ export const MyPreset = definePreset(Material, {
       },
       icon: {
         size: "10px",
-        checkedColor: "{primary.color}",
-        checkedHoverColor: "{primary.color}",
+        checkedColor: "#000000",
+        checkedHoverColor: "#000000",
         disabledColor: "{form.field.disabled.color}",
         sm: {
           size: "8px"

@@ -1,25 +1,24 @@
 @if (answered === false && answerForm != undefined) {
-  <form [formGroup]="answerForm" class="anwer-box">
-    @if (quiz_segment?.question_type === "QCM") {
-      <p>Plusieurs réponses possibles</p>
-    } @else if (quiz_segment?.question_type === "QCU") {
-      <p>Une seule réponse possible</p>
-    }
-    @for (choice of quiz_segment?.possible_answers; track $index) {
-      <label class="answer-choice">
-        @if (quiz_segment?.question_type === "QCM") {
-          <p-checkbox [formControlName]="$index" />
-        } @else if (quiz_segment?.question_type === "QCU") {
-          <p-radiobutton [value]="$index" [formControlName]="'QCU'" />
-        }
-        <p class="choice-header">
-          {{ choiceHeader($index) }}
-        </p>
-        <p class="choice-text">
-          {{ choice }}
-        </p>
-      </label>
-    }
+  @if (quiz_segment?.question_type === "QCM") {
+    <p>Plusieurs réponses possibles</p>
+  } @else if (quiz_segment?.question_type === "QCU") {
+    <p>Une seule réponse possible</p>
+  }
+  <form [formGroup]="answerForm">
+    <div class="answer-box">
+      @for (choice of quiz_segment?.possible_answers; track $index) {
+        <label class="answer-choice">
+          @if (quiz_segment?.question_type === "QCM") {
+            <p-checkbox [formControlName]="$index" />
+          } @else if (quiz_segment?.question_type === "QCU") {
+            <p-radiobutton [value]="$index" [formControlName]="'QCU'" />
+          }
+          <p class="choice-text">
+            {{ choice }}
+          </p>
+        </label>
+      }
+    </div>
   </form>
 } @else {
   <p>Not QCM</p>

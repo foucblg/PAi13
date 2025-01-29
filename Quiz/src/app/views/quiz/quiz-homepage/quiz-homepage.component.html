@@ -1,43 +1,47 @@
-<div class="homepage">
-  <div>
-    <h1>Quiz</h1>
-    <h2>Concevons nos services numériques pour tout le monde</h2>
-    <p-image
-      src="images/quiz_homepage_image.png"
-      alt="Image de présentation du quiz"
-      width="250"
-    />
-    <p>Bienvenue sur le quiz du jeu Inclusif, le jeu.</p>
-    <p>
-      Ce quiz vous permet d'aborder de manière ludique les problèmes liés à
-      l'inclusivité.
-    </p>
-  </div>
+<div class="presentation-section">
+  <h1>Quiz</h1>
+  <h2>Concevons nos services numériques pour tout le monde !</h2>
+  <p-image
+    src="images/banner.png"
+    alt="Image de présentation du quiz"
+    [imageStyle]="{ objectFit: 'contain' }"
+    width="90%"
+  />
+  <p>Bienvenue sur le quiz du jeu Inclusif, le jeu.</p>
+  <p>
+    Ce quiz vous permet d'aborder de manière ludique les problèmes liés à
+    l'inclusivité.
+  </p>
+</div>
+<div class="lower-section">
   <p-divider />
   <div class="start-div">
     <div class="n-questions-selector">
       <p class="">Nombre de questions</p>
-      <p-button
-        class="flex"
-        (click)="adjustNumberOfQuestions(-1)"
-        [disabled]="iNumberOfQuestions == 0"
-      >
-        -
-      </p-button>
-      <span class="n-questions-text">
-        {{
-          possibleNumberOfQuestionsPerTopic[iNumberOfQuestions] * numberOfTopics
-        }}
-      </span>
-      <p-button
-        class=""
-        (click)="adjustNumberOfQuestions(1)"
-        [disabled]="
-          iNumberOfQuestions == possibleNumberOfQuestionsPerTopic.length - 1
-        "
-      >
-        +
-      </p-button>
+      <div class="selector-buttons">
+        <p-button
+          severity="contrast"
+          (click)="adjustNumberOfQuestions(-1)"
+          [disabled]="iNumberOfQuestions == 0"
+        >
+          -
+        </p-button>
+        <span class="n-questions-text">
+          {{
+            possibleNumberOfQuestionsPerTopic[iNumberOfQuestions] *
+              numberOfTopics
+          }}
+        </span>
+        <p-button
+          severity="contrast"
+          (click)="adjustNumberOfQuestions(1)"
+          [disabled]="
+            iNumberOfQuestions == possibleNumberOfQuestionsPerTopic.length - 1
+          "
+        >
+          +
+        </p-button>
+      </div>
     </div>
     <p-button
       class="start-game-button"

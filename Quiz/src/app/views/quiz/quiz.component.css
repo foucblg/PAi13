@@ -40,7 +40,9 @@
 }
 
 :host {
-  display: block;
-  height: 90vh;
-  width: 100vw;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding: 16px;
+  justify-content: center;
 }

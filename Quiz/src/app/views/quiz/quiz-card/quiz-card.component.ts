@@ -1,16 +1,15 @@
-import { Component, computed, inject, Signal } from '@angular/core';
-import { AnswerBoxComponent } from './answer-box/answer-box.component';
+import { Component, computed, inject } from '@angular/core';
+import { ChoiceBoxComponent } from './choice-box/choice-box.component';
 import { FormGroup } from '@angular/forms';
 import { ProgressService } from '../../../shared/services/progress-service';
 import { DataService } from '../../../shared/services/quiz-service';
-import { QuizSegment } from '../../../shared/types/interfaces';
 import { Answer } from '../../../shared/types/enums';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 
 @Component({
   selector: 'app-quiz-card',
-  imports: [AnswerBoxComponent, ButtonModule, DialogModule],
+  imports: [ChoiceBoxComponent, ButtonModule, DialogModule],
   templateUrl: './quiz-card.component.html',
   styleUrl: './quiz-card.component.css'
 })

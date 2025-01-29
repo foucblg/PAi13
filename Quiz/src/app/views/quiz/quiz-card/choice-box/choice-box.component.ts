@@ -5,12 +5,12 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { CheckboxModule } from 'primeng/checkbox';
 
 @Component({
-  selector: 'app-answer-box',
+  selector: 'app-choice-box',
   imports: [ReactiveFormsModule, RadioButtonModule, CheckboxModule],
-  templateUrl: './answer-box.component.html',
-  styleUrl: './answer-box.component.css'
+  templateUrl: './choice-box.component.html',
+  styleUrl: './choice-box.component.css'
 })
-export class AnswerBoxComponent {
+export class ChoiceBoxComponent {
   @Input() quiz_segment: QuizSegment | undefined;
   @Input() answered: boolean | undefined;
   @Input() answerForm: FormGroup | undefined;

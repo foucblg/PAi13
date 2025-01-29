@@ -9,11 +9,12 @@ import { ToastModule } from 'primeng/toast';
 import { QuizHomepageComponent } from './quiz-homepage/quiz-homepage.component';
 import { QuizCardComponent } from './quiz-card/quiz-card.component';
 import { DividerModule } from 'primeng/divider';
+import { QuizEndpageComponent } from "./quiz-endpage/quiz-endpage.component";
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.css',
-  imports: [CommonModule, ButtonModule, ToastModule, ProgressBarModule, QuizHomepageComponent, QuizCardComponent, DividerModule]
+  imports: [CommonModule, ButtonModule, ToastModule, ProgressBarModule, QuizHomepageComponent, QuizCardComponent, DividerModule, QuizEndpageComponent]
 })
 
 export class QuizComponent {

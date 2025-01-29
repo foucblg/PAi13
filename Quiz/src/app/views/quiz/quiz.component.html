@@ -1,15 +1,7 @@
 @if (progressService.questionNumber() === 0) {
   <app-quiz-homepage></app-quiz-homepage>
 } @else if (progressService.hasEnded()) {
-  <h3>Bien joué !</h3>
-  <p>Vous avez fini votre salve de question, mais il en reste encore.</p>
-  <p>
-    Score : {{ progressService.score() }} /
-    {{ progressService.questionNumber() }}
-  </p>
-  <p-button (click)="progressService.goToBegining()">
-    Commencer une nouvelle série de questions ?
-  </p-button>
+  <app-quiz-endpage></app-quiz-endpage>
 } @else {
   <div class="quiz">
     <div class="progress">

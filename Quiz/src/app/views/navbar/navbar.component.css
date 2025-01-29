@@ -1,11 +1,17 @@
-.navbar {
+.logo {
+  padding: 16px;
+}
+
+:host {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: start;
+  height: 100%;
   width: 100%;
-  box-shadow: 0 10px gray;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.links {
+.title {
+  font-weight: normal;
 }

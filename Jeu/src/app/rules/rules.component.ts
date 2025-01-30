@@ -17,7 +17,8 @@ export class RulesComponent {
     }
 
     actionButtons = [
-      { label: 'Continuer', action: () => this.continuer() }
+      { label: 'Passer le quiz', action: () => this.continuer(), severity : 'secondary' as const },
+      { label: 'En avant !', action: () => console.log("Quiz started") }
     ];
 
     startQuiz(){

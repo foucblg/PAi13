@@ -8,5 +8,7 @@ import { Button, ButtonModule } from 'primeng/button';
   styleUrl: './action-bar.component.css'
 })
 export class ActionBarComponent {
-  @Input() buttons: { label: string, action: () => void}[] = [];
+  
+  @Input() buttons: { label: string, action: () => void, severity? : "success" | "info" | "warn" | "danger" | "help" | "primary" | "secondary" | "contrast" | null | undefined}[] = [];
+
 }

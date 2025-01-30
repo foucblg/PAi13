@@ -332,7 +332,7 @@ export const MyPreset = definePreset(Material, {
         paddingY: "0.625rem"
       },
       lg: {
-        fontSize: "1.125rem",
+        fontSize: "1.5em",
         paddingX: "0.825rem",
         paddingY: "0.825rem"
       },
@@ -1775,8 +1775,8 @@ export const MyPreset = definePreset(Material, {
         width: "18px",
         height: "18px",
         background: "{form.field.background}",
-        checkedBackground: "{primary.color}",
-        checkedHoverBackground: "{primary.color}",
+        checkedBackground: "black",
+        checkedHoverBackground: "black",
         disabledBackground: "{form.field.disabled.background}",
         filledBackground: "{form.field.filled.background}",
         borderColor: "{form.field.border.color}",
@@ -1801,21 +1801,21 @@ export const MyPreset = definePreset(Material, {
           height: "14px"
         },
         lg: {
-          width: "22px",
-          height: "22px"
+          width: "1.5em",
+          height: "1.5em"
         }
       },
       icon: {
         size: "0.875rem",
         color: "{form.field.color}",
-        checkedColor: "#000000",
-        checkedHoverColor: "#000000",
+        checkedColor: "white",
+        checkedHoverColor: "white",
         disabledColor: "{form.field.disabled.color}",
         sm: {
           size: "0.75rem"
         },
         lg: {
-          size: "1rem"
+          size: "1.5rem"
         }
       }
     },

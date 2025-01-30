@@ -1,9 +1,11 @@
 name: Deploy Angular to GitHub Pages
 
 on:
-  push:
+  pull_request:
     branches:
-      - main  # Déclencher le déploiement à chaque push sur main
+      - main
+    types:
+      - closed
 
 permissions:
   contents: read
@@ -27,7 +29,7 @@ jobs:
         run: npm install
 
       - name: Build Angular app
-        run: ng build --configuration production --base-href "/repository-name/"  # Remplace par le nom de ton dépôt
+        run: ng build --configuration production --base-href "/PAI13/"  # Remplace par le nom de ton dépôt
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4

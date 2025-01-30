@@ -12,7 +12,7 @@ import { ActionBarComponent } from '../components/action-bar/action-bar.componen
 export class RulesAnalysisComponent {
   constructor(private router:Router) {}
       continuer(){
-        this.router.navigate(['./user-registration'])
+        this.router.navigate(['./rules_solutions'])
       }
 
       actionButtons = [

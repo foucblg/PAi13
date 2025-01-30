@@ -13,10 +13,14 @@ export class RulesComponent {
 
     constructor(private router:Router) {}
     continuer(){
-      this.router.navigate(['./rules_analysis'])
+      this.router.navigate(['./user-registration']);
     }
 
     actionButtons = [
       { label: 'Continuer', action: () => this.continuer() }
     ];
+
+    startQuiz(){
+      console.log("Quiz started");
+    }
 }

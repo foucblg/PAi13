@@ -14,8 +14,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./inclusif-cards.component.css'],
 })
 export class InclusifCardsComponent implements OnInit, OnDestroy {
-  currentNumber: number = 0; // Current card number
-  cat = navigation_data.data[0]?.categorie; // Category based on the current card
+  currentNumber: number = 0; // Numéro de la carte actuelle
+  cat = navigation_data.data[0]?.categorie; // Catégorie dans laquelle se trouve la carte
   suivant = false;
   private routeSubscription: Subscription | undefined = undefined;
 

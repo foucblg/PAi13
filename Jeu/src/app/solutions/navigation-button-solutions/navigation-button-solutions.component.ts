@@ -16,9 +16,9 @@ export class NavigationButtonSolutionsComponent {
     this.router.navigate(['/solutions'], { queryParams: { numero: '0', awnsered: 'false' } });
   }
   @Input() avance!: boolean;
-  @Input() currentNumber: number = 0 // Input to control navigation
+  @Input() currentNumber: number = 0
   @Input() cat!: string
-  @Output() cardChange = new EventEmitter<number>(); // Output to emit card changes
+  @Output() cardChange = new EventEmitter<number>();
   @Output() catChange = new EventEmitter<string>();
 
   updateQueryParams(): void {
@@ -28,7 +28,7 @@ export class NavigationButtonSolutionsComponent {
       skipLocationChange: false // Mettre à jour l'URL dans la barre d'adresse
     });
   }
-  // Method to increment card number
+  // Changement de carte
   changeCard() {
     if (this.avance && this.currentNumber<navigation_data_solutions.data.length-1) {
       this.currentNumber += 1;
@@ -48,7 +48,7 @@ export class NavigationButtonSolutionsComponent {
         this.cat = navigation_data_solutions.data[this.currentNumber]?.categorie;
       }
 
-    this.cardChange.emit(this.currentNumber); // Emit updated card number to parent
+    this.cardChange.emit(this.currentNumber); //Mise a jour des paramètres 
     this.catChange.emit(this.cat);
   }
 

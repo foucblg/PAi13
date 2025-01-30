@@ -11,30 +11,30 @@ import { navigation_data } from '../../app.component';
 })
 export class NavigationButtonComponent {
   @Input() carte_suivante!: boolean;
-  @Input() currentNumber: number = 0; // Input to control navigation
+  @Input() currentNumber: number = 0;
   @Input() cat!: string;
-  @Output() cardChange = new EventEmitter<number>(); // Output to emit card changes
+  @Output() cardChange = new EventEmitter<number>();
   @Output() catChange = new EventEmitter<string>();
 
   constructor(private router: Router) {}
-  
-  // Method to increment card number
+
+  //Change de carte
   changecard() {
     if (this.carte_suivante && this.currentNumber < navigation_data.data.length-1) {
-      this.currentNumber += 1; // Increase current number by 1
+      this.currentNumber += 1; 
       if (this.currentNumber != navigation_data.data.length) {
       this.cat = navigation_data.data[this.currentNumber]?.categorie; }
       this.router.navigate(['cartes_inclusif', "carte"], {
-        queryParams: { id: this.currentNumber } // Use query parameter 'id' to pass current number
+        queryParams: { id: this.currentNumber } //Changement du numéro de carte
       });
       this.cardChange.emit(this.currentNumber);
       this.catChange.emit(this.cat);
       } 
       else if (!this.carte_suivante && this.currentNumber > 0) {
-      this.currentNumber -= 1; // Decrease current number by 1
+      this.currentNumber -= 1;
       this.cat = navigation_data.data[this.currentNumber]?.categorie; 
       this.router.navigate(['cartes_inclusif', "carte"], {
-        queryParams: { id: this.currentNumber } // Use query parameter 'id' to pass current number
+        queryParams: { id: this.currentNumber }
       });
     }
       else if (this.carte_suivante) {
@@ -47,7 +47,7 @@ export class NavigationButtonComponent {
       this.catChange.emit(this.cat);
     }
 
-    // Emit updated values to parent component
+
 
   }
 

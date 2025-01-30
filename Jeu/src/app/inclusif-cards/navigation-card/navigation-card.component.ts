@@ -22,7 +22,6 @@ export class NavigationCardComponent {
   constructor(private router: Router) {}
   onAnswer(answer: boolean) {
     this.card_answer = answer
-
   }
 
 }

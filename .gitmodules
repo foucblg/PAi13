@@ -1,0 +1,3 @@
+[submodule "Jeu"]
+	path = Jeu
+	url = https://github.com/foucblg/Jeu.git

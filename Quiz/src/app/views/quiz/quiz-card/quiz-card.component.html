@@ -1,9 +1,9 @@
 <div class="theme">
-  <span>Thème : {{ progressService.theme() }}</span>
+  <span>Thème : {{ dataService.current_topic() }}</span>
 </div>
 <h1 class="question">{{ quiz_segment()?.question }}</h1>
-@if (!progressService.answered() && quiz_segment() != undefined) {
-  <app-choice-box [answered]="answered"></app-choice-box>
+@if (!progressService.answered()) {
+  <app-choice-box></app-choice-box>
 } @else {
   <app-answer-box></app-answer-box>
 }

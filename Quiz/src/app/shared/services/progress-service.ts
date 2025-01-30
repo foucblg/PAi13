@@ -8,6 +8,7 @@ import { Answer } from "../types/enums";
 })
 
 export class ProgressService {
+  /* Service qui gère la navigation dans l'application */
   router = inject(Router);
   route = inject(ActivatedRoute);
   dataService = inject(DataService);
@@ -17,10 +18,9 @@ export class ProgressService {
   currentAnswerValidity = computed(() => this.verifyAnswer())
   hasEnded = signal(false);
   answered = signal(false);
-  theme = signal("");
-  theme_id = signal(0);
 
   goToBegining() {
+    /* Revient à la page du début, sans oublier les questions déjà posées */
     this.score.set(0);
     this.questionNumber.set(0);
     this.hasEnded.set(false);
@@ -28,6 +28,8 @@ export class ProgressService {
   }
 
   start(nQuestions: number) {
+    /* Lance une session de quiz avec le nombre de questions sélectionnées sur la page d'accueil */
+    this.score.set(0);
     this.questionNumber.set(0);
     this.hasEnded.set(false);
     this.dataService.startQuiz(nQuestions);
@@ -35,17 +37,17 @@ export class ProgressService {
   }
 
   goToEnd() {
+    /* Envoie sur la page de fin */
     this.hasEnded.set(true);
     this.router.navigate(["quiz", "end"], { replaceUrl: true });
   }
 
   goToNext() {
+    /* Si la session de quiz n'est pas finie, envoie vers la question suivante */
     if (!this.dataService.isFinished()) {
       this.dataService.getNewQuestion();
       this.questionNumber.update(n => n + 1);
       this.answered.set(false);
-      this.theme.set(this.dataService.current_topic());
-      this.theme_id.set(this.dataService.current_question_id())
       this.router.navigate(["quiz", this.questionNumber().toString()], {
         queryParams: { theme: this.dataService.current_topic(), theme_id: this.dataService.current_question_id(), answered: false },
         replaceUrl: this.questionNumber() > 0,
@@ -56,8 +58,8 @@ export class ProgressService {
   }
 
   answer() {
-    console.log(this.currentAnswer())
     if (this.currentAnswerValidity() === Answer.Empty) {
+      // Ne passe pas à la question suivante si aucune réponse n'a été sélectionnée
       return;
     }
     if (this.currentAnswerValidity() === Answer.True) {
@@ -74,7 +76,8 @@ export class ProgressService {
       }
     );
   }
-  verifyAnswer(): Answer {
+
+  private verifyAnswer(): Answer {
     const realAnswers = this.dataService.current_segment()?.true_answers as number[];
     if (this.currentAnswer().length === 0) {
       return Answer.Empty;

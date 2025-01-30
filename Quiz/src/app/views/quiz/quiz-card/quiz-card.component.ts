@@ -13,9 +13,6 @@ import { AnswerBoxComponent } from "./answer-box/answer-box.component";
   styleUrl: './quiz-card.component.css'
 })
 export class QuizCardComponent {
-  questionNumber: number = 0;
-  answered = false;
-  theme: string = "";
   dataService = inject(DataService);
   progressService = inject(ProgressService);
   answerType = Answer;

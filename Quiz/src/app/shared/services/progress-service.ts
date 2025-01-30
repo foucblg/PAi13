@@ -2,7 +2,7 @@ import { computed, inject, Injectable, signal } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { DataService } from "./quiz-service";
 import { Answer } from "../types/enums";
-import { Subject } from "rxjs";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,7 +19,6 @@ export class ProgressService {
   answered = signal(false);
   theme = signal("");
   theme_id = signal(0);
-  progressRatio = computed(() => this.questionNumber() / this.dataService.numberOfQuestions() * 100)
 
   goToBegining() {
     this.score.set(0);

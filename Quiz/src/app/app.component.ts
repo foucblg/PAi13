@@ -1,6 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import * as data from './shared/assets/data/questions_final.json';
 import { QuizData } from './shared/types/interfaces';
 import { NavbarComponent } from './views/navbar/navbar.component';

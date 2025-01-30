@@ -1,5 +1,5 @@
-import Material from "@primeng/themes/material";
 import { definePreset } from "@primeng/themes";
+import Material from "@primeng/themes/material";
 
 // primeNG specially configured theme
 export const MyPreset = definePreset(Material, {

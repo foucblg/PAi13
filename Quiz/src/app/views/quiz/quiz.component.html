@@ -8,11 +8,8 @@
       <p class="question-text">
         {{ "Question " + progressService.questionNumber() }}
       </p>
-      <p>{{ (progressService.progressRatio() | number: "1.0-0") + " %" }}</p>
-      <p-progressbar
-        class="progress-bar"
-        [value]="progressService.progressRatio()"
-      />
+      <p>{{ (progressPercentage() | number: "1.0-0") + " %" }}</p>
+      <p-progressbar class="progress-bar" [value]="progressPercentage()" />
     </div>
     <app-quiz-card></app-quiz-card>
     <div class="next">

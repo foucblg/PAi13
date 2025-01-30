@@ -1,10 +1,9 @@
 import { Routes } from '@angular/router';
 import { QuizComponent } from './views/quiz/quiz.component';
-import { QuizCardComponent } from './views/quiz/quiz-card/quiz-card.component';
 
 export const routes: Routes = [
   {
-    path: 'quiz', children: [
+    path: 'quiz', title: "Quiz Inclusif, le jeu", children: [
       { path: '**', component: QuizComponent },
     ],
   },

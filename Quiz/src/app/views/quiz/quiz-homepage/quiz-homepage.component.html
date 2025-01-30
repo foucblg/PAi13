@@ -23,9 +23,9 @@
           severity="contrast"
           (click)="adjustNumberOfQuestions(-1)"
           [disabled]="iNumberOfQuestions == 0"
-        >
-          -
-        </p-button>
+          aria-label="Enlever des questions"
+          icon="pi pi-minus"
+        />
         <span class="n-questions-text">
           {{
             possibleNumberOfQuestionsPerTopic[iNumberOfQuestions] *
@@ -38,9 +38,9 @@
           [disabled]="
             iNumberOfQuestions == possibleNumberOfQuestionsPerTopic.length - 1
           "
-        >
-          +
-        </p-button>
+          aria-label="Ajouter des questions"
+          icon="pi pi-plus"
+        />
       </div>
     </div>
     <p-button
@@ -50,6 +50,7 @@
           possibleNumberOfQuestionsPerTopic[iNumberOfQuestions]
         )
       "
+      aria-label="Commencer le quiz"
     >
       Passer à l'action
     </p-button>

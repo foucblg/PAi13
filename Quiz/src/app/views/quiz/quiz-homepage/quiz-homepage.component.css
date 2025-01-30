@@ -71,6 +71,6 @@
 }
 
 .start-game-button {
-  width: 20%;
-  --p-button-width: 20%;
+  --p-button-padding-x: 60px;
+  --p-button-padding-y: 16px;
 }

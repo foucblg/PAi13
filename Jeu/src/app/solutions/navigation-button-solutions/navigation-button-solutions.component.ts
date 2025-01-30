@@ -29,7 +29,7 @@ export class NavigationButtonSolutionsComponent {
     });
   }
   // Method to increment card number
-  ChangeCard() {
+  changeCard() {
     if (this.avance && this.currentNumber<navigation_data_solutions.data.length-1) {
       this.currentNumber += 1;
       this.cat = navigation_data_solutions.data[this.currentNumber]?.categorie;
@@ -42,7 +42,7 @@ export class NavigationButtonSolutionsComponent {
       this.updateQueryParams();
       }
       else if(!this.avance){
-        this.router.navigate(['../quizz'])
+        this.router.navigate(['rules_solutions'])
       }
       else{
         this.cat = navigation_data_solutions.data[this.currentNumber]?.categorie;

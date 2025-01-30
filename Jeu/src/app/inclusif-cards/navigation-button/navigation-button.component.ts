@@ -17,12 +17,9 @@ export class NavigationButtonComponent {
   @Output() catChange = new EventEmitter<string>();
 
   constructor(private router: Router) {}
-
-  GoToSol(): void {
-    this.router.navigate(['/solutions'], { queryParams: { numero: '0', answered: 'false' } });
-  }
+  
   // Method to increment card number
-  ChangeCard() {
+  changecard() {
     if (this.carte_suivante && this.currentNumber < navigation_data.data.length-1) {
       this.currentNumber += 1; // Increase current number by 1
       if (this.currentNumber != navigation_data.data.length) {
@@ -42,6 +39,9 @@ export class NavigationButtonComponent {
     }
       else if (this.carte_suivante) {
         this.router.navigate(['rules_solutions']);
+      }
+      else if (!this.carte_suivante) {
+        this.router.navigate(['user-registration']);
       }
       this.cardChange.emit(this.currentNumber);
       this.catChange.emit(this.cat);

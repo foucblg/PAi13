@@ -15,6 +15,6 @@ import { ReactiveFormsModule } from "@angular/forms";
 export class AnswerBoxComponent {
   dataService = inject(DataService);
   progressService = inject(ProgressService);
-  quiz_segment = this.dataService.current_segment()!;
+  quiz_segment = this.dataService.currentSegment()!;
 }
 

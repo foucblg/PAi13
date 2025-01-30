@@ -2,8 +2,10 @@ import { Injectable, signal } from "@angular/core";
 import { quizData } from "../../app.component";
 import { QuizSegment } from "../types/interfaces";
 
-class RandomizedIndexQueue {
-  // https://gist.github.com/4skinSkywalker/f10939e0b070fe1815933730670177df
+class RandomizedQuestionIndexQueue {
+  /* Implémente un tirage aléatoire sans remise des numéros de questions dans un thème
+  * https://gist.github.com/4skinSkywalker/f10939e0b070fe1815933730670177df
+  */
   private remainingIndices;
   private intialSize;
   private currentSize;
@@ -37,37 +39,28 @@ class RandomizedIndexQueue {
     this.currentSize--;
     return index;
   }
-
-  *[Symbol.iterator]() {
-    const copy = new RandomizedIndexQueue(this.intialSize);
-    while (!copy.isEmpty()) {
-      yield copy.dequeueIndex();
-    }
-  }
 }
 
 
 class TopicsQueue {
+  /* Implémente la queue des thèmes à effectuer selon le nombre de questions et le cycle de thème à aborder */
   private possibleTopics;
   private topicsCycle;
-  private numberOfQuestionsPerCycle = 1;
-  private topics: string[] = []; // queue qui va permettre de tirer les topics selon le cycle
+  private numberOfQuestionsPerCycle = 1; // valeur par défaut
+  private topics: string[] = []; // queue qui va permettre de tirer les topics
+
   constructor(possibleTopics: string[] = [], topicsCycle: number[] = []) {
     this.possibleTopics = possibleTopics;
     this.topicsCycle = topicsCycle;
   }
 
-  rebuildQueue() {
+  initialize(nQuestions: number) {
+    /* Initialise la queue pour une session de quiz */
+    this.numberOfQuestionsPerCycle = nQuestions;
     this.topics = [];
-    this.topicsCycle.forEach((n, i) => { // n = occurrences, i = index
+    this.topicsCycle.forEach((n, i) => { // n = occurrence, i = index
       this.topics.push(...Array(n * this.numberOfQuestionsPerCycle).fill(this.possibleTopics[i]));
     });
-    console.log(this.topics)
-  }
-
-  initialize(nQuestions: number) {
-    this.numberOfQuestionsPerCycle = nQuestions;
-    this.rebuildQueue();
   }
 
   isEmpty() {
@@ -75,7 +68,7 @@ class TopicsQueue {
   }
 
   deqeue() {
-    return this.topics.shift(); //pop en Python
+    return this.topics.shift();
   }
 
   getPossibleTopics() {
@@ -91,44 +84,48 @@ class TopicsQueue {
   providedIn: 'root'
 })
 export class DataService {
-  public quiz_segment_topics_queue;
-  quiz_segments = quizData["questions"];
-  quiz_segment_pool: Record<string, RandomizedIndexQueue> = {}
+  /* Service qui fournit les données relatives à la question en cours de la session de quiz
+  * Les questions sont tirées aléatoirement sans remise
+  * Lorsqu'il n'y a plus de questions non faites, la liste de questions est régénèrée
+  */
+  quizSegmentTopicsQueue;
+  quizSegments = quizData["questions"]; // tous les segments de quiz possibles, groupés par thème
+  randomizedQuestionIndexQueuePool: Record<string, RandomizedQuestionIndexQueue> = {}
   questionNumber = signal(0);
   hasEnded = signal(false);
   numberOfQuestions = signal(0);
-  current_segment = signal<QuizSegment | undefined>(undefined);
-  current_topic = signal("");
-  current_question_id = signal(-1);
+  currentSegment = signal<QuizSegment | undefined>(undefined);
+  currentTopic = signal("");
+  currentQuestionId = signal(-1);
 
   constructor() {
-    this.quiz_segment_topics_queue = new TopicsQueue(quizData["question_topics"], quizData["question_cycle"]);
-    for (const question_topic of this.quiz_segment_topics_queue.getPossibleTopics()) {
-      const rq = new RandomizedIndexQueue(this.quiz_segments[question_topic].length);
-      this.quiz_segment_pool[question_topic] = rq;
+    this.quizSegmentTopicsQueue = new TopicsQueue(quizData["question_topics"], quizData["question_cycle"]);
+    for (const questionTopic of this.quizSegmentTopicsQueue.getPossibleTopics()) {
+      const rq = new RandomizedQuestionIndexQueue(this.quizSegments[questionTopic].length);
+      this.randomizedQuestionIndexQueuePool[questionTopic] = rq;
     }
   }
 
   startQuiz(nQuestions: number) {
     this.questionNumber.set(0);
     this.hasEnded.set(false);
-    this.quiz_segment_topics_queue.initialize(nQuestions);
-    this.numberOfQuestions.set(this.quiz_segment_topics_queue.getNumberOfQuestions());
+    this.quizSegmentTopicsQueue.initialize(nQuestions);
+    this.numberOfQuestions.set(this.quizSegmentTopicsQueue.getNumberOfQuestions());
   }
 
   getNewQuestion() {
-    const question_topic = this.quiz_segment_topics_queue.deqeue();
-    const question_id = this.quiz_segment_pool[question_topic!].dequeueIndex();
-    this.current_topic.set(question_topic!);
-    this.current_question_id.set(question_id);
-    this.current_segment.set(this.quiz_segments[question_topic!][question_id]);
+    const questionTopic = this.quizSegmentTopicsQueue.deqeue();
+    const questionId = this.randomizedQuestionIndexQueuePool[questionTopic!].dequeueIndex();
+    this.currentTopic.set(questionTopic!);
+    this.currentQuestionId.set(questionId);
+    this.currentSegment.set(this.quizSegments[questionTopic!][questionId]);
   }
-
 
   isFinished() {
-    return this.quiz_segment_topics_queue.isEmpty();
+    return this.quizSegmentTopicsQueue.isEmpty();
   }
+
   getNumberOfTopics() {
-    return this.quiz_segment_topics_queue.getPossibleTopics().length;
+    return this.quizSegmentTopicsQueue.getPossibleTopics().length;
   }
 }

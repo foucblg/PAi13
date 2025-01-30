@@ -20,7 +20,7 @@ export class ChoiceBoxComponent {
   answerForm = new FormGroup({});
   progressService = inject(ProgressService);
   dataService = inject(DataService);
-  quiz_segment = this.dataService.current_segment;
+  quiz_segment = this.dataService.currentSegment;
   answerIsEmpty = computed(() => this.progressService.currentAnswerValidity() === Answer.Empty);
   dialogVisible = false;
   ngOnInit() {

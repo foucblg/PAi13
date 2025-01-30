@@ -1,7 +1,7 @@
 import { computed, inject, Injectable, signal } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { DataService } from "./quiz-service";
 import { Answer } from "../types/enums";
+import { DataService } from "./quiz-service";
 
 @Injectable({
   providedIn: 'root'
@@ -49,7 +49,7 @@ export class ProgressService {
       this.questionNumber.update(n => n + 1);
       this.answered.set(false);
       this.router.navigate(["quiz", this.questionNumber().toString()], {
-        queryParams: { theme: this.dataService.current_topic(), theme_id: this.dataService.current_question_id(), answered: false },
+        queryParams: { theme: this.dataService.currentTopic(), theme_id: this.dataService.currentQuestionId(), answered: false },
         replaceUrl: this.questionNumber() > 0,
       });
     } else {
@@ -78,7 +78,7 @@ export class ProgressService {
   }
 
   private verifyAnswer(): Answer {
-    const realAnswers = this.dataService.current_segment()?.true_answers as number[];
+    const realAnswers = this.dataService.currentSegment()?.true_answers as number[];
     if (this.currentAnswer().length === 0) {
       return Answer.Empty;
     }

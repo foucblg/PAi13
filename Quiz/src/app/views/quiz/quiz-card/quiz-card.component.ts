@@ -16,7 +16,7 @@ export class QuizCardComponent {
   dataService = inject(DataService);
   progressService = inject(ProgressService);
   answerType = Answer;
-  quiz_segment = this.dataService.current_segment;
+  quiz_segment = this.dataService.currentSegment;
   choiceBox = viewChild(ChoiceBoxComponent);
 
 }

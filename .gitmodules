@@ -1,3 +1,6 @@
 [submodule "Jeu"]
 	path = Jeu
 	url = https://github.com/foucblg/Jeu.git
+[submodule "Quiz"]
+	path = Quiz
+	url = https://github.com/your-username/Quiz.git

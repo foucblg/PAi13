@@ -3,4 +3,4 @@
 	url = https://github.com/foucblg/Jeu.git
 [submodule "Quiz"]
 	path = Quiz
-	url = https://github.com/your-username/Quiz.git
+	url = https://github.com/foucblg/Quiz.git

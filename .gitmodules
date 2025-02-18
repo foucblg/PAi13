@@ -4,3 +4,6 @@
 [submodule "Quiz"]
 	path = Quiz
 	url = https://github.com/foucblg/Quiz.git
+[submodule "Auto-evaluation"]
+	path = Auto-evaluation
+	url = https://github.com/foucblg/Auto-evaluation.git
